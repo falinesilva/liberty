@@ -3,21 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap"
+      rel="stylesheet"
+    />
+    <link href="style.css" rel="stylesheet" />
     <title>Liberty</title>
   </head>
   <body>
     <!--HEADER-->
-    <header>
+    <header class="header">
       <img src="logo.png" height="48" width="48" alt="Liberty Logo" />
       <h1>Liberty</h1>
+      <button>Add item</button>
     </header>
-    <!--Add asset form-->
-    <form>
+    <!--Add item form-->
+    <form class="item-form">
       <input type="text" placeholder="Name" />
       <span>20</span>
-      <input type="number" placeholder="Value"/>
+      <input type="number" placeholder="Value" />
       <select>
-        <option value="">Select type:</option>
+        <option value="">Category:</option>
         <option value="land">Land</option>
         <option value="real-estate">Real Estate</option>
         <option value="vehicle">Vehicle</option>
@@ -32,31 +40,41 @@
       <aside>
         <ul>
           <li>
-              <button>Net Worth</button>
+            <button>Net Worth</button>
           </li>
           <li>
-              <button>Assets</button>
+            <button>Assets</button>
           </li>
           <li>
-              <button>Liabilities</button>
+            <button>Liabilities</button>
           </li>
         </ul>
       </aside>
       <!--List-->
-        <section>
-          <ul>
-            <li>
-              <p>Name: Goias Farm Type: Real Estate
-              <span>Value: R$220.000</span></p>
-            </li>
-            <li>
-              <p>
-                Name: Fiat Palio Weekend 1.8V Type: Vehicle
-                <span>Value: R$40.000</span>
-              </p>
-            </li>
-          </ul>
-        </section>
-      </main>
+      <section>
+        <ul>
+          <li class="item">
+            <p>
+              Name: Goias Farm Type: Real Estate
+              <span class="value">Value: R$150.000</span>
+            </p>
+            <div>
+              <button>Edit</button>
+              <button>Delete</button>
+            </div>
+          </li>
+          <li class="item">
+            <p>
+              Name: Fiat Palio Weekend 1.8V Type: Vehicle
+              <span class="value">Value: R$40.000</span>
+            </p>
+            <div>
+              <button>Edit</button>
+              <button>Delete</button>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </main>
   </body>
 </html>
