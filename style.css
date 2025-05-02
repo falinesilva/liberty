@@ -1,8 +1,8 @@
 .colorScheme {
-  color: #1e2328;
-  color: #f5b301;
+  color: #0f172a;
+  color: #37bbf6;
   color: #f8fafc;
-  color: #2a2e34;
+  color: #1e293b;
 }
 
 * {
@@ -12,7 +12,7 @@
 }
 
 body {
-  background-color: #1e2328;
+  background-color: #0f172a;
   color: #f8fafc;
   font-family: "Roboto Flex", sans-serif;
   padding: 48px;
@@ -21,7 +21,7 @@ body {
 h1 {
   font-size: 36px;
   font-family: "Cal Sans", sans-serif;
-  color: #f5b301;
+  color: #37bbf6;
 }
 
 ul {
@@ -33,16 +33,30 @@ ul {
 }
 
 .item-form {
-  background-color: #2a2e34;
+  background-color: #1e293b;
   margin-bottom: 40px;
+  text-align: center;
 }
 
 .item {
   font-size: 20px;
   line-height: 1.4;
-  background-color: #2a2e34;
+  background-color: #1e293b;
   margin-bottom: 16px;
   padding: 16px;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.type {
+  text-transform: uppercase;
+}
+
+.class {
+  color: #37bbf6;
+  font-weight: bold;
 }
 
 .value {
