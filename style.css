@@ -1,10 +1,3 @@
-.colorScheme {
-  color: #0f172a;
-  color: #37bbf6;
-  color: #f8fafc;
-  color: #1e293b;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -30,6 +23,16 @@ ul {
 
 .header {
   margin-bottom: 40px;
+
+  display: flex;
+  align-items: center; /* Vertical alignment */
+  justify-content: space-between; /* Horizontal alignment */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .item-form {
@@ -44,6 +47,10 @@ ul {
   background-color: #1e293b;
   margin-bottom: 16px;
   padding: 16px;
+
+  display: flex;
+  align-items: center;
+  gap: 24px;
 }
 
 .name {
@@ -52,13 +59,26 @@ ul {
 
 .type {
   text-transform: uppercase;
+  padding: 3px;
 }
 
-.class {
+.class-asset {
   color: #37bbf6;
+  padding: 3px;
   font-weight: bold;
+}
+
+.class-liability {
+  color: #ef4444;
+  font-weight: bold; /*TODO: Combine class to remove repeated code */
+  padding: 3px;
 }
 
 .value {
   font-style: italic;
+  letter-spacing: 2px;
+}
+
+.item-buttons {
+  margin-left: auto;
 }
