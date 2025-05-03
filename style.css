@@ -4,13 +4,6 @@
   box-sizing: border-box;
 }
 
-body {
-  background-color: #0f172a;
-  color: #f8fafc;
-  font-family: "Roboto Flex", sans-serif;
-  padding: 48px;
-}
-
 h1 {
   font-size: 36px;
   font-family: "Cal Sans", sans-serif;
@@ -19,6 +12,20 @@ h1 {
 
 ul {
   list-style: none;
+}
+
+body {
+  background-color: #0f172a;
+  color: #f8fafc;
+  font-family: "Roboto Flex", sans-serif;
+  padding: 48px 64px;
+}
+
+/*MAIN LAYOUT */
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .header {
@@ -35,11 +42,24 @@ ul {
   gap: 10px;
 }
 
+.logo img {
+  width: 68px;
+  height: auto;
+}
+
 .item-form {
   background-color: #1e293b;
   margin-bottom: 40px;
   text-align: center;
 }
+
+.main {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 48px;
+}
+
+/* ELEMENTS */
 
 .item {
   font-size: 20px;
@@ -58,7 +78,6 @@ ul {
 }
 
 .type {
-  text-transform: uppercase;
   padding: 3px;
 }
 
@@ -72,6 +91,7 @@ ul {
   color: #ef4444;
   font-weight: bold; /*TODO: Combine class to remove repeated code */
   padding: 3px;
+  text-transform: uppercase;
 }
 
 .value {

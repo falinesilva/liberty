@@ -13,96 +13,98 @@
     <title>Liberty</title>
   </head>
   <body>
-    <!--HEADER-->
-    <header class="header">
-      <div class="logo">
-        <img src="logo.png" height="48" width="48" alt="Liberty Logo" />
-        <h1>Liberty</h1>
-      </div>
+    <div class="container">
+      <!--HEADER-->
+      <header class="header">
+        <div class="logo">
+          <img src="logo.png" height="48" width="48" alt="Liberty Logo" />
+          <h1>Liberty</h1>
+        </div>
 
-      <button>Sign in</button>
-    </header>
-    <!--Add item form-->
-    <form class="item-form">
-      <input type="text" placeholder="Name" />
-      <span>20</span>
-      <input type="number" placeholder="Value" />
-      <select>
-        <option value="">Type:</option>
-        <option value="land">Land</option>
-        <option value="real-estate">Real Estate</option>
-        <option value="vehicle">Vehicle</option>
-        <option value="cash">Cash</option>
-        <option value="equipment">Equipment</option>
-        <option value="valuables">Valuables</option>
-      </select>
-      <button>Add</button>
-    </form>
-    <main>
-      <!--Categories-->
-      <aside>
-        <ul>
-          <li>
-            <button>Net Worth</button>
-          </li>
-          <li>
-            <button>Assets</button>
-          </li>
-          <li>
-            <button>Liabilities</button>
-          </li>
-        </ul>
-      </aside>
-      <!--List-->
-      <section>
-        <ul>
-          <li class="item">
-            <p>
-              Name: <span slacc="name">Goias Farm</span>
-              <br />
-              Type: <span class="type">Real Estate</span>
-              <br />
-              Class: <span class="class-asset">Asset</span>
-              <br />
-              Value: <span class="value">R$150.000</span>
-            </p>
-            <div class="item-buttons">
-              <button>Edit</button>
-              <button>Delete</button>
-            </div>
-          </li>
-          <li class="item">
-            <p>
-              Name: <span class="name">Fiat Palio Weekend 1.8V</span>
-              <br />
-              Type: <span class="type">Vehicle</span>
-              <br />
-              Class: <span class="class-asset">Asset</span>
-              <br />
-              Value: <span class="value">R$40.000</span>
-            </p>
-            <div class="item-buttons">
-              <button>Edit</button>
-              <button>Delete</button>
-            </div>
-          </li>
-          <li class="item">
-            <p>
-              Name: <span class="name">Credit Card</span>
-              <br />
-              Type: <span class="type">Debt</span>
-              <br />
-              Class: <span class="class-liability">Liability</span>
-              <br />
-              Value: <span class="value">-R$2.900</span>
-            </p>
-            <div class="item-buttons">
-              <button>Edit</button>
-              <button>Delete</button>
-            </div>
-          </li>
-        </ul>
-      </section>
-    </main>
+        <button>Sign in</button>
+      </header>
+      <!--Add item form-->
+      <form class="item-form">
+        <input type="text" placeholder="Name" />
+        <span>20</span>
+        <input type="number" placeholder="Value" />
+        <select>
+          <option value="">Type:</option>
+          <option value="land">Land</option>
+          <option value="real-estate">Real Estate</option>
+          <option value="vehicle">Vehicle</option>
+          <option value="cash">Cash</option>
+          <option value="equipment">Equipment</option>
+          <option value="valuables">Valuables</option>
+        </select>
+        <button>Add</button>
+      </form>
+      <main class="main">
+        <!--Categories-->
+        <aside>
+          <ul>
+            <li>
+              <button>Net Worth</button>
+            </li>
+            <li>
+              <button>Assets</button>
+            </li>
+            <li>
+              <button>Liabilities</button>
+            </li>
+          </ul>
+        </aside>
+        <!--List-->
+        <section>
+          <ul>
+            <li class="item">
+              <p>
+                Name: <span slacc="name">Goias Farm</span>
+                <br />
+                Type: <span class="type">Real Estate</span>
+                <br />
+                Class: <span class="class-asset">Asset</span>
+                <br />
+                Value: <span class="value">R$150.000</span>
+              </p>
+              <div class="item-buttons">
+                <button>Edit</button>
+                <button>Delete</button>
+              </div>
+            </li>
+            <li class="item">
+              <p>
+                Name: <span class="name">Fiat Palio Weekend 1.8V</span>
+                <br />
+                Type: <span class="type">Vehicle</span>
+                <br />
+                Class: <span class="class-asset">Asset</span>
+                <br />
+                Value: <span class="value">R$40.000</span>
+              </p>
+              <div class="item-buttons">
+                <button>Edit</button>
+                <button>Delete</button>
+              </div>
+            </li>
+            <li class="item">
+              <p>
+                Name: <span class="name">Credit Card</span>
+                <br />
+                Type: <span class="type">Debt</span>
+                <br />
+                Class: <span class="class-liability">Liability</span>
+                <br />
+                Value: <span class="value">-R$2.900</span>
+              </p>
+              <div class="item-buttons">
+                <button>Edit</button>
+                <button>Delete</button>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </main>
+    </div>
   </body>
 </html>
