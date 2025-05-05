@@ -59,8 +59,6 @@ body {
   gap: 48px;
 }
 
-/* ELEMENTS */
-
 .item {
   font-size: 20px;
   line-height: 1.4;
@@ -71,6 +69,41 @@ body {
   display: flex;
   align-items: center;
   gap: 24px;
+  justify-content: space-between;
+}
+
+/* ELEMENTS */
+
+.btn {
+  background-color: #1e293b;
+  color: #f8fafc;
+  line-height: 1;
+  border-radius: 8px;
+  margin: 5px;
+  padding: 12px 12px 12px;
+  font-size: 17px;
+  border: none;
+}
+
+.btn-special {
+  background-color: #0f172a;
+  font-size: 14px;
+}
+
+.btn-large {
+  font-size: 20px;
+  padding: 20px 32px 17px;
+}
+
+.btn-overview {
+  width: 100%;
+  margin-bottom: 16px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.btn-category {
+  width: 100%;
 }
 
 .name {
@@ -97,8 +130,4 @@ body {
 .value {
   font-style: italic;
   letter-spacing: 2px;
-}
-
-.item-buttons {
-  margin-left: auto;
 }
