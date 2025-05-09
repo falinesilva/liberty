@@ -28,6 +28,15 @@
         <input type="text" placeholder="Name" />
         <span>20</span>
         <select>
+          <option value="">Class:</option>
+          <option value="asset">Asset</option>
+          <option value="liability">Liability</option>
+          <option value="expenses">Expense</option>
+          <!--TODO: Add option to switch between weekly, monthly, or annual expense in user settings-->
+        </select>
+        <!--TODO: Type options should change depending on the Class selected-->
+
+        <select>
           <option value="">Type:</option>
           <option value="land">Land</option>
           <option value="real-estate">Real Estate</option>
@@ -35,11 +44,6 @@
           <option value="cash">Cash</option>
           <option value="equipment">Equipment</option>
           <option value="valuables">Valuables</option>
-        </select>
-        <select>
-          <option value="">Class:</option>
-          <option value="asset">Asset</option>
-          <option value="liability">Liability</option>
         </select>
         <input type="text" placeholder="Value" />
 
@@ -60,55 +64,73 @@
             </li>
           </ul>
         </aside>
-        <!--List-->
+        <!--Summary-->
         <section>
-          <ul>
-            <li class="item">
-              <p>
-                Name: <span class="name">Residential Estate Property</span>
-                <br />
-                Type: <span class="type">Real Estate</span>
-                <br />
-                Class: <span class="class-asset">Asset</span>
-                <br />
-                Value: <span class="value">R$150.000</span>
-              </p>
-              <div>
-                <button class="btn btn-special">Edit</button>
-                <button class="btn btn-special">Delete</button>
-              </div>
-            </li>
-            <li class="item">
-              <p>
-                Name: <span class="name">2012 Fiat Palio Weekend 1.8V</span>
-                <br />
-                Type: <span class="type">Vehicle</span>
-                <br />
-                Class: <span class="class-asset">Asset</span>
-                <br />
-                Value: <span class="value">R$40.000</span>
-              </p>
-              <div>
-                <button class="btn btn-special">Edit</button>
-                <button class="btn btn-special">Delete</button>
-              </div>
-            </li>
-            <li class="item">
-              <p>
-                Name: <span class="name">Credit Card</span>
-                <br />
-                Type: <span class="type">Debt</span>
-                <br />
-                Class: <span class="class-liability">Liability</span>
-                <br />
-                Value: <span class="value">-R$2.900</span>
-              </p>
-              <div>
-                <button class="btn btn-special">Edit</button>
-                <button class="btn btn-special">Delete</button>
-              </div>
-            </li>
-          </ul>
+          <div class="summary hidden">
+            <p>
+              Net Worth: <span class="net-worth"></span>
+              <br />
+              Total Assets: <span class="total-assets">1</span>
+              <br />
+              Total Liabilities: <span class="total-liabilities">2</span>
+            </p>
+            <div class="chart">
+              <p>CHART PLACEHOLDER</p>
+            </div>
+            <div>
+              <button class="btn btn-close-summary">Close</button>
+            </div>
+          </div>
+          <!--Items-->
+          <div class="items">
+            <ul>
+              <li class="item">
+                <p>
+                  Name: <span class="name">Residential Estate Property</span>
+                  <br />
+                  Type: <span class="type">Real Estate</span>
+                  <br />
+                  Class: <span class="class-asset">Asset</span>
+                  <br />
+                  Value: <span class="value">R$150.000</span>
+                </p>
+                <div>
+                  <button class="btn btn-special">Edit</button>
+                  <button class="btn btn-special">Delete</button>
+                </div>
+              </li>
+              <li class="item">
+                <p>
+                  Name: <span class="name">2012 Fiat Palio Weekend 1.8V</span>
+                  <br />
+                  Type: <span class="type">Vehicle</span>
+                  <br />
+                  Class: <span class="class-asset">Asset</span>
+                  <br />
+                  Value: <span class="value">R$40.000</span>
+                </p>
+                <div>
+                  <button class="btn btn-special">Edit</button>
+                  <button class="btn btn-special">Delete</button>
+                </div>
+              </li>
+              <li class="item">
+                <p>
+                  Name: <span class="name">Credit Card</span>
+                  <br />
+                  Type: <span class="type">Debt</span>
+                  <br />
+                  Class: <span class="class-liability">Liability</span>
+                  <br />
+                  Value: <span class="value">-R$2.900</span>
+                </p>
+                <div>
+                  <button class="btn btn-special">Edit</button>
+                  <button class="btn btn-special">Delete</button>
+                </div>
+              </li>
+            </ul>
+          </div>
         </section>
       </main>
     </div>
