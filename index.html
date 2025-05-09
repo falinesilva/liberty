@@ -27,24 +27,40 @@
       <form class="item-form hidden">
         <input type="text" placeholder="Name" />
         <span>20</span>
-        <select>
-          <option value="">Class:</option>
-          <option value="asset">Asset</option>
-          <option value="liability">Liability</option>
-          <option value="expenses">Expense</option>
-          <!--TODO: Add option to switch between weekly, monthly, or annual expense in user settings-->
-        </select>
         <!--TODO: Type options should change depending on the Class selected-->
-
         <select>
           <option value="">Type:</option>
-          <option value="land">Land</option>
-          <option value="real-estate">Real Estate</option>
-          <option value="vehicle">Vehicle</option>
-          <option value="cash">Cash</option>
-          <option value="equipment">Equipment</option>
-          <option value="valuables">Valuables</option>
+
+          <!-- Assets -->
+          <optgroup label="Assets">
+            <option value="business-ownership">Business Ownership</option>
+            <option value="cash">Cash</option>
+            <option value="collectibles">Collectibles</option>
+            <option value="cryptocurrency">Cryptocurrency</option>
+            <option value="equipment">Equipment</option>
+            <option value="mutual-funds-etfs">Mutual Funds & ETFs</option>
+            <option value="other-investments">Other Investments</option>
+            <option value="real-estate">Real Estate</option>
+            <option value="retirement-accounts">Retirement Accounts</option>
+            <option value="stocks-bonds">Stocks & Bonds</option>
+            <option value="valuables">Valuables</option>
+            <option value="vehicle">Vehicle</option>
+          </optgroup>
+
+          <!-- Liabilities -->
+          <optgroup label="Liabilities">
+            <option value="alimony">Alimony</option>
+            <option value="child-support">Child Support</option>
+            <option value="credit-cards">Credit Cards</option>
+            <option value="medical-bills">Medical Bills</option>
+            <option value="mortgages">Mortgages</option>
+            <option value="outstanding-bills">Outstanding Bills</option>
+            <option value="personal-loans">Personal Loans</option>
+            <option value="student-loans">Student Loans</option>
+            <option value="taxes-owed">Taxes Owed</option>
+          </optgroup>
         </select>
+
         <input type="text" placeholder="Value" />
 
         <button class="btn btn-special">Add</button>
@@ -53,17 +69,47 @@
         <!--Categories-->
         <aside>
           <ul>
+            <li><button class="btn btn-summary">Summary</button></li>
+
+            <!-- Assets -->
             <li>
-              <button class="btn btn-summary">Summary</button>
+              <button class="btn btn-category">Business Ownership</button>
+            </li>
+            <li><button class="btn btn-category">Cash</button></li>
+            <li><button class="btn btn-category">Collectibles</button></li>
+            <li><button class="btn btn-category">Cryptocurrency</button></li>
+            <li><button class="btn btn-category">Equipment</button></li>
+            <li>
+              <button class="btn btn-category">Mutual Funds & ETFs</button>
+            </li>
+            <li><button class="btn btn-category">Other Investments</button></li>
+            <li><button class="btn btn-category">Real Estate</button></li>
+            <li>
+              <button class="btn btn-category">Retirement Accounts</button>
+            </li>
+            <li><button class="btn btn-category">Stocks & Bonds</button></li>
+            <li><button class="btn btn-category">Valuables</button></li>
+            <li><button class="btn btn-category">Vehicles</button></li>
+
+            <li><p class="category-bar"></p></li>
+
+            <!-- Liabilities -->
+            <li>
+              <button class="btn btn-category">Alimony</button>
             </li>
             <li>
-              <button class="btn btn-category">Assets</button>
+              <button class="btn btn-category">Child Support</button>
             </li>
-            <li>
-              <button class="btn btn-category">Liabilities</button>
-            </li>
+            <li><button class="btn btn-category">Credit Cards</button></li>
+            <li><button class="btn btn-category">Medical Bills</button></li>
+            <li><button class="btn btn-category">Mortgages</button></li>
+            <li><button class="btn btn-category">Outstanding Bills</button></li>
+            <li><button class="btn btn-category">Personal Loans</button></li>
+            <li><button class="btn btn-category">Student Loans</button></li>
+            <li><button class="btn btn-category">Taxes Owed</button></li>
           </ul>
         </aside>
+
         <!--Summary-->
         <section>
           <div class="summary hidden">
@@ -86,7 +132,7 @@
             <ul>
               <li class="item">
                 <p>
-                  Name: <span class="name">Residential Estate Property</span>
+                  Name: <span class="name">Estate Property</span>
                   <br />
                   Type: <span class="type">Real Estate</span>
                   <br />
@@ -101,7 +147,7 @@
               </li>
               <li class="item">
                 <p>
-                  Name: <span class="name">2012 Fiat Palio Weekend 1.8V</span>
+                  Name: <span class="name">Fiat Palio Weekend</span>
                   <br />
                   Type: <span class="type">Vehicle</span>
                   <br />
@@ -116,7 +162,7 @@
               </li>
               <li class="item">
                 <p>
-                  Name: <span class="name">Credit Card</span>
+                  Name: <span class="name">Nu Bank Credit Card</span>
                   <br />
                   Type: <span class="type">Debt</span>
                   <br />
