@@ -12,6 +12,7 @@ add_item_btn.addEventListener("click", function () {
 });
 
 // SUMMARY
+
 let totalLiabilities = document.querySelector(".total-liabilities");
 let totalAssets = document.querySelector(".total-assets");
 let netWorth = document.querySelector(".net-worth");
@@ -42,4 +43,26 @@ summary_btn.addEventListener("click", function () {
       items.classList.remove("hidden");
     }
   });
+});
+
+// Filters
+
+const filter_assets = document.querySelector(".side-assets");
+
+const filter_liabilities = document.querySelector(".side-liabilities");
+
+const filter_assets_btn = document.querySelector(".btn-assets");
+
+const filter_liabilities_btn = document.querySelector(".btn-liabilities");
+
+filter_assets_btn.addEventListener("click", function () {
+  if (filter_assets.classList.contains("hidden")) {
+    filter_assets.classList.remove("hidden");
+  } else filter_assets.classList.add("hidden");
+});
+
+filter_liabilities_btn.addEventListener("click", function () {
+  if (filter_liabilities.classList.contains("hidden")) {
+    filter_liabilities.classList.remove("hidden");
+  } else filter_liabilities.classList.add("hidden");
 });
