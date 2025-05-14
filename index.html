@@ -18,11 +18,15 @@
         <div class="logo">
           <img src="logo.png" width="36" alt="Logo" />
         </div>
-        <img src="menu.png" width="36" alt="Menu" />
+        <div class="menu-icon">
+          <button class="btn btn-menu">
+            <img src="open-menu.png" width="36" alt="Menu" />
+          </button>
+        </div>
       </header>
 
       <main class="main">
-        <section class="menu-section">
+        <section class="menu-section hidden">
           <div class="menu-top">
             <button class="btn btn-account">Account</button>
             <button class="btn btn-add">Add</button>
@@ -40,13 +44,18 @@
               <input type="checkbox" id="toggle-assets" />
               <span class="slider"></span>
             </label>
+
+            <label class="toggle">
+              <span>Show Liabilities</span>
+              <input type="checkbox" id="toggle-liabilities" />
+              <span class="slider"></span>
+            </label>
           </div>
         </section>
 
         <section class="add-item-section">
-          <form class="item-form">
+          <form class="item-form hidden">
             <input type="text" placeholder="Name" />
-            <span>20</span>
             <select>
               <option value="">Type:</option>
               <optgroup label="Assets">
@@ -76,16 +85,18 @@
               </optgroup>
             </select>
             <input type="text" placeholder="Value" />
-            <button class="btn btn-special">Save</button>
+            <button type="button" class="btn btn-special btn-add-save">
+              Save
+            </button>
           </form>
         </section>
 
         <section class="stats-section">
           <div class="net-worth">
-            <div class="net-text">
-              <p><strong>Net Worth:</strong><br />R$150.000</p>
-            </div>
+            <p><strong>Net Worth</strong><br />+ R$ 150.000</p>
             <div class="pie" style="--p: 90"></div>
+            <p><strong>Cash Flow</strong><br />+ R$ 600</p>
+            <div class="pie" style="--p: 76"></div>
           </div>
 
           <ul class="item-list">

@@ -1,70 +1,46 @@
-const add_btn = document.querySelector(".btn-add");
-const form = document.querySelector(".item-form");
+// Menu
+
+const menu_btn = document.querySelector(".btn-menu");
+const menu = document.querySelector(".menu-section");
 const stats = document.querySelector(".stats-section");
 
-add_btn.addEventListener("click", function () {
-  if (form.classList.contains("hidden")) {
-    form.classList.remove("hidden");
-    add_btn.classList.add("hidden");
-    add_btn.textContent = "Close";
+menu_btn.addEventListener("click", function () {
+  // Toggle menu visibility
+  menu.classList.toggle("hidden");
+  stats.classList.toggle("hidden");
+
+  // Swap the image
+  if (menu_img.src.includes("open-menu.png")) {
+    menu_img.src = "close-menu.png";
   } else {
-    form.classList.add("hidden");
-    add_btn.textContent = "Add item";
+    menu_img.src = "open-menu.png";
   }
 });
 
-// SUMMARY
+// Add Menu
 
-let totalLiabilities = document.querySelector(".total-liabilities");
-let totalAssets = document.querySelector(".total-assets");
-let netWorth = document.querySelector(".net-worth");
+const menu_img = menu_btn.querySelector("img");
+const item_form = document.querySelector(".item-form");
+const add_btn = document.querySelector(".btn-add");
+const add_save_btn = document.querySelector(".btn-add-save");
 
-let liabilities = parseFloat(totalLiabilities.textContent) || 0;
-let assets = parseFloat(totalAssets.textContent) || 0;
-
-let result = assets - liabilities;
-
-netWorth.textContent = result;
-
-const close_summary_btn = document.querySelector(".btn-close-summary");
-
-const summary = document.querySelector(".summary");
-
-const summary_btn = document.querySelector(".btn-summary");
-
-const items = document.querySelector(".items");
-
-summary_btn.addEventListener("click", function () {
-  if (summary.classList.contains("hidden")) {
-    summary.classList.remove("hidden");
-    items.classList.add("hidden");
+add_btn.addEventListener("click", function () {
+  if (item_form.classList.contains("hidden")) {
+    item_form.classList.remove("hidden");
+    menu.classList.add("hidden");
   }
-  close_summary_btn.addEventListener("click", function () {
-    if (!summary.classList.contains("hidden")) {
-      summary.classList.add("hidden");
-      items.classList.remove("hidden");
-    }
-  });
 });
 
-// Filters
-
-const filter_assets = document.querySelector(".side-assets");
-
-const filter_liabilities = document.querySelector(".side-liabilities");
-
-const filter_assets_btn = document.querySelector(".btn-assets");
-
-const filter_liabilities_btn = document.querySelector(".btn-liabilities");
-
-filter_assets_btn.addEventListener("click", function () {
-  if (filter_assets.classList.contains("hidden")) {
-    filter_assets.classList.remove("hidden");
-  } else filter_assets.classList.add("hidden");
+add_save_btn.addEventListener("click", function () {
+  item_form.classList.add("hidden");
+  menu.classList.remove("hidden");
+  menu_img.src = "close-menu.png";
 });
 
-filter_liabilities_btn.addEventListener("click", function () {
-  if (filter_liabilities.classList.contains("hidden")) {
-    filter_liabilities.classList.remove("hidden");
-  } else filter_liabilities.classList.add("hidden");
+const close_add_btn = document.querySelector(".btn-close-add");
+
+close_add_btn.addEventListener("click", function () {
+  item_form.classList.add("hidden");
+  menu_img.src = "open-menu.png";
+  stats.classList.toggle("hidden");
 });
