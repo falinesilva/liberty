@@ -14,124 +14,104 @@
   </head>
   <body>
     <div class="container">
-      <!--HEADER-->
       <header class="header">
         <div class="logo">
-          <img src="logo.png" height="48" width="48" alt="Liberty Logo" />
-          <h1>Liberty</h1>
+          <img src="logo.png" width="36" alt="Logo" />
         </div>
-
-        <button class="btn btn-add-item">Add item</button>
+        <img src="menu.png" width="36" alt="Menu" />
       </header>
-      <!--Add item form-->
-      <form class="item-form hidden">
-        <input type="text" placeholder="Name" />
-        <span>20</span>
-        <!--TODO: Type options should change depending on the Class selected-->
-        <select>
-          <option value="">Type:</option>
 
-          <!-- Assets -->
-          <optgroup label="Assets">
-            <option value="business-ownership">Business Ownership</option>
-            <option value="cash">Cash</option>
-            <option value="collectibles">Collectibles</option>
-            <option value="cryptocurrency">Cryptocurrency</option>
-            <option value="equipment">Equipment</option>
-            <option value="mutual-funds-etfs">Mutual Funds & ETFs</option>
-            <option value="other-investments">Other Investments</option>
-            <option value="real-estate">Real Estate</option>
-            <option value="retirement-accounts">Retirement Accounts</option>
-            <option value="stocks-bonds">Stocks & Bonds</option>
-            <option value="valuables">Valuables</option>
-            <option value="vehicle">Vehicle</option>
-          </optgroup>
-
-          <!-- Liabilities -->
-          <optgroup label="Liabilities">
-            <option value="alimony">Alimony</option>
-            <option value="child-support">Child Support</option>
-            <option value="credit-cards">Credit Cards</option>
-            <option value="medical-bills">Medical Bills</option>
-            <option value="mortgages">Mortgages</option>
-            <option value="outstanding-bills">Outstanding Bills</option>
-            <option value="personal-loans">Personal Loans</option>
-            <option value="student-loans">Student Loans</option>
-            <option value="taxes-owed">Taxes Owed</option>
-          </optgroup>
-        </select>
-
-        <input type="text" placeholder="Value" />
-
-        <button class="btn btn-special">Add</button>
-      </form>
       <main class="main">
-        <!--Categories-->
-        <aside>
-          <ul>
-            <!--Filters-->
-            <li><button class="btn btn-side btn-summary">Summary</button></li>
-            <li><button class="btn btn-side btn-assets">Assets</button></li>
-            <li>
-              <button class="btn btn-side btn-liabilities">Liabilities</button>
+        <section class="menu-section">
+          <div class="menu-top">
+            <button class="btn btn-account">Account</button>
+            <button class="btn btn-add">Add</button>
+            <button class="btn btn-export">Export</button>
+          </div>
+
+          <div class="menu">
+            <label class="toggle">
+              <span>Show Stats</span>
+              <input type="checkbox" id="toggle-stats" />
+              <span class="slider"></span>
+            </label>
+            <label class="toggle">
+              <span>Show Assets</span>
+              <input type="checkbox" id="toggle-assets" />
+              <span class="slider"></span>
+            </label>
+          </div>
+        </section>
+
+        <section class="add-item-section">
+          <form class="item-form">
+            <input type="text" placeholder="Name" />
+            <span>20</span>
+            <select>
+              <option value="">Type:</option>
+              <optgroup label="Assets">
+                <option value="business-ownership">Business Ownership</option>
+                <option value="cash">Cash</option>
+                <option value="collectibles">Collectibles</option>
+                <option value="cryptocurrency">Cryptocurrency</option>
+                <option value="equipment">Equipment</option>
+                <option value="mutual-funds-etfs">Mutual Funds & ETFs</option>
+                <option value="other-investments">Other Investments</option>
+                <option value="real-estate">Real Estate</option>
+                <option value="retirement-accounts">Retirement Accounts</option>
+                <option value="stocks-bonds">Stocks & Bonds</option>
+                <option value="valuables">Valuables</option>
+                <option value="vehicle">Vehicle</option>
+              </optgroup>
+              <optgroup label="Liabilities">
+                <option value="alimony">Alimony</option>
+                <option value="child-support">Child Support</option>
+                <option value="credit-cards">Credit Cards</option>
+                <option value="medical-bills">Medical Bills</option>
+                <option value="mortgages">Mortgages</option>
+                <option value="outstanding-bills">Outstanding Bills</option>
+                <option value="personal-loans">Personal Loans</option>
+                <option value="student-loans">Student Loans</option>
+                <option value="taxes-owed">Taxes Owed</option>
+              </optgroup>
+            </select>
+            <input type="text" placeholder="Value" />
+            <button class="btn btn-special">Save</button>
+          </form>
+        </section>
+
+        <section class="stats-section">
+          <ul class="item-list">
+            <li class="item">
+              <p>
+                Name: <span class="name">Estate Property</span><br />
+                Type: <span class="type">Real Estate</span><br />
+                Class: <span class="class">Asset</span><br />
+                Value: <span class="value">R$150.000</span>
+              </p>
+              <div>
+                <button class="btn btn-special">Edit</button>
+                <button class="btn btn-special">Delete</button>
+              </div>
             </li>
-
-            <!-- Assets -->
-            <div class="side-assets hidden">
-              <li>
-                <button class="btn btn-side">Business Ownership</button>
-              </li>
-              <li>
-                <button class="btn btn-side">Cash</button>
-              </li>
-              <li>
-                <button class="btn btn-side">Collectibles</button>
-              </li>
-              <li>
-                <button class="btn btn-side">Cryptocurrency</button>
-              </li>
-              <li>
-                <button class="btn btn-side">Equipment</button>
-              </li>
-              <li>
-                <button class="btn btn-side">Mutual Funds & ETFs</button>
-              </li>
-              <li><button class="btn btn-side">Other Investments</button></li>
-              <li><button class="btn btn-side">Real Estate</button></li>
-              <li>
-                <button class="btn btn-side">Retirement Accounts</button>
-              </li>
-              <li><button class="btn btn-side">Stocks & Bonds</button></li>
-              <li><button class="btn btn-side">Valuables</button></li>
-              <li><button class="btn btn-side">Vehicles</button></li>
-            </div>
-            <!-- Liabilities -->
-            <div class="side-liabilities hidden">
-              <li>
-                <button class="btn btn-side">Alimony</button>
-              </li>
-              <li>
-                <button class="btn btn-side">Child Support</button>
-              </li>
-              <li><button class="btn btn-side">Credit Cards</button></li>
-              <li><button class="btn btn-side">Medical Bills</button></li>
-              <li><button class="btn btn-side">Mortgages</button></li>
-              <li><button class="btn btn-side">Outstanding Bills</button></li>
-              <li><button class="btn btn-side">Personal Loans</button></li>
-              <li><button class="btn btn-side">Student Loans</button></li>
-              <li><button class="btn btn-side">Taxes Owed</button></li>
-            </div>
+            <li class="item">
+              <p>
+                Name: <span class="name">Estate Property</span><br />
+                Type: <span class="type">Real Estate</span><br />
+                Class: <span class="class">Asset</span><br />
+                Value: <span class="value">R$150.000</span>
+              </p>
+              <div>
+                <button class="btn btn-special">Edit</button>
+                <button class="btn btn-special">Delete</button>
+              </div>
+            </li>
           </ul>
-        </aside>
 
-        <!--Summary-->
-        <section>
-          <div class="summary hidden">
+          <div class="summary">
             <p>
-              Net Worth: <span class="net-worth"></span>
-              <br />
-              Total Assets: <span class="total-assets">1</span>
-              <br />
+              Net Worth: <span class="net-worth">R$ 0</span><br />
+              Total Assets: <span class="total-assets">1</span><br />
               Total Liabilities: <span class="total-liabilities">2</span>
             </p>
             <div class="chart">
@@ -140,56 +120,6 @@
             <div>
               <button class="btn btn-close-summary">Close</button>
             </div>
-          </div>
-          <!--Items-->
-          <div class="items">
-            <ul>
-              <li class="item">
-                <p>
-                  Name: <span class="name">Estate Property</span>
-                  <br />
-                  Type: <span class="type">Real Estate</span>
-                  <br />
-                  Class: <span class="class-asset">Asset</span>
-                  <br />
-                  Value: <span class="value">R$150.000</span>
-                </p>
-                <div>
-                  <button class="btn btn-special">Edit</button>
-                  <button class="btn btn-special">Delete</button>
-                </div>
-              </li>
-              <li class="item">
-                <p>
-                  Name: <span class="name">Fiat Palio Weekend</span>
-                  <br />
-                  Type: <span class="type">Vehicle</span>
-                  <br />
-                  Class: <span class="class-asset">Asset</span>
-                  <br />
-                  Value: <span class="value">R$40.000</span>
-                </p>
-                <div>
-                  <button class="btn btn-special">Edit</button>
-                  <button class="btn btn-special">Delete</button>
-                </div>
-              </li>
-              <li class="item">
-                <p>
-                  Name: <span class="name">Nu Bank Credit Card</span>
-                  <br />
-                  Type: <span class="type">Debt</span>
-                  <br />
-                  Class: <span class="class-liability">Liability</span>
-                  <br />
-                  Value: <span class="value">-R$2.900</span>
-                </p>
-                <div>
-                  <button class="btn btn-special">Edit</button>
-                  <button class="btn btn-special">Delete</button>
-                </div>
-              </li>
-            </ul>
           </div>
         </section>
       </main>

@@ -4,46 +4,37 @@
   box-sizing: border-box;
 }
 
-h1 {
-  font-size: 36px;
-  font-family: "Cal Sans", sans-serif;
-  color: #37bbf6;
-}
-
-ul {
-  list-style: none;
-}
-
 body {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto Flex", sans-serif;
   background-color: #0f172a;
   color: #f8fafc;
-  font-family: "Roboto Flex", sans-serif;
-  padding: 48px 64px;
 }
-
-.hidden {
-  display: none !important;
-}
-
-/*MAIN LAYOUT */
 
 .container {
-  max-width: 1000px;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 24px;
 }
 
 .header {
-  margin-bottom: 40px;
-
+  margin: 12px 0;
   display: flex;
-  align-items: center; /* Vertical alignment */
-  justify-content: space-between; /* Horizontal alignment */
+  align-items: center;
+  justify-content: space-between;
+  width: 100%; /* Ensure it takes full width */
 }
 
 .logo {
+  flex-grow: 1; /* Makes logo stretch to the left side */
+  justify-content: flex-start;
   display: flex;
-  align-items: center;
-  gap: 10px;
 }
 
 .logo img {
@@ -51,19 +42,37 @@ body {
   height: auto;
 }
 
+.menu-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Makes sure it takes full width */
+  max-width: 500px; /* Ensures it doesn't get too wide */
+  padding: 16px;
+  margin: 0 auto; /* Center horizontally */
+}
+
+.menu-section button {
+  background-color: #374151;
+  padding: 10px;
+  flex: 1;
+  min-width: 0;
+}
+
 .item-form {
   background-color: #1e293b;
-  margin-bottom: 40px;
+  margin: 24px 0;
   display: flex;
+  flex-direction: row;
   align-items: center;
-  border-radius: 5px;
+  justify-content: flex-end;
+  border-radius: 10px;
   padding: 16px;
   gap: 16px;
+  width: 100%; /* Makes sure it takes full width */
 }
 
 .item-form input,
 .item-form select {
-  width: 220px;
   background-color: #374151;
   border: none;
   border-radius: 5px;
@@ -71,76 +80,53 @@ body {
   font-size: 14px;
   color: inherit;
   font-family: inherit;
+  width: 100%; /* Makes input/select fields take full width */
+  max-width: 220px; /* Optionally limit max width */
 }
 
 .item-form input:first-child {
   flex-grow: 1;
 }
 
-@media (max-width: 1000px) {
-  .item-form {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .item-form input,
-  .item-form select {
-    width: auto;
-  }
-}
-
 .main {
   display: grid;
-  grid-template-columns: 250px 1fr;
-  gap: 48px;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  width: 100%; /* Ensures main section takes full width */
 }
 
-@media (max-width: 900px) {
-  .main {
-    grid-template-columns: 1fr;
-  }
-}
-
+.item,
 .summary {
-  font-size: 20px;
+  font-size: 16px;
   line-height: 1.4;
-  background-color: #1e293b;
-  margin-bottom: 16px;
-  padding: 16px;
-  border-radius: 10px;
-
   display: flex;
   align-items: center;
-  gap: 24px;
+  background-color: #1e293b;
+  margin-bottom: 16px;
+  flex-direction: row;
   justify-content: space-between;
+  border-radius: 10px;
+  padding: 16px;
+  gap: 16px;
+  width: 100%; /* Ensures the item is full width */
+}
+
+.stat-list {
+  background-image: none;
+}
+
+.stat-list li {
+  font-size: 16px;
+  padding: 12px;
 }
 
 .chart {
-  background-color: red;
-  height: 100%;
-}
-
-.item {
-  font-size: 20px;
-  line-height: 1.4;
-  background-color: #1e293b;
-  margin-bottom: 16px;
-  padding: 16px;
+  background-color: #0f172a;
   border-radius: 10px;
-
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  justify-content: space-between;
+  padding: 10px;
+  height: 100%;
+  width: 100%; /* Ensures chart takes full width */
 }
-
-@media (max-width: 800px) {
-  .item {
-    flex-direction: column;
-  }
-}
-
-/* ELEMENTS */
 
 .btn {
   background-color: #1e293b;
@@ -148,26 +134,12 @@ body {
   line-height: 1;
   border-radius: 10px;
   margin: 5px;
-  padding: 12px 12px 12px;
+  padding: 12px;
   font-size: 17px;
   border: none;
   cursor: pointer;
   transition: 0.3s;
-}
-
-.btn-side {
-  width: 100%;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-
-.btn-summary {
-  width: 100%;
-  margin-bottom: 16px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  background: linear-gradient(45deg, #37bbf6, #ef4444);
-  color: #1e293b;
+  width: 100%; /* Makes the button take full width */
 }
 
 .btn:hover {
@@ -179,52 +151,79 @@ body {
   font-size: 14px;
 }
 
-.btn-add-item {
-  font-size: 16px;
-  padding: 12px;
-}
-
-.btn-close-summary {
-  font-size: 16px;
-  padding: 12px;
-  background-color: #0f172a;
-}
-
-.btn-side {
-  width: 100%;
-}
-
-.side-bar {
-  height: 4px;
-  width: 100%;
-  border-radius: 10px;
-  border: none;
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%; /* Makes toggle stretch across the full width */
+  gap: 8px;
+  cursor: pointer;
+  font-family: sans-serif;
+  padding: 10px;
   margin: 5px;
-  background-color: #1e293b;
+  font-size: 14px;
+  background-color: #374151;
+  border-radius: 10px;
 }
 
-.name {
-  font-weight: bold;
+.toggle input {
+  display: none;
 }
 
-.type {
-  padding: 3px;
+.toggle p {
+  flex: 1; /* pushes the slider to the far right */
+  margin: 0; /* remove default spacing */
 }
 
-.class-asset {
-  color: #37bbf6;
-  padding: 3px;
-  font-weight: bold;
+.slider {
+  position: relative;
+  width: 40px;
+  height: 20px;
+  background: #ccc;
+  border-radius: 999px;
+  transition: background 0.3s ease;
 }
 
-.class-liability {
-  color: #ef4444;
-  font-weight: bold; /*TODO: Combine class to remove repeated code */
-  padding: 3px;
-  text-transform: uppercase;
+.slider::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
 }
 
-.value {
-  font-style: italic;
-  letter-spacing: 2px;
+.toggle input:checked + .slider {
+  background: #4f46e5; /* modern indigo/blue tone */
+}
+
+.toggle input:checked + .slider::before {
+  transform: translateX(20px);
+}
+
+.menu-top {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  width: 100%; /* Makes menu-top take full width */
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 16px;
+  }
+  .item-form input,
+  .item-form select {
+    max-width: 100%; /* Allow inputs/selects to be full width on smaller screens */
+  }
+  .menu-section {
+    padding: 12px;
+  }
+  .btn {
+    width: 100%; /* Ensure button takes full width */
+  }
 }
