@@ -120,12 +120,20 @@ body {
   padding: 12px;
 }
 
-.chart {
-  background-color: #0f172a;
-  border-radius: 10px;
-  padding: 10px;
-  height: 100%;
-  width: 100%; /* Ensures chart takes full width */
+.pie {
+  --p: 70;
+  width: 80px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: conic-gradient(#4ade80 calc(var(--p) * 1%), #e5e7eb 0);
+}
+
+.net-worth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
 }
 
 .btn {
