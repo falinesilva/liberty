@@ -27,15 +27,12 @@
 
       <main class="main">
         <section class="menu-section hidden">
-          <div class="menu-top">
-            <button class="btn btn-account">Account</button>
-            <button class="btn btn-add">Add</button>
-            <button class="btn btn-export">Export</button>
-          </div>
-
           <div class="menu">
+            <div class="menu-actions">
+              <button class="btn btn-add">ADD ITEM</button>
+            </div>
             <label class="toggle">
-              <span>Show Net Worth</span>
+              <span>Show Stats</span>
               <input type="checkbox" id="toggle-stats" />
               <span class="slider"></span>
             </label>
@@ -47,6 +44,14 @@
 
             <label class="toggle">
               <span>Show Liabilities</span>
+              <input type="checkbox" id="toggle-liabilities" />
+              <span class="slider"></span> </label
+            ><label class="toggle">
+              <span>Show Income</span>
+              <input type="checkbox" id="toggle-liabilities" />
+              <span class="slider"></span> </label
+            ><label class="toggle">
+              <span>Show Expenses</span>
               <input type="checkbox" id="toggle-liabilities" />
               <span class="slider"></span>
             </label>
@@ -90,13 +95,13 @@
             </button>
           </form>
         </section>
-
         <section class="stats-section">
-          <div class="net-worth">
-            <p><strong>Net Worth</strong><br />+ R$ 150.000</p>
-            <div class="pie" style="--p: 90"></div>
-            <p><strong>Cash Flow</strong><br />+ R$ 600</p>
-            <div class="pie" style="--p: 76"></div>
+          <div class="stat-list">
+            <p><strong>Net Worth:</strong></p>
+
+            <div class="stat positive">
+              <span>+ R$100.000</span>
+            </div>
           </div>
 
           <ul class="item-list">
@@ -104,7 +109,7 @@
               <p>
                 Name: <span class="name">Estate Property</span><br />
                 Type: <span class="type">Real Estate</span><br />
-                Class: <span class="class">Asset</span><br />
+                Class: <span class="asset">Asset</span><br />
                 Value: <span class="value">R$150.000</span>
               </p>
               <div>
@@ -114,10 +119,34 @@
             </li>
             <li class="item">
               <p>
-                Name: <span class="name">Estate Property</span><br />
-                Type: <span class="type">Real Estate</span><br />
-                Class: <span class="class">Asset</span><br />
-                Value: <span class="value">R$150.000</span>
+                Name: <span class="name">NuBank Visa</span><br />
+                Type: <span class="type">Credit Cards</span><br />
+                Class: <span class="liability">Liability</span><br />
+                Value: <span class="value">R$2.000</span>
+              </p>
+              <div>
+                <button class="btn btn-special">Edit</button>
+                <button class="btn btn-special">Delete</button>
+              </div>
+            </li>
+            <li class="item">
+              <p>
+                Name: <span class="name"> </span><br />
+                Type: <span class="type">Credit Cards</span><br />
+                Class: <span class="liability">Liability</span><br />
+                Value: <span class="value">R$2.000</span>
+              </p>
+              <div>
+                <button class="btn btn-special">Edit</button>
+                <button class="btn btn-special">Delete</button>
+              </div>
+            </li>
+            <li class="item">
+              <p>
+                Name: <span class="name">Salary</span><br />
+                Type: <span class="type">Income</span><br />
+                Class: <span class="liability">Asset</span><br />
+                Value: <span class="value">R$2.500</span>
               </p>
               <div>
                 <button class="btn btn-special">Edit</button>
