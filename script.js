@@ -37,10 +37,8 @@ add_save_btn.addEventListener("click", function () {
   menu_img.src = "close-menu.png";
 });
 
-const close_add_btn = document.querySelector(".btn-close-add");
-
 close_add_btn.addEventListener("click", function () {
   item_form.classList.add("hidden");
-  menu_img.src = "open-menu.png";
   stats.classList.toggle("hidden");
+  menu_img.src = "open-menu.png";
 });

@@ -9,192 +9,8 @@
   -ms-user-select: none; /* IE/Edge */
 }
 
-body {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "Roboto Flex", sans-serif;
-  background-color: #0f172a;
-  color: #f8fafc;
-  cursor: default;
-}
-
 .hidden {
   display: none !important;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 800px;
-  padding: 24px;
-}
-
-.header {
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.logo {
-  flex-grow: 1;
-  justify-content: flex-start;
-  display: flex;
-}
-
-.logo img {
-  width: 68px;
-  height: auto;
-}
-
-.menu-actions {
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  gap: 10px;
-  width: 100%;
-}
-
-.menu-section {
-  width: 100%;
-  max-width: 300px;
-  margin: 0 auto;
-  background-color: #1e293b;
-  border-radius: 10px;
-  align-items: center;
-  display: grid;
-  justify-content: center;
-}
-
-.menu-section button {
-  background-color: #374151;
-  padding: 10px;
-}
-
-.menu {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 240px;
-  gap: 10px; /* Optional: add spacing between items */
-}
-
-.item-form {
-  background-color: #1e293b;
-  margin: 24px 0;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-end;
-  border-radius: 10px;
-  padding: 16px;
-  gap: 16px;
-  width: 100%;
-}
-
-.item-form input,
-.item-form select {
-  background-color: #374151;
-  border: none;
-  border-radius: 5px;
-  padding: 8px;
-  font-size: 14px;
-  color: inherit;
-  font-family: inherit;
-  width: 100%;
-  max-width: 220px;
-}
-
-.item-form input:first-child {
-  flex-grow: 1;
-}
-
-.main {
-  display: grid;
-  grid-template-columns: 1fr;
-  width: 100%;
-}
-
-.item,
-.summary {
-  font-size: 16px;
-  line-height: 1.4;
-  display: flex;
-  align-items: center;
-  background-color: #1e293b;
-  margin-bottom: 16px;
-  flex-direction: row;
-  justify-content: space-between;
-  border-radius: 10px;
-  padding: 16px;
-  gap: 16px;
-  width: 100%;
-}
-
-.stat-section {
-  align-items: center;
-}
-
-.stat-list {
-  background-image: none;
-}
-
-.stat-list li {
-  font-size: 16px;
-  padding: 12px;
-}
-
-.stat-list {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-width: 400px;
-  gap: 36px;
-  margin-bottom: 24px;
-  margin: 0 auto 24px auto;
-  background-color: #1e293b;
-  border-radius: 10px;
-  padding: 24px;
-}
-
-.stat-list p {
-  text-align: center;
-  font-size: 24px;
-  line-height: 36px;
-  text-transform: uppercase;
-}
-
-.stat-list span {
-  display: flex;
-  justify-content: center;
-  font-weight: bold;
-  background-color: #374151;
-  border-radius: 10px;
-  padding: 10px;
-}
-
-.positive span {
-  color: #0ea5e9;
-}
-
-.negative span {
-  color: #ef4444;
-}
-
-.liability {
-  color: #ef4444;
-  font-weight: bold;
-}
-
-.asset {
-  color: #0ea5e9;
-
-  font-weight: bold;
 }
 
 .btn {
@@ -215,20 +31,69 @@ body {
   transform: scale(110%);
 }
 
-.btn-special {
+/*Content*/
+
+body {
+  font-family: "Roboto Flex", sans-serif;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #0f172a;
-  font-size: 14px;
+  color: #f8fafc;
+  cursor: default;
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 800px;
+}
+
+/*Header Start */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  justify-content: flex-start;
+  display: flex;
+}
+
+.logo img {
+  width: 68px;
+  height: auto;
+}
+
+.menu-icon {
+  color: inherit;
+}
+
 .btn-menu {
   background: none;
   cursor: pointer;
+}
+
+/*Menu*/
+
+.menu {
+  background-color: #1e293b;
+  display: grid;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
 }
 
 .toggle {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%; /* Makes toggle stretch across the full width */
+  width: 100%;
   gap: 8px;
   cursor: pointer;
   font-family: sans-serif;
@@ -277,24 +142,113 @@ body {
   transform: translateX(20px);
 }
 
-/* Media Queries */
+/*Form*/
 
+.item-form {
+  background-color: #1e293b;
+  display: grid;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+.item-form input,
+.item-form select {
+  background-color: #374151;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  color: inherit;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/*Net Worth */
+
+.net-worth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1e293b;
+  border-radius: 10px;
+}
+
+.net-worth p {
+  text-align: center;
+  font-size: 24px;
+  line-height: 36px;
+  text-transform: uppercase;
+}
+
+.net-worth span {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  background-color: #374151;
+  border-radius: 10px;
+}
+
+.positive span {
+  color: #0ea5e9;
+}
+
+.negative span {
+  color: #ef4444;
+}
+
+/*Items*/
+
+.item {
+  display: flex;
+  align-items: center;
+  background-color: #1e293b;
+  margin-bottom: 16px;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.name {
+  color: inherit;
+}
+
+.type {
+  color: inherit;
+}
+
+.class {
+  color: inherit;
+}
+
+.liability {
+  color: #ef4444;
+  font-weight: bold;
+}
+
+.asset {
+  color: #0ea5e9;
+
+  font-weight: bold;
+}
+
+.value {
+  color: inherit;
+}
+
+.btn-edit-item {
+  color: inherit;
+}
+
+.btn-delete-item {
+  color: inherit;
+}
+
+/* Media Queries */
 @media (max-width: 768px) {
   .container {
     padding: 16px;
-  }
-  .item-form input,
-  .item-form select {
-    max-width: 100%; /* Allow inputs/selects to be full width on smaller screens */
-  }
-  .menu-section {
-    padding: 12px;
-  }
-  .btn {
-    width: 100%; /* Ensure button takes full width */
-  }
-
-  .item-form {
-    flex-direction: column;
   }
 }

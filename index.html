@@ -13,7 +13,9 @@
     <title>Liberty</title>
   </head>
   <body>
+    <!--Container-->
     <div class="container">
+      <!--Header-->
       <header class="header">
         <div class="logo">
           <img src="logo.png" width="36" alt="Logo" />
@@ -25,137 +27,86 @@
         </div>
       </header>
 
-      <main class="main">
-        <section class="menu-section hidden">
-          <div class="menu">
-            <div class="menu-actions">
-              <button class="btn btn-add">ADD ITEM</button>
-            </div>
-            <label class="toggle">
-              <span>Show Stats</span>
-              <input type="checkbox" id="toggle-stats" />
-              <span class="slider"></span>
-            </label>
-            <label class="toggle">
-              <span>Show Assets</span>
-              <input type="checkbox" id="toggle-assets" />
-              <span class="slider"></span>
-            </label>
+      <!--Menu-->
+      <div class="menu">
+        <label class="toggle">
+          <span>Show Net Worth</span>
+          <input type="checkbox" id="toggle-stats" />
+          <span class="slider"></span>
+        </label>
+        <label class="toggle">
+          <span>Show Assets</span>
+          <input type="checkbox" id="toggle-assets" />
+          <span class="slider"></span>
+        </label>
 
-            <label class="toggle">
-              <span>Show Liabilities</span>
-              <input type="checkbox" id="toggle-liabilities" />
-              <span class="slider"></span> </label
-            ><label class="toggle">
-              <span>Show Income</span>
-              <input type="checkbox" id="toggle-liabilities" />
-              <span class="slider"></span> </label
-            ><label class="toggle">
-              <span>Show Expenses</span>
-              <input type="checkbox" id="toggle-liabilities" />
-              <span class="slider"></span>
-            </label>
+        <label class="toggle">
+          <span>Show Liabilities</span>
+          <input type="checkbox" id="toggle-liabilities" />
+          <span class="slider"></span>
+        </label>
+        <div class="menu-actions">
+          <button class="btn btn-add">Add item</button>
+        </div>
+      </div>
+      <!--Form-->
+      <form class="item-form">
+        <input type="text" placeholder="Name" />
+        <select>
+          <option value="">Type:</option>
+          <optgroup label="Assets">
+            <option value="business-ownership">Business Ownership</option>
+            <option value="cash">Cash</option>
+            <option value="collectibles">Collectibles</option>
+            <option value="cryptocurrency">Cryptocurrency</option>
+            <option value="equipment">Equipment</option>
+            <option value="mutual-funds-etfs">Mutual Funds & ETFs</option>
+            <option value="other-investments">Other Investments</option>
+            <option value="real-estate">Real Estate</option>
+            <option value="retirement-accounts">Retirement Accounts</option>
+            <option value="stocks-bonds">Stocks & Bonds</option>
+            <option value="valuables">Valuables</option>
+            <option value="vehicle">Vehicle</option>
+          </optgroup>
+          <optgroup label="Liabilities">
+            <option value="alimony">Alimony</option>
+            <option value="child-support">Child Support</option>
+            <option value="credit-cards">Credit Cards</option>
+            <option value="medical-bills">Medical Bills</option>
+            <option value="mortgages">Mortgages</option>
+            <option value="outstanding-bills">Outstanding Bills</option>
+            <option value="personal-loans">Personal Loans</option>
+            <option value="student-loans">Student Loans</option>
+            <option value="taxes-owed">Taxes Owed</option>
+          </optgroup>
+        </select>
+        <input type="text" placeholder="Value" />
+        <button type="button" class="btn btn-add-save">Save</button>
+      </form>
+
+      <!--Net Worth-->
+      <div class="net-worth">
+        <p><strong>Net Worth:</strong></p>
+        <div class="stat positive">
+          <span>+ R$100.000</span>
+        </div>
+      </div>
+
+      <!--Item List-->
+      <ul class="item-list">
+        <li class="item">
+          <p>
+            Name: <span class="name">Estate Property</span><br />
+            Type: <span class="type">Real Estate</span><br />
+            Class: <span class="class asset">Asset</span><br />
+            Value: <span class="value">R$150.000</span>
+          </p>
+          <div>
+            <button class="btn btn-edit-item">Edit</button>
+            <button class="btn btn-delete-item">Delete</button>
           </div>
-        </section>
-
-        <section class="add-item-section">
-          <form class="item-form hidden">
-            <input type="text" placeholder="Name" />
-            <select>
-              <option value="">Type:</option>
-              <optgroup label="Assets">
-                <option value="business-ownership">Business Ownership</option>
-                <option value="cash">Cash</option>
-                <option value="collectibles">Collectibles</option>
-                <option value="cryptocurrency">Cryptocurrency</option>
-                <option value="equipment">Equipment</option>
-                <option value="mutual-funds-etfs">Mutual Funds & ETFs</option>
-                <option value="other-investments">Other Investments</option>
-                <option value="real-estate">Real Estate</option>
-                <option value="retirement-accounts">Retirement Accounts</option>
-                <option value="stocks-bonds">Stocks & Bonds</option>
-                <option value="valuables">Valuables</option>
-                <option value="vehicle">Vehicle</option>
-              </optgroup>
-              <optgroup label="Liabilities">
-                <option value="alimony">Alimony</option>
-                <option value="child-support">Child Support</option>
-                <option value="credit-cards">Credit Cards</option>
-                <option value="medical-bills">Medical Bills</option>
-                <option value="mortgages">Mortgages</option>
-                <option value="outstanding-bills">Outstanding Bills</option>
-                <option value="personal-loans">Personal Loans</option>
-                <option value="student-loans">Student Loans</option>
-                <option value="taxes-owed">Taxes Owed</option>
-              </optgroup>
-            </select>
-            <input type="text" placeholder="Value" />
-            <button type="button" class="btn btn-special btn-add-save">
-              Save
-            </button>
-          </form>
-        </section>
-        <section class="stats-section">
-          <div class="stat-list">
-            <p><strong>Net Worth:</strong></p>
-
-            <div class="stat positive">
-              <span>+ R$100.000</span>
-            </div>
-          </div>
-
-          <ul class="item-list">
-            <li class="item">
-              <p>
-                Name: <span class="name">Estate Property</span><br />
-                Type: <span class="type">Real Estate</span><br />
-                Class: <span class="asset">Asset</span><br />
-                Value: <span class="value">R$150.000</span>
-              </p>
-              <div>
-                <button class="btn btn-special">Edit</button>
-                <button class="btn btn-special">Delete</button>
-              </div>
-            </li>
-            <li class="item">
-              <p>
-                Name: <span class="name">NuBank Visa</span><br />
-                Type: <span class="type">Credit Cards</span><br />
-                Class: <span class="liability">Liability</span><br />
-                Value: <span class="value">R$2.000</span>
-              </p>
-              <div>
-                <button class="btn btn-special">Edit</button>
-                <button class="btn btn-special">Delete</button>
-              </div>
-            </li>
-            <li class="item">
-              <p>
-                Name: <span class="name"> </span><br />
-                Type: <span class="type">Credit Cards</span><br />
-                Class: <span class="liability">Liability</span><br />
-                Value: <span class="value">R$2.000</span>
-              </p>
-              <div>
-                <button class="btn btn-special">Edit</button>
-                <button class="btn btn-special">Delete</button>
-              </div>
-            </li>
-            <li class="item">
-              <p>
-                Name: <span class="name">Salary</span><br />
-                Type: <span class="type">Income</span><br />
-                Class: <span class="liability">Asset</span><br />
-                Value: <span class="value">R$2.500</span>
-              </p>
-              <div>
-                <button class="btn btn-special">Edit</button>
-                <button class="btn btn-special">Delete</button>
-              </div>
-            </li>
-          </ul>
-        </section>
-      </main>
+        </li>
+      </ul>
     </div>
     <script src="script.js"></script>
   </body>
