@@ -22,13 +22,18 @@
         </div>
         <div class="menu-icon">
           <button class="btn btn-menu">
-            <img src="open-menu.png" width="36" alt="Menu" />
+            <img
+              class="menu-img"
+              src="open-menu.png"
+              width="36"
+              alt="Menu icon"
+            />
           </button>
         </div>
       </header>
 
       <!--Menu-->
-      <div class="menu">
+      <div class="menu hidden">
         <label class="toggle">
           <span>Show Net Worth</span>
           <input type="checkbox" id="toggle-stats" />
@@ -45,12 +50,10 @@
           <input type="checkbox" id="toggle-liabilities" />
           <span class="slider"></span>
         </label>
-        <div class="menu-actions">
-          <button class="btn btn-add">Add item</button>
-        </div>
+        <button class="btn btn-add">Add item</button>
       </div>
       <!--Form-->
-      <form class="item-form">
+      <form class="item-form hidden">
         <input type="text" placeholder="Name" />
         <select>
           <option value="">Type:</option>
@@ -82,6 +85,7 @@
         </select>
         <input type="text" placeholder="Value" />
         <button type="button" class="btn btn-add-save">Save</button>
+        <button type="button" class="btn btn-add-cancel">Cancel</button>
       </form>
 
       <!--Net Worth-->
@@ -95,19 +99,67 @@
       <!--Item List-->
       <ul class="item-list">
         <li class="item">
-          <p>
-            Name: <span class="name">Estate Property</span><br />
-            Type: <span class="type">Real Estate</span><br />
-            Class: <span class="class asset">Asset</span><br />
-            Value: <span class="value">R$150.000</span>
-          </p>
-          <div>
-            <button class="btn btn-edit-item">Edit</button>
-            <button class="btn btn-delete-item">Delete</button>
-          </div>
+          <span class="name">Estate Property</span><br />
+          <span class="type">Real Estate</span><br />
+          <span class="class asset">Asset</span><br />
+          <span class="value">R$ 150.000</span>
+          <div class="item-buttons"></div>
+          <button class="btn btn-delete-item">Delete</button>
+        </li>
+        <li class="item">
+          <span class="name">NuBank MasterCard</span><br />
+          <span class="type">Credit Cards</span><br />
+          <span class="class liability">Liability</span><br />
+          <span class="value">R$ 3.000</span>
+          <div class="item-buttons"></div>
+          <button class="btn btn-delete-item">Delete</button>
+        </li>
+        <li class="item">
+          <span class="name">NuBank MasterCard</span><br />
+          <span class="type">Credit Cards</span><br />
+          <span class="class liability">Liability</span><br />
+          <span class="value">R$ 3.000</span>
+          <div class="item-buttons"></div>
+          <button class="btn btn-delete-item">Delete</button>
+        </li>
+        <li class="item">
+          <span class="name">NuBank MasterCard</span><br />
+          <span class="type">Credit Cards</span><br />
+          <span class="class liability">Liability</span><br />
+          <span class="value">R$ 3.000</span>
+          <div class="item-buttons"></div>
+          <button class="btn btn-delete-item">Delete</button>
+        </li>
+        <li class="item">
+          <span class="name">NuBank MasterCard</span><br />
+          <span class="type">Credit Cards</span><br />
+          <span class="class liability">Liability</span><br />
+          <span class="value">R$ 3.000</span>
+          <div class="item-buttons"></div>
+          <button class="btn btn-delete-item">Delete</button>
+        </li>
+        <li class="item">
+          <span class="name">NuBank MasterCard</span><br />
+          <span class="type">Credit Cards</span><br />
+          <span class="class liability">Liability</span><br />
+          <span class="value">R$ 3.000</span>
+          <div class="item-buttons"></div>
+          <button class="btn btn-delete-item">Delete</button>
+        </li>
+        <li class="item">
+          <span class="name">NuBank MasterCard</span><br />
+          <span class="type">Credit Cards</span><br />
+          <span class="class liability">Liability</span><br />
+          <span class="value">R$ 3.000</span>
+          <div class="item-buttons"></div>
+          <button class="btn btn-delete-item">Delete</button>
         </li>
       </ul>
+      <footer class="footer">
+        <p>&copy; 2025 Faline Silva. All rights reserved.</p>
+      </footer>
     </div>
+
     <script src="script.js"></script>
   </body>
 </html>

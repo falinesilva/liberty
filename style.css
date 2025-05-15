@@ -1,12 +1,18 @@
+/*
+Color Scheme
+#0f172a //Background
+#f8fafc //White
+#1e293b //Dark Grey
+#374151 //Light Grey
+#0ea5e9 //Light Blue
+#ef4444 //Light Red
+*/
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
-  user-select: none; /* Standard */
-  -webkit-user-select: none; /* Safari */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* IE/Edge */
+  user-select: none;
 }
 
 .hidden {
@@ -14,17 +20,16 @@
 }
 
 .btn {
-  background-color: #1e293b;
+  background-color: #374151;
   color: #f8fafc;
   line-height: 1;
   border-radius: 10px;
-  margin: 5px;
-  padding: 12px;
-  font-size: 17px;
+  font-size: 16px;
   border: none;
   cursor: pointer;
   transition: 0.3s;
   width: 100%;
+  padding: 8px;
 }
 
 .btn:hover {
@@ -57,6 +62,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  margin-bottom: 16px;
 }
 
 .logo {
@@ -81,27 +88,30 @@ body {
 /*Menu*/
 
 .menu {
-  background-color: #1e293b;
   display: grid;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  gap: 16px;
+  background-color: #1e293b;
+
+  padding: 16px;
   border-radius: 10px;
+  width: 400px;
 }
 
 .toggle {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-  gap: 8px;
   cursor: pointer;
-  font-family: sans-serif;
-  padding: 8px;
-  margin: 5px;
   font-size: 14px;
   background-color: #374151;
   border-radius: 10px;
+  width: 100%;
+  padding: 8px 12px;
+}
+
+.toggle label {
+  flex: 1;
+  color: white;
 }
 
 .toggle input {
@@ -142,27 +152,43 @@ body {
   transform: translateX(20px);
 }
 
+.menu button {
+  width: 30%;
+  margin: auto;
+}
+
 /*Form*/
 
 .item-form {
-  background-color: #1e293b;
   display: grid;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  background-color: #1e293b;
   border-radius: 10px;
+  width: 400px;
+  padding: 16px;
+  gap: 16px;
 }
 .item-form input,
 .item-form select {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-size: 14px;
+  background-color: #374151;
+  border-radius: 10px;
+  width: 100%;
+  padding: 8px 12px;
   background-color: #374151;
   border: none;
   border-radius: 10px;
   font-size: 14px;
   color: inherit;
   font-family: inherit;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+}
+
+.item-form button {
+  width: 30%;
+  margin: auto;
 }
 
 /*Net Worth */
@@ -170,9 +196,11 @@ body {
 .net-worth {
   display: flex;
   align-items: center;
-  justify-content: center;
   background-color: #1e293b;
   border-radius: 10px;
+  padding: 16px;
+  gap: 16px;
+  margin-bottom: 16px;
 }
 
 .net-worth p {
@@ -200,15 +228,26 @@ body {
 
 /*Items*/
 
+.item-list {
+  color: inherit;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+  list-style: none;
+  width: 80%;
+  margin-top: 16px;
+}
+
 .item {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
   background-color: #1e293b;
-  margin-bottom: 16px;
-  flex-direction: row;
-  justify-content: space-between;
   border-radius: 10px;
-  font-size: 14px;
+  font-size: 18px;
+  line-height: 30px;
+  padding: 16px;
 }
 
 .name {
@@ -238,17 +277,15 @@ body {
   color: inherit;
 }
 
-.btn-edit-item {
-  color: inherit;
-}
-
 .btn-delete-item {
   color: inherit;
+  width: 100px;
 }
 
-/* Media Queries */
-@media (max-width: 768px) {
-  .container {
-    padding: 16px;
-  }
+/* Footer */
+
+.footer {
+  text-align: center;
+  font-size: 14px;
+  color: #1e293b;
 }
