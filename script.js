@@ -29,30 +29,39 @@ async function loadItems() {
   );
 
   const data = await res.json();
+  // console.log(data);
 
-  console.log(data);
+  // const filterData = data.filter((item) => item.class === "Asset");
+
   createItemList(data);
 }
 
 function createItemList(dataArray) {
-  const htmlArr = dataArray.map(
-    (item) => `
-    
+  const htmlArr = dataArray.map((item) => {
+    const className = item.class?.toLowerCase();
+
+    return `
       <ul class="item-list">
-        <li class="item"><span class="name">${item.name}</span><br />
+        <li class="item">
+          <span class="name">${item.name}</span><br />
           <span class="type">${item.type}</span><br />
-          <span class="class asset">${item.class}</span><br />
+          <span class="class ${className}">${item.class}</span><br />
           <span class="value">${item.value}</span>
           <div class="item-buttons">
             <button class="btn btn-delete-item">Delete</button>
             <button class="btn btn-edit-item">Edit</button>
-          </div></li></ul>`
-  );
+          </div>
+        </li>
+      </ul>
+    `;
+  });
 
   const html = htmlArr.join("");
-
   itemList.insertAdjacentHTML("afterbegin", html);
 }
+
+console.log([7, 64, -23, 11].filter((el) => el > 10));
+console.log([7, 64, -23, 11].find((el) => el > 10));
 
 // Menu Functionality
 menuBtn.addEventListener("click", function () {
