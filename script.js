@@ -39,6 +39,7 @@ async function loadItems() {
 function createItemList(dataArray) {
   const htmlArr = dataArray.map((item) => {
     const className = item.class?.toLowerCase();
+    const formattedValue = item.value.toLocaleString();
 
     return `
       <ul class="item-list">
@@ -46,7 +47,7 @@ function createItemList(dataArray) {
           <span class="name">${item.name}</span><br />
           <span class="type">${item.type}</span><br />
           <span class="class ${className}">${item.class}</span><br />
-          <span class="value">${item.value}</span>
+          <span class="value">$ ${formattedValue}</span>
           <div class="item-buttons">
             <button class="btn btn-delete-item">Delete</button>
             <button class="btn btn-edit-item">Edit</button>
