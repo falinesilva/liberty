@@ -1,46 +1,45 @@
-// Menu
+const menuBtn = document.querySelector(".btn-menu");
+const menu = document.querySelector(".menu");
+const form = document.querySelector(".item-form");
+const addBtn = document.querySelector(".btn-add");
+const stats = document.querySelector(".net-worth");
+const menuImg = document.querySelector(".menu-img");
+const saveBtn = document.querySelector(".btn-add-save");
+const cancelBtn = document.querySelector(".btn-add-cancel");
+menuBtn.addEventListener("click", function () {
+  const menuHidden = menu.classList.contains("hidden");
+  const formVisible = !form.classList.contains("hidden");
 
-const menu_btn = document.querySelector(".btn-menu");
-const menu = document.querySelector(".menu-section");
-const stats = document.querySelector(".stats-section");
-
-menu_btn.addEventListener("click", function () {
-  // Toggle menu visibility
-  menu.classList.toggle("hidden");
-  stats.classList.toggle("hidden");
-
-  // Swap the image
-  if (menu_img.src.includes("open-menu.png")) {
-    menu_img.src = "close-menu.png";
+  if (menuHidden && !formVisible) {
+    menu.classList.remove("hidden");
+    stats.classList.add("hidden");
   } else {
-    menu_img.src = "open-menu.png";
-  }
-});
-
-// Add Menu
-
-const menu_img = menu_btn.querySelector("img");
-const item_form = document.querySelector(".item-form");
-const add_btn = document.querySelector(".btn-add");
-const add_save_btn = document.querySelector(".btn-add-save");
-
-add_btn.addEventListener("click", function () {
-  if (item_form.classList.contains("hidden")) {
-    item_form.classList.remove("hidden");
     menu.classList.add("hidden");
+    form.classList.add("hidden");
+    stats.classList.remove("hidden");
+  }
+
+  // Toggle menu icon
+  if (menuImg.src.includes("open-menu.png")) {
+    menuImg.src = "close-menu.png";
+  } else {
+    menuImg.src = "open-menu.png";
   }
 });
 
-add_save_btn.addEventListener("click", function () {
-  item_form.classList.add("hidden");
-  menu.classList.remove("hidden");
-  menu_img.src = "close-menu.png";
+addBtn.addEventListener("click", function () {
+  form.classList.remove("hidden");
+  menu.classList.add("hidden");
 });
 
-const close_add_btn = document.querySelector(".btn-close-add");
+saveBtn.addEventListener("click", function () {
+  form.classList.toggle("hidden");
+  menu.classList.toggle("hidden");
+  console.log("Item Form Saved");
+});
 
-close_add_btn.addEventListener("click", function () {
-  item_form.classList.add("hidden");
-  menu_img.src = "open-menu.png";
-  stats.classList.toggle("hidden");
+cancelBtn.addEventListener("click", function () {
+  form.classList.toggle("hidden");
+  menu.classList.toggle("hidden");
+  console.log("Item Form Cancelled");
 });
