@@ -90,9 +90,8 @@ body {
 
 .menu {
   display: grid;
-  gap: 16px;
   background-color: #1e293b;
-
+  margin-bottom: 16px;
   padding: 16px;
   border-radius: 10px;
   width: 400px;
@@ -143,6 +142,7 @@ body {
   height: 16px;
   background: #374151;
   border-radius: 50%;
+  will-change: transform;
   transition: transform 0.3s ease;
 }
 
@@ -168,6 +168,7 @@ body {
   width: 400px;
   padding: 16px;
   gap: 16px;
+  margin-bottom: 16px;
 }
 .item-form input,
 .item-form select {
@@ -176,14 +177,11 @@ body {
   justify-content: space-between;
   cursor: pointer;
   font-size: 14px;
-  background-color: #374151;
   border-radius: 10px;
   width: 100%;
   padding: 8px 12px;
   background-color: #374151;
   border: none;
-  border-radius: 10px;
-  font-size: 14px;
   color: inherit;
   font-family: inherit;
 }
@@ -202,7 +200,6 @@ body {
   border-radius: 10px;
   padding: 16px;
   gap: 16px;
-  margin-bottom: 16px;
 }
 
 .net-worth p {
@@ -234,25 +231,26 @@ body {
 .item-list {
   color: inherit;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 16px;
+
   list-style: none;
   width: 80%;
-  margin-top: 16px;
-  margin-bottom: 16px;
+  margin: 16px auto;
 }
 
 .item {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   background-color: #1e293b;
   border-radius: 10px;
   font-size: 18px;
   padding: 16px;
-  line-height: 1;
-  gap: 6px;
+  margin-bottom: 16px;
+  line-height: 1.5;
 }
 
 .name {
@@ -282,15 +280,10 @@ body {
 }
 
 .item-buttons {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 10px;
   margin: 5px;
-}
-
-.btn-delete-item,
-.btn-edit-item {
-  color: inherit;
-  width: 100px;
 }
 
 /* Footer */
@@ -298,14 +291,5 @@ body {
 .footer {
   text-align: center;
   font-size: 14px;
-  color: #1e293b;
-  margin: 10px;
-}
-
-@media (max-width: 720px) {
-  .item {
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-  }
+  color: #374151;
 }

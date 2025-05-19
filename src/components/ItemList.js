@@ -22,13 +22,10 @@ export default function ItemList() {
   const items = InitialItems;
 
   return (
-    <section>
-      <ul className="item-list">
-        {items.map((item) => (
-          <Item key={item.id} item={item} />
-        ))}
-      </ul>
-      <p>There are {items.length} items in the database.</p>
-    </section>
+    <ul className="item-list">
+      {items.map((item) => (
+        <Item key={item.id} item={item} />
+      ))}
+    </ul>
   );
 }
