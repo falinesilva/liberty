@@ -38,7 +38,7 @@ Color Scheme
 
 /*Content*/
 
-main {
+body {
   font-family: "Roboto Flex", sans-serif;
   height: 100%;
   display: flex;
@@ -49,7 +49,7 @@ main {
   cursor: default;
 }
 
-.container {
+#root {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -96,6 +96,7 @@ main {
   padding: 16px;
   border-radius: 10px;
   width: 400px;
+  gap: 16px;
 }
 
 .toggle {
