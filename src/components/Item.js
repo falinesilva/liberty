@@ -5,7 +5,7 @@ export default function Item({ item }) {
       <br />
       <span className="type">{item.type}</span>
       <br />
-      <span className="class">{item.class}</span>
+      <span className={`class ${item.class.toLowerCase()}`}>{item.class}</span>
       <br />
       <span className="value">{item.value}</span>
       <div className="item-buttons">
