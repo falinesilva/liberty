@@ -1,4 +1,4 @@
-export default function Menu() {
+export default function Menu({ showItemForm, setShowItemForm }) {
   return (
     <div className="menu">
       <label className="toggle">
@@ -17,7 +17,12 @@ export default function Menu() {
         <input type="checkbox" id="toggle-liabilities" />
         <span className="slider"></span>
       </label>
-      <button className="btn btn-add">Add item</button>
+      <button
+        className="btn btn-add"
+        onClick={() => setShowItemForm((show) => !show)}
+      >
+        Add item
+      </button>
     </div>
   );
 }

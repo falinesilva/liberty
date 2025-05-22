@@ -6,20 +6,29 @@ import ItemForm from "./components/ItemForm";
 import NetWorth from "./components/NetWorth";
 import ItemList from "./components/ItemList";
 import Footer from "./components/Footer";
-import Counter from "./components/Counter";
+import { useState, useEffect } from "react";
 
 function App() {
+  const [showMenu, setShowMenu] = useState(false);
+  const [showItemForm, setShowItemForm] = useState(false);
+
+  useEffect(() => {
+    if (showItemForm) {
+      setShowMenu(false);
+    }
+  });
+
   return (
     <>
-      <Header />
-      <Menu />
-      <ItemForm />
+      <Header showMenu={showMenu} setShowMenu={setShowMenu} />
+      {showMenu ? (
+        <Menu showItemForm={showItemForm} setShowItemForm={setShowItemForm} />
+      ) : null}
+      {showItemForm ? <ItemForm /> : null}
       <NetWorth />
       <ItemList />
       <Footer />
-      <Counter />
     </>
   );
 }
-
 export default App;
