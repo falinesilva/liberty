@@ -6,6 +6,7 @@ import ItemForm from "./components/ItemForm";
 import NetWorth from "./components/NetWorth";
 import ItemList from "./components/ItemList";
 import Footer from "./components/Footer";
+import Counter from "./components/Counter";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <NetWorth />
       <ItemList />
       <Footer />
+      <Counter />
     </>
   );
 }
