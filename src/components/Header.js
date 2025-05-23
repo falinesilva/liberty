@@ -1,4 +1,4 @@
-export default function Header({ showMenu, setShowMenu }) {
+export default function Header({ setShowMenu }) {
   return (
     <header className="header">
       <div className="logo">

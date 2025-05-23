@@ -20,7 +20,7 @@ function App() {
 
   return (
     <>
-      <Header showMenu={showMenu} setShowMenu={setShowMenu} />
+      <Header setShowMenu={setShowMenu} />
       {showMenu ? (
         <Menu showItemForm={showItemForm} setShowItemForm={setShowItemForm} />
       ) : null}
