@@ -95,6 +95,7 @@ body {
 
   padding: 16px;
   border-radius: 10px;
+  margin-bottom: 16px;
   width: 400px;
 }
 
@@ -166,6 +167,8 @@ body {
   border-radius: 10px;
   width: 400px;
   padding: 16px;
+  margin-bottom: 16px;
+
   gap: 16px;
 }
 .item-form input,
@@ -201,13 +204,11 @@ body {
   border-radius: 10px;
   padding: 16px;
   gap: 16px;
-  margin-bottom: 16px;
 }
 
 .net-worth p {
   text-align: center;
   font-size: 24px;
-  line-height: 36px;
   text-transform: uppercase;
 }
 
@@ -243,14 +244,14 @@ body {
 
 .item {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   background-color: #1e293b;
   border-radius: 10px;
   font-size: 18px;
   padding: 16px;
-  line-height: 1;
+  line-height: 1.5;
   gap: 6px;
 }
 
@@ -301,10 +302,11 @@ body {
   margin: 10px;
 }
 
-@media (max-width: 720px) {
-  .item {
-    text-align: center;
-    align-items: center;
-    justify-content: center;
+@media (max-width: 850px) {
+  .item-list {
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    width: auto;
   }
 }
