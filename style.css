@@ -55,6 +55,7 @@ body {
   align-items: center;
   justify-content: center;
   width: 800px;
+  margin: 16px;
 }
 
 /*Header Start */
@@ -281,10 +282,9 @@ body {
 }
 
 .item-buttons {
-  display: flex;
+  display: grid;
   gap: 10px;
   margin: 5px;
-  justify-content: space-between;
 }
 
 .btn-delete-item,
@@ -303,10 +303,6 @@ body {
 }
 
 @media (max-width: 720px) {
-  .item-buttons {
-    display: grid;
-  }
-
   .item {
     text-align: center;
     align-items: center;
