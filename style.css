@@ -156,7 +156,7 @@ body {
 }
 
 .menu button {
-  width: 30%;
+  width: 90px;
   margin: auto;
 }
 
@@ -299,7 +299,7 @@ body {
 .btn-delete-item,
 .btn-edit-item {
   color: inherit;
-  width: 100px;
+  width: 80px;
 }
 
 /* Footer */
