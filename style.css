@@ -97,6 +97,7 @@ body {
   border-radius: 10px;
   margin-bottom: 16px;
   width: 400px;
+  width: 80%;
 }
 
 .toggle {
@@ -168,7 +169,7 @@ body {
   width: 400px;
   padding: 16px;
   margin-bottom: 16px;
-
+  width: 80%;
   gap: 16px;
 }
 .item-form input,
@@ -190,9 +191,17 @@ body {
   font-family: inherit;
 }
 
+.item-form-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
 .item-form button {
   width: 30%;
-  margin: auto;
+  margin: 4px;
 }
 
 /*Net Worth */
