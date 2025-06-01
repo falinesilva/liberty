@@ -1,37 +1,45 @@
+const initialItems = [
+  {
+    id: 1,
+    name: "Estate Property",
+    type: "Real Estate",
+    status: "Asset",
+    value: "R$150.000",
+  },
+  {
+    id: 2,
+    name: "MasterCard",
+    type: "Credit Card",
+    status: "Liability",
+    value: "-R$900",
+  },
+];
+
 function ItemList() {
+  // TODO: Swap static data with SupaBase table
+  const items = initialItems;
+
   return (
     <div className="item-list">
-      <div className="item">
-        <div>
-          <span className="name">Estate Property</span>
-          <br />
-          <span className="type">Real Estate</span>
-          <br />
-          <span className="className asset">Asset</span>
-          <br />
-          <span className="value">R$ 150.000</span>
+      {items.map((item) => (
+        <div key={item.id} className="item">
+          <div>
+            <span className="name">{item.name}</span>
+            <br />
+            <span className="type">{item.type}</span>
+            <br />
+            <span className={`status ${item.status.toLowerCase()}`}>
+              {item.status}
+            </span>
+            <br />
+            <span className="value">{item.value}</span>
+          </div>
+          <div className="item-buttons">
+            <button className="btn btn-delete-item">Delete</button>
+            <button className="btn btn-edit-item">Edit</button>
+          </div>
         </div>
-        <div className="item-buttons">
-          <button className="btn btn-delete-item">Delete</button>
-          <button className="btn btn-edit-item">Edit</button>
-        </div>
-      </div>
-
-      <div className="item">
-        <div>
-          <span className="name">NuBank MasterCard</span>
-          <br />
-          <span className="type">Credit Cards</span>
-          <br />
-          <span className="className liability">Liability</span>
-          <br />
-          <span className="value">R$ 3.000</span>
-        </div>
-        <div className="item-buttons">
-          <button className="btn btn-delete-item">Delete</button>
-          <button className="btn btn-edit-item">Edit</button>
-        </div>
-      </div>
+      ))}
     </div>
   );
 }

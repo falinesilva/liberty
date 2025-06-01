@@ -272,16 +272,12 @@ body {
   color: inherit;
 }
 
-.class {
-  color: inherit;
-}
-
-.liability {
+.status.liability {
   color: #ef4444;
   font-weight: bold;
 }
 
-.asset {
+.status.asset {
   color: #0ea5e9;
   font-weight: bold;
 }
