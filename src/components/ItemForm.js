@@ -1,3 +1,36 @@
+const ASSETS = [
+  { name: "business ownership" },
+  { name: "cash" },
+  { name: "collectibles" },
+  { name: "cryptocurrency" },
+  { name: "equipment" },
+  { name: "mutual fund / etf" },
+  { name: "other investments" },
+  { name: "real estate" },
+  { name: "retirment account" },
+  { name: "stocks" },
+  { name: "bonds" },
+  { name: "valuables" },
+  { name: "vehicle" },
+];
+
+const LIABILITIES = [
+  { name: "outstanding bills" },
+  { name: "credit card balance" },
+  { name: "medical bill" },
+  { name: "mortgage" },
+  { name: "bank loan" },
+  { name: "personal loan" },
+  { name: "student loan" },
+  { name: "auto loan" },
+  { name: "buy now pay later" },
+  { name: "tax debt" },
+  { name: "child support" },
+  { name: "alimony" },
+  { name: "business debt" },
+  { name: "payday loan" },
+];
+
 function ItemForm() {
   return (
     <form className="item-form">
@@ -5,29 +38,18 @@ function ItemForm() {
       <select>
         <option value="">Type:</option>
         <optgroup label="Assets">
-          <option value="business-ownership">Business Ownership</option>
-          <option value="cash">Cash</option>
-          <option value="collectibles">Collectibles</option>
-          <option value="cryptocurrency">Cryptocurrency</option>
-          <option value="equipment">Equipment</option>
-          <option value="mutual-funds-etfs">Mutual Funds & ETFs</option>
-          <option value="other-investments">Other Investments</option>
-          <option value="real-estate">Real Estate</option>
-          <option value="retirement-accounts">Retirement Accounts</option>
-          <option value="stocks-bonds">Stocks & Bonds</option>
-          <option value="valuables">Valuables</option>
-          <option value="vehicle">Vehicle</option>
+          {ASSETS.map((asset) => (
+            <option key={asset.name} value={asset.name}>
+              {asset.name.toUpperCase()}
+            </option>
+          ))}
         </optgroup>
         <optgroup label="Liabilities">
-          <option value="alimony">Alimony</option>
-          <option value="child-support">Child Support</option>
-          <option value="credit-cards">Credit Cards</option>
-          <option value="medical-bills">Medical Bills</option>
-          <option value="mortgages">Mortgages</option>
-          <option value="outstanding-bills">Outstanding Bills</option>
-          <option value="personal-loans">Personal Loans</option>
-          <option value="student-loans">Student Loans</option>
-          <option value="taxes-owed">Taxes Owed</option>
+          {LIABILITIES.map((liability) => (
+            <option key={liability.name} value={liability.name}>
+              {liability.name.toUpperCase()}
+            </option>
+          ))}
         </optgroup>
       </select>
       <input type="text" placeholder="Value" />
