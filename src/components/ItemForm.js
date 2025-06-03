@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const ASSETS = [
   { name: "business ownership" },
   { name: "cash" },
@@ -32,10 +34,18 @@ const LIABILITIES = [
 ];
 
 function ItemForm() {
+  const [text, setText] = useState("");
+  const [value, setValue] = useState("");
+  const [type, setType] = useState("");
   return (
     <form className="item-form">
-      <input type="text" placeholder="Name" />
-      <select>
+      <input
+        type="text"
+        placeholder="Name"
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+      />
+      <select value={type} onChange={(e) => setType(e.target.value)}>
         <option value="">Type:</option>
         <optgroup label="Assets">
           {ASSETS.map((asset) => (
@@ -52,7 +62,12 @@ function ItemForm() {
           ))}
         </optgroup>
       </select>
-      <input type="text" placeholder="Value" />
+      <input
+        value={value}
+        type="text"
+        placeholder="Value"
+        onChange={(e) => setValue(e.target.value)}
+      />
       <div className="item-form-buttons">
         <button type="button" className="btn btn-add-save">
           Save
