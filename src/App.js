@@ -7,11 +7,14 @@ import NetWorth from "./components/NetWorth";
 import ItemList from "./components/ItemList";
 import Footer from "./components/Footer";
 
+import { useState } from "react";
+
 function App() {
+  const [showMenu, setShowMenu] = useState(false);
   return (
     <>
-      <Header />
-      <Menu />
+      <Header showMenu={showMenu} setShowMenu={setShowMenu} />
+      {showMenu ? <Menu /> : null}
       <ItemForm />
       <NetWorth />
       <ItemList />
