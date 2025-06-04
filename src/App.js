@@ -8,17 +8,37 @@ import Footer from "./components/Footer";
 
 import { useState } from "react";
 
+const initialItems = [
+  {
+    id: 1,
+    name: "Estate Property",
+    type: "Real Estate",
+    status: "Asset",
+    value: "R$150.000",
+  },
+  {
+    id: 2,
+    name: "MasterCard",
+    type: "Credit Card",
+    status: "Liability",
+    value: "-R$900",
+  },
+];
+
 function App() {
   const [showMenu, setShowMenu] = useState(false);
+  const [items, setItems] = useState(initialItems);
+
   return (
     <>
       <Header showMenu={showMenu} setShowMenu={setShowMenu} />
-      {showMenu ? <Menu /> : null}
+      {showMenu ? <Menu setItems={setItems} /> : null}
 
       <NetWorth />
-      <ItemList />
+      <ItemList items={items} />
       <Footer />
     </>
   );
 }
+
 export default App;

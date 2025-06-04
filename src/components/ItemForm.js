@@ -33,27 +33,34 @@ const LIABILITIES = [
   { name: "payday loan" },
 ];
 
-function ItemForm() {
-  const [text, setText] = useState("");
+function ItemForm({ setItems, setShowItemForm }) {
+  const [name, setName] = useState("");
   const [value, setValue] = useState("");
   const [type, setType] = useState("");
 
   function handleSubmit(e) {
+    // Prevent browser reload
     e.preventDefault();
-    console.log(text, type, value);
-    // TODO: Add upper and lower limit to text length
-    // TODO: Check that value is a number with lower length limit
-    if (text && value && type) {
+    if (name && value && type) {
+      // Determine status (Liability or Asset)
+      // TODO: Simplify this logic
+      const isLiability = LIABILITIES.some((l) => l.name === type);
+
       const newItem = {
-        id: Math.round(Math.random() * 1000000), //Randomly generated ID
-        //TODO: Update ID from Supabase
-        text,
+        id: Math.round(Math.random() * 1000000),
+        name: name,
         type,
-        // TODO: Handle item status display inside the Item component
-        // based on the item's type instead of setting status here in the form.
         value,
+        status: isLiability ? "Liability" : "Asset",
       };
-      console.log(newItem);
+      // Add new item
+      setItems((items) => [newItem, ...items]);
+      // Reset input fields
+      setName("");
+      setType("");
+      setValue("");
+      // Close the form
+      setShowItemForm(false);
     }
   }
 
@@ -62,8 +69,8 @@ function ItemForm() {
       <input
         type="text"
         placeholder="Name"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
+        value={name}
+        onChange={(e) => setName(e.target.value)}
       />
       <select value={type} onChange={(e) => setType(e.target.value)}>
         <option value="">Type:</option>
@@ -97,4 +104,5 @@ function ItemForm() {
     </form>
   );
 }
+
 export default ItemForm;

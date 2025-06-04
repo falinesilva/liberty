@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ItemForm from "./ItemForm";
-function Menu() {
+function Menu({ setItems }) {
   const [showItemForm, setShowItemForm] = useState(false);
   return (
     <>
@@ -28,7 +28,9 @@ function Menu() {
           Add item
         </button>
       </div>
-      {showItemForm ? <ItemForm /> : null}
+      {showItemForm ? (
+        <ItemForm setItems={setItems} setShowItemForm={setShowItemForm} />
+      ) : null}
     </>
   );
 }
