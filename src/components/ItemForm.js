@@ -37,8 +37,28 @@ function ItemForm() {
   const [text, setText] = useState("");
   const [value, setValue] = useState("");
   const [type, setType] = useState("");
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log(text, type, value);
+    // TODO: Add upper and lower limit to text length
+    // TODO: Check that value is a number with lower length limit
+    if (text && value && type) {
+      const newItem = {
+        id: Math.round(Math.random() * 1000000), //Randomly generated ID
+        //TODO: Update ID from Supabase
+        text,
+        type,
+        // TODO: Handle item status display inside the Item component
+        // based on the item's type instead of setting status here in the form.
+        value,
+      };
+      console.log(newItem);
+    }
+  }
+
   return (
-    <form className="item-form">
+    <form className="item-form" onSubmit={handleSubmit}>
       <input
         type="text"
         placeholder="Name"
@@ -69,9 +89,7 @@ function ItemForm() {
         onChange={(e) => setValue(e.target.value)}
       />
       <div className="item-form-buttons">
-        <button type="button" className="btn btn-add-save">
-          Save
-        </button>
+        <button className="btn btn-add-save">Save</button>
         <button type="button" className="btn btn-add-cancel">
           Cancel
         </button>
