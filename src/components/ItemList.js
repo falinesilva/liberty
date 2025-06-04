@@ -1,3 +1,5 @@
+import React from "react";
+
 import Item from "./Item";
 function ItemList({ items }) {
   // TODO: Swap static data with SupaBase table

@@ -1,3 +1,8 @@
+import React, { useEffect } from "react";
+import { useState } from "react";
+
+import supabase from "./supabase";
+
 import "./style.css";
 
 import Header from "./components/Header";
@@ -5,8 +10,6 @@ import Menu from "./components/Menu";
 import NetWorth from "./components/NetWorth";
 import ItemList from "./components/ItemList";
 import Footer from "./components/Footer";
-
-import { useState } from "react";
 
 const initialItems = [
   {
@@ -28,6 +31,17 @@ const initialItems = [
 function App() {
   const [showMenu, setShowMenu] = useState(false);
   const [items, setItems] = useState(initialItems);
+
+  useEffect(function () {
+    async function getItems() {
+      const { data: items, error } = await supabase.from("items").select("*");
+      if (error) {
+        console.error("Error fetching items:", error.message);
+      }
+      setItems(items);
+    }
+    getItems();
+  }, []);
 
   return (
     <>

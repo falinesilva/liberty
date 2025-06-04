@@ -1,3 +1,5 @@
+import React from "react";
+
 function Header({ showMenu, setShowMenu }) {
   return (
     <header className="header">

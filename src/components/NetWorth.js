@@ -1,3 +1,5 @@
+import React from "react";
+
 function NetWorth() {
   return (
     <div className="net-worth">
