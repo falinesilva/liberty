@@ -10,6 +10,7 @@ import Menu from "./components/Menu";
 import NetWorth from "./components/NetWorth";
 import ItemList from "./components/ItemList";
 import Footer from "./components/Footer";
+import Loader from "./components/Loader";
 
 const initialItems = [
   {
@@ -31,14 +32,17 @@ const initialItems = [
 function App() {
   const [showMenu, setShowMenu] = useState(false);
   const [items, setItems] = useState(initialItems);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(function () {
     async function getItems() {
+      setIsLoading(true);
       const { data: items, error } = await supabase.from("items").select("*");
       if (error) {
         console.error("Error fetching items:", error.message);
       }
       setItems(items);
+      setIsLoading(false);
     }
     getItems();
   }, []);
@@ -48,8 +52,15 @@ function App() {
       <Header showMenu={showMenu} setShowMenu={setShowMenu} />
       {showMenu ? <Menu setItems={setItems} /> : null}
 
-      <NetWorth />
-      <ItemList items={items} />
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          <NetWorth />
+          <ItemList items={items} />
+        </>
+      )}
+
       <Footer />
     </>
   );
