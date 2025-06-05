@@ -1,7 +1,11 @@
 import React from "react";
 
 function Loader() {
-  return <p style={{ margin: "16px" }}>Loading...</p>;
+  return (
+    <p className="item" style={{ margin: "50px" }}>
+      Loading...
+    </p>
+  );
 }
 
 export default Loader;
