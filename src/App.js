@@ -37,12 +37,17 @@ function App() {
   useEffect(function () {
     async function getItems() {
       setIsLoading(true);
-      const { data: items, error } = await supabase.from("items").select("*");
+      const { data: items, error } = await supabase
+        .from("items")
+        .select("*")
+        .order("value", { ascending: true })
+        .limit(500);
       if (error) {
-        console.error("Error fetching items:", error.message);
+        alert("Error fetching items:", error.message);
+      } else if (!error) {
+        setItems(items);
+        setIsLoading(false);
       }
-      setItems(items);
-      setIsLoading(false);
     }
     getItems();
   }, []);
