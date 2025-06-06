@@ -1,35 +1,74 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useEffect } from "react";
+import { useState } from "react";
+
+import supabase from "./supabase";
+
+import "./index.css";
+
+import Header from "./components/Header";
+import Menu from "./components/Menu";
+import NetWorth from "./components/NetWorth";
+import ItemList from "./components/ItemList";
+import Footer from "./components/Footer";
+import Loader from "./components/Loader";
+
+const initialItems = [
+  {
+    id: 1,
+    name: "Estate Property",
+    type: "Real Estate",
+    status: "Asset",
+    value: "R$150.000",
+  },
+  {
+    id: 2,
+    name: "MasterCard",
+    type: "Credit Card",
+    status: "Liability",
+    value: "-R$900",
+  },
+];
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [showMenu, setShowMenu] = useState(false);
+  const [items, setItems] = useState(initialItems);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(function () {
+    async function getItems() {
+      setIsLoading(true);
+      const { data: items, error } = await supabase
+        .from("items")
+        .select("*")
+        .order("value", { ascending: true })
+        .limit(500);
+      if (error) {
+        alert("Error fetching items:", error.message);
+      } else if (!error) {
+        setItems(items);
+        setIsLoading(false);
+      }
+    }
+    getItems();
+  }, []);
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Header showMenu={showMenu} setShowMenu={setShowMenu} />
+      {showMenu ? <Menu setItems={setItems} /> : null}
+
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          <NetWorth />
+          <ItemList items={items} />
+        </>
+      )}
+
+      <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
