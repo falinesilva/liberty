@@ -8,10 +8,6 @@ function Item({ item }) {
         <br />
         <span className="type">{item.type}</span>
         <br />
-        <span className={`status ${item.status.toLowerCase()}`}>
-          {item.status}
-        </span>
-        <br />
         <span className="value">{item.value}</span>
       </div>
       <div className="item-buttons">

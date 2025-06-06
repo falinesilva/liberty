@@ -1,4 +1,5 @@
 import React from "react";
+import supabase from "./../supabase";
 
 import { useState } from "react";
 
@@ -39,29 +40,28 @@ function ItemForm({ setItems, setShowItemForm }) {
   const [name, setName] = useState("");
   const [value, setValue] = useState("");
   const [type, setType] = useState("");
+  const [isUploading, setIsUploading] = useState(false);
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     // Prevent browser reload
     e.preventDefault();
     if (name && value && type) {
-      // Determine status (Liability or Asset)
-      // TODO: Simplify this logic
-      const isLiability = LIABILITIES.some((l) => l.name === type);
+      setIsUploading(true);
+      const { data: newItem, error } = await supabase
+        .from("items")
+        .insert([{ name, type, value }])
+        .select();
 
-      const newItem = {
-        id: Math.round(Math.random() * 1000000),
-        name: name,
-        type,
-        value,
-        status: isLiability ? "Liability" : "Asset",
-      };
-      // Add new item
-      setItems((items) => [newItem, ...items]);
-      // Reset input fields
+      setIsUploading(false);
+
+      if (!error) console.log(newItem);
+      else alert("Error adding item...", error.message);
+
+      setItems((items) => [newItem[0], ...items]);
+
       setName("");
       setType("");
       setValue("");
-      // Close the form
       setShowItemForm(false);
     }
   }
@@ -73,8 +73,13 @@ function ItemForm({ setItems, setShowItemForm }) {
         placeholder="Name"
         value={name}
         onChange={(e) => setName(e.target.value)}
+        disabled={isUploading}
       />
-      <select value={type} onChange={(e) => setType(e.target.value)}>
+      <select
+        value={type}
+        onChange={(e) => setType(e.target.value)}
+        disabled={isUploading}
+      >
         <option value="">Type:</option>
         <optgroup label="Assets">
           {ASSETS.map((asset) => (
@@ -96,9 +101,12 @@ function ItemForm({ setItems, setShowItemForm }) {
         type="text"
         placeholder="Value"
         onChange={(e) => setValue(e.target.value)}
+        disabled={isUploading}
       />
       <div className="item-form-buttons">
-        <button className="btn btn-add-save">Save</button>
+        <button className="btn btn-add-save" disabled={isUploading}>
+          Save
+        </button>
         <button type="button" className="btn btn-add-cancel">
           Cancel
         </button>
