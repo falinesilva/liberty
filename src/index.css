@@ -62,15 +62,6 @@ body {
   display: flex;
 }
 
-.logo img {
-  width: 68px;
-  height: auto;
-}
-
-.menu-icon {
-  color: inherit;
-}
-
 .btn-menu {
   background: none;
   cursor: pointer;
@@ -193,38 +184,15 @@ body {
   margin: 4px;
 }
 
-/*Net Worth */
+/*Stats */
 
-.net-worth {
+.stats {
   display: flex;
   align-items: center;
   background-color: #1e293b;
   border-radius: 10px;
   padding: 16px;
   gap: 16px;
-}
-
-.net-worth p {
-  text-align: center;
-  font-size: 24px;
-  text-transform: uppercase;
-}
-
-.net-worth span {
-  display: flex;
-  justify-content: center;
-  font-weight: bold;
-  background-color: #374151;
-  border-radius: 10px;
-  padding: 8px;
-}
-
-.positive span {
-  color: #0ea5e9;
-}
-
-.negative span {
-  color: #ef4444;
 }
 
 /*Items*/
@@ -256,25 +224,12 @@ body {
 
 .name {
   color: inherit;
+  text-align: left;
 }
 
 .type {
   color: inherit;
 }
-
-/* .status {
-  background-color: ;
-}
-
-.status.liability {
-  color: #ef4444;
-  font-weight: bold;
-}
-
-.status.asset {
-  color: #0ea5e9;
-  font-weight: bold;
-} */
 
 .value {
   background-color: #374151;

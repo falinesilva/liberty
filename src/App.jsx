@@ -7,7 +7,7 @@ import "./index.css";
 
 import Header from "./components/Header";
 import Menu from "./components/Menu";
-import NetWorth from "./components/NetWorth";
+import Equity from "./components/Equity";
 import ItemList from "./components/ItemList";
 import Footer from "./components/Footer";
 import Loader from "./components/Loader";
@@ -61,7 +61,6 @@ function App() {
         <Loader />
       ) : (
         <>
-          <NetWorth />
           <ItemList items={items} />
         </>
       )}
