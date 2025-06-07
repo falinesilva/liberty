@@ -1,13 +1,3 @@
-/*
-Color Scheme
-#0f172a //Background
-#f8fafc //White
-#1e293b //Dark Grey
-#374151 //Light Grey
-#0ea5e9 //Light Blue
-#ef4444 //Light Red
-*/
-
 * {
   margin: 0;
   padding: 0;
@@ -54,11 +44,11 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 800px;
+  width: 1280px;
   margin: 16px;
 }
 
-/*Header Start */
+/*Header */
 .header {
   display: flex;
   align-items: center;
@@ -241,13 +231,13 @@ body {
 
 .item-list {
   color: inherit;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 16px;
   list-style: none;
-  width: 80%;
   margin-top: 16px;
   margin-bottom: 16px;
+  width: 100%;
 }
 
 .item {
@@ -255,6 +245,7 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  text-align: center;
   background-color: #1e293b;
   border-radius: 10px;
   font-size: 18px;
@@ -271,6 +262,10 @@ body {
   color: inherit;
 }
 
+/* .status {
+  background-color: ;
+}
+
 .status.liability {
   color: #ef4444;
   font-weight: bold;
@@ -279,9 +274,13 @@ body {
 .status.asset {
   color: #0ea5e9;
   font-weight: bold;
-}
+} */
 
 .value {
+  background-color: #374151;
+  border-radius: 10px;
+  padding: 16px;
+  font-size: 24px;
   color: inherit;
 }
 
@@ -311,6 +310,5 @@ body {
     color: inherit;
     display: flex;
     flex-direction: column;
-    width: auto;
   }
 }
