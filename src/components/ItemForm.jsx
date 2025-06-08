@@ -1,4 +1,5 @@
-import supabase from "../supabase";
+import React from "react";
+import supabase from "./../supabase";
 
 import { useState } from "react";
 
@@ -57,7 +58,6 @@ function ItemForm({ setItems, setShowItemForm }) {
       else alert("Error adding item...", error.message);
 
       setItems((items) => [newItem[0], ...items]);
-
       setName("");
       setType("");
       setValue("");
@@ -105,9 +105,6 @@ function ItemForm({ setItems, setShowItemForm }) {
       <div className="item-form-buttons">
         <button className="btn btn-add-save" disabled={isUploading}>
           Save
-        </button>
-        <button type="button" className="btn btn-add-cancel">
-          Cancel
         </button>
       </div>
     </form>

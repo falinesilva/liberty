@@ -1,36 +1,20 @@
-import AppConfig from "../constants/info";
-import openMenu from "../assets/open-menu.png";
-import closeMenu from "../assets/close-menu.png";
-import Equity from "./Equity";
+import AddForm from "./AddForm";
 import Assets from "./Assets";
-
-function MenuButton({ showMenu, setShowMenu }) {
-  return (
-    <>
-      <button
-        className="btn btn-menu"
-        onClick={() => setShowMenu((show) => !show)}
-      >
-        <img
-          className="menu-img"
-          src={showMenu ? closeMenu : openMenu}
-          width="36"
-          alt="Menu Button"
-        />
-      </button>
-    </>
-  );
-}
+import Losses from "./Losses";
+import Equity from "./Equity";
+import SignIn from "./SignIn";
 
 function Header({ showMenu, setShowMenu }) {
   return (
-    <header className="header">
-      <div>
-        <MenuButton showMenu={showMenu} setShowMenu={setShowMenu} />
+    <>
+      <div className="header">
+        <AddForm showMenu={showMenu} setShowMenu={setShowMenu} />
+        <Assets />
+        <Losses />
+        <Equity />
+        <SignIn />
       </div>
-      <Assets />
-      <Equity />
-    </header>
+    </>
   );
 }
 

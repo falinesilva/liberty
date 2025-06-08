@@ -1,11 +1,8 @@
-import AppConfig from "../constants/info";
-console.log(AppConfig.footerText);
-function Footer() {
-  return (
-    <footer className="footer">
-      <p>&copy; {AppConfig.footerText}</p>
-    </footer>
-  );
-}
+const Footer = () => (
+  <div className="footer">
+    Built by Faline · <a href="https://github.com/falinesilva">Github</a> · MIT
+    License · Open source
+  </div>
+);
 
 export default Footer;

@@ -1,9 +1,11 @@
 function Assets() {
-  const totalAssets = "$ 5,500"; //TEMP
+  const totalAssets = "$ 2,500"; //TEMP
 
   return (
     <div className="stats">
-      <strong>Assets: {totalAssets}</strong>
+      Assets
+      <br />
+      <span className="assets">{totalAssets}</span>
     </div>
   );
 }
