@@ -1,6 +1,6 @@
-import AddForm from "../AddForm";
-import ItemForm from "../ItemForm";
-import Item from "../Item";
+import AddForm from "./AddForm";
+import ItemForm from "./ItemForm";
+import Item from "./Item";
 
 function ItemList({ showMenu, setShowMenu, items, setItems }) {
   return (

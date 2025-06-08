@@ -5,10 +5,7 @@ function AddForm({ showMenu, setShowMenu }) {
   if (showMenu) return null;
 
   return (
-    <button
-      className="btn btn-edit-item"
-      onClick={() => setShowMenu((show) => !show)}
-    >
+    <button className="btn" onClick={() => setShowMenu((show) => !show)}>
       <img
         src={showMenu ? closeForm : openForm}
         width="36"

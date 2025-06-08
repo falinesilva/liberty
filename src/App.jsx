@@ -7,7 +7,7 @@ import "./index.css";
 
 import Header from "./components/Header";
 import Menu from "./components/Menu";
-import ItemList from "./components/item/ItemList";
+import ItemList from "./components/ItemList";
 import Footer from "./components/Footer";
 import Loader from "./components/Loader";
 

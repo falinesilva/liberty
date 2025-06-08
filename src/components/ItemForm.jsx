@@ -1,8 +1,9 @@
 import { useState } from "react";
-import supabase from "../../supabase";
+import supabase from "../supabase";
 import save from "../assets/save.png";
 import cancel from "../assets/cancel.png";
 
+// Type Options
 const ASSETS = [
   { name: "business ownership" },
   { name: "cash" },
@@ -12,7 +13,7 @@ const ASSETS = [
   { name: "mutual fund / etf" },
   { name: "other investments" },
   { name: "real estate" },
-  { name: "retirement account" }, // ✅ typo fixed
+  { name: "retirement account" },
   { name: "stocks" },
   { name: "bonds" },
   { name: "valuables" },
@@ -41,14 +42,14 @@ function ItemForm({ setItems, setShowMenu }) {
   const [value, setValue] = useState("");
   const [type, setType] = useState("");
   const [isUploading, setIsUploading] = useState(false);
+  const [showErrors, setShowErrors] = useState(false);
 
   async function handleSubmit(e) {
     e.preventDefault();
     const numericValue = parseFloat(value);
 
-    // Basic validation
     if (!name || isNaN(numericValue) || !type) {
-      alert("Please fill out all fields correctly.");
+      setShowErrors(true);
       return;
     }
 
@@ -67,11 +68,12 @@ function ItemForm({ setItems, setShowMenu }) {
     }
 
     if (data && data.length > 0) {
-      setItems((items) => [data[0], ...items]); // ✅ update UI
-      setShowMenu(false); // ✅ close form
+      setItems((items) => [data[0], ...items]);
+      setShowMenu(false);
       setName("");
       setType("");
       setValue("");
+      setShowErrors(false);
     } else {
       alert("Item not returned from database.");
     }
@@ -85,44 +87,54 @@ function ItemForm({ setItems, setShowMenu }) {
         value={name}
         onChange={(e) => setName(e.target.value)}
         disabled={isUploading}
-        required
+        style={
+          showErrors && !name ? { border: "2px solid #e11d48" } : undefined
+        }
       />
       <select
         value={type}
         onChange={(e) => setType(e.target.value)}
-        disabled={isUploading}
-        required
+        style={{
+          color: type ? "#f8fafc" : "#999",
+          ...(showErrors && !type && { border: "2px solid #e11d48" }),
+        }}
       >
-        <option value="">Type:</option>
+        <option value="" disabled hidden>
+          Select type
+        </option>
         <optgroup label="Assets">
-          {ASSETS.map((asset) => (
-            <option key={asset.name} value={asset.name}>
-              {asset.name.toUpperCase()}
+          {ASSETS.map(({ name }) => (
+            <option key={name} value={name} style={{ color: "#f8fafc" }}>
+              {name.toUpperCase()}
             </option>
           ))}
         </optgroup>
         <optgroup label="Liabilities">
-          {LIABILITIES.map((liability) => (
-            <option key={liability.name} value={liability.name}>
-              {liability.name.toUpperCase()}
+          {LIABILITIES.map(({ name }) => (
+            <option key={name} value={name} style={{ color: "#f8fafc" }}>
+              {name.toUpperCase()}
             </option>
           ))}
         </optgroup>
       </select>
+
       <input
         type="number"
         placeholder="Value"
         value={value}
         onChange={(e) => setValue(e.target.value)}
         disabled={isUploading}
-        required
+        style={{
+          ...(showErrors &&
+            isNaN(parseFloat(value)) && { border: "2px solid #e11d48" }),
+          appearance: "textfield",
+          MozAppearance: "textfield",
+          WebkitAppearance: "none",
+        }}
       />
+
       <div className="item-form-buttons">
-        <button
-          type="submit"
-          className="btn btn-add-save"
-          disabled={isUploading}
-        >
+        <button type="submit" className="btn" disabled={isUploading}>
           <img src={save} width="36" alt="Save" />
         </button>
         <button

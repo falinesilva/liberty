@@ -42,12 +42,7 @@ body {
 }
 
 .btn:hover {
-  transform: scale(110%);
-}
-
-.btn-menu {
-  background: none;
-  cursor: pointer;
+  transform: scale(120%);
 }
 
 /* Header */
@@ -81,11 +76,12 @@ body {
 
 .assets {
   color: #94a3b8;
-  opacity: 80%;
+  opacity: 0.9;
 }
 
 .losses {
-  color: #ec4899;
+  color: #e11d48;
+  opacity: 0.8;
 }
 .equity {
   color: #38bdf8;
@@ -129,20 +125,23 @@ body {
   cursor: pointer;
 }
 
+.item-form select:disabled {
+  color: red;
+}
+
 /* Form Buttons */
 .item-form-buttons {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  margin-right: 6px;
 }
 
 /* Item List */
 .item-list {
   display: grid;
   gap: 16px;
-  margin: 16px 0;
   width: 80%;
 }
 
@@ -163,9 +162,11 @@ body {
 /* Add Item*/
 .add {
   display: block;
-  padding: 0px;
   margin-left: auto;
+  margin-right: 20px;
+  padding: 0px;
   background: none;
+  width: 80px;
 }
 
 .left {
@@ -173,14 +174,6 @@ body {
 }
 .right {
   justify-self: end;
-}
-
-.btn-edit-item {
-  width: 80px;
-}
-
-.item-button {
-  background-color: none;
 }
 
 /* Footer */
