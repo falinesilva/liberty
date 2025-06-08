@@ -1,8 +1,7 @@
-import { useState } from "react";
-import ItemForm from "./ItemForm";
+import ItemForm from "./item/ItemForm";
 
-function Menu({ setItems }) {
-  return <ItemForm setItems={setItems} />;
+function Menu({ setItems, setShowMenu }) {
+  return <ItemForm setItems={setItems} setShowMenu={setShowMenu} />;
 }
 
 export default Menu;

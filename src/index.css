@@ -53,13 +53,13 @@ body {
 /* Header */
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-direction: row;
   font-size: 18px;
   padding: 16px;
   line-height: 1.5;
-  gap: 6px;
+  gap: 100px;
   width: 100%;
 }
 
@@ -159,6 +159,13 @@ body {
 .item span {
   margin-left: 16px;
   margin-right: 16px;
+}
+/* Add Item*/
+.add {
+  display: block;
+  padding: 0px;
+  margin-left: auto;
+  background: none;
 }
 
 .left {

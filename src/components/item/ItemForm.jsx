@@ -1,7 +1,7 @@
-import React from "react";
-import supabase from "./../supabase";
-
 import { useState } from "react";
+import supabase from "../../supabase";
+import save from "../assets/save.png";
+import cancel from "../assets/cancel.png";
 
 const ASSETS = [
   { name: "business ownership" },
@@ -12,7 +12,7 @@ const ASSETS = [
   { name: "mutual fund / etf" },
   { name: "other investments" },
   { name: "real estate" },
-  { name: "retirment account" },
+  { name: "retirement account" }, // ✅ typo fixed
   { name: "stocks" },
   { name: "bonds" },
   { name: "valuables" },
@@ -36,32 +36,44 @@ const LIABILITIES = [
   { name: "payday loan" },
 ];
 
-function ItemForm({ setItems, setShowItemForm }) {
+function ItemForm({ setItems, setShowMenu }) {
   const [name, setName] = useState("");
   const [value, setValue] = useState("");
   const [type, setType] = useState("");
   const [isUploading, setIsUploading] = useState(false);
 
   async function handleSubmit(e) {
-    // Prevent browser reload
     e.preventDefault();
-    if (name && value && type) {
-      setIsUploading(true);
-      const { data: newItem, error } = await supabase
-        .from("items")
-        .insert([{ name, type, value }])
-        .select();
+    const numericValue = parseFloat(value);
 
-      setIsUploading(false);
+    // Basic validation
+    if (!name || isNaN(numericValue) || !type) {
+      alert("Please fill out all fields correctly.");
+      return;
+    }
 
-      if (!error) console.log(newItem);
-      else alert("Error adding item...", error.message);
+    setIsUploading(true);
 
-      setItems((items) => [newItem[0], ...items]);
+    const { data, error } = await supabase
+      .from("items")
+      .insert([{ name, type, value: numericValue }])
+      .select();
+
+    setIsUploading(false);
+
+    if (error) {
+      alert("Error adding item: " + error.message);
+      return;
+    }
+
+    if (data && data.length > 0) {
+      setItems((items) => [data[0], ...items]); // ✅ update UI
+      setShowMenu(false); // ✅ close form
       setName("");
       setType("");
       setValue("");
-      setShowItemForm(false);
+    } else {
+      alert("Item not returned from database.");
     }
   }
 
@@ -73,11 +85,13 @@ function ItemForm({ setItems, setShowItemForm }) {
         value={name}
         onChange={(e) => setName(e.target.value)}
         disabled={isUploading}
+        required
       />
       <select
         value={type}
         onChange={(e) => setType(e.target.value)}
         disabled={isUploading}
+        required
       >
         <option value="">Type:</option>
         <optgroup label="Assets">
@@ -96,15 +110,28 @@ function ItemForm({ setItems, setShowItemForm }) {
         </optgroup>
       </select>
       <input
-        value={value}
-        type="text"
+        type="number"
         placeholder="Value"
+        value={value}
         onChange={(e) => setValue(e.target.value)}
         disabled={isUploading}
+        required
       />
       <div className="item-form-buttons">
-        <button className="btn btn-add-save" disabled={isUploading}>
-          Save
+        <button
+          type="submit"
+          className="btn btn-add-save"
+          disabled={isUploading}
+        >
+          <img src={save} width="36" alt="Save" />
+        </button>
+        <button
+          type="button"
+          className="btn btn-add-save"
+          onClick={() => setShowMenu(false)}
+          disabled={isUploading}
+        >
+          <img src={cancel} width="36" alt="Cancel" />
         </button>
       </div>
     </form>

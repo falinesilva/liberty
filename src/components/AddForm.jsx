@@ -1,8 +1,9 @@
 import openForm from "../assets/open-form.png";
-
 import closeForm from "../assets/close-form.png";
 
 function AddForm({ showMenu, setShowMenu }) {
+  if (showMenu) return null;
+
   return (
     <button
       className="btn btn-edit-item"
@@ -16,4 +17,5 @@ function AddForm({ showMenu, setShowMenu }) {
     </button>
   );
 }
+
 export default AddForm;

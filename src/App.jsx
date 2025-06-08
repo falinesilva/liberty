@@ -7,7 +7,7 @@ import "./index.css";
 
 import Header from "./components/Header";
 import Menu from "./components/Menu";
-import ItemList from "./components/ItemList";
+import ItemList from "./components/item/ItemList";
 import Footer from "./components/Footer";
 import Loader from "./components/Loader";
 
@@ -42,8 +42,15 @@ function App() {
       ) : (
         <>
           <Header showMenu={showMenu} setShowMenu={setShowMenu} />
-          {showMenu ? <Menu setItems={setItems} /> : null}
-          <ItemList items={items} />
+          {showMenu ? (
+            <Menu setItems={setItems} setShowMenu={setShowMenu} />
+          ) : null}
+          <ItemList
+            items={items}
+            setItems={setItems}
+            showMenu={showMenu}
+            setShowMenu={setShowMenu}
+          />
         </>
       )}
 
