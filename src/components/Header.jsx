@@ -1,16 +1,14 @@
-import Assets from "./Assets";
-import Losses from "./Losses";
-import Equity from "./Equity";
+function Header() {
+  let totalAssets = 0;
+  let totalLosses = 0;
+  let totalEquity = 0;
 
-function Header({ showMenu, setShowMenu }) {
   return (
-    <>
-      <div className="header">
-        <Assets />
-        <Losses />
-        <Equity />
-      </div>
-    </>
+    <div className="stats">
+      Assets: {totalAssets}
+      Losses: {totalLosses}
+      Assets: {totalEquity}
+    </div>
   );
 }
 

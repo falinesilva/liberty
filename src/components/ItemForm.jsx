@@ -1,43 +1,24 @@
 import { useState } from "react";
 import supabase from "../supabase";
-import save from "../assets/save.png";
-import cancel from "../assets/cancel.png";
 
 // Type Options
 const ASSETS = [
-  { name: "business ownership" },
-  { name: "cash" },
-  { name: "collectibles" },
-  { name: "cryptocurrency" },
-  { name: "equipment" },
-  { name: "mutual fund / etf" },
-  { name: "other investments" },
-  { name: "real estate" },
-  { name: "retirement account" },
-  { name: "stocks" },
-  { name: "bonds" },
-  { name: "valuables" },
-  { name: "vehicle" },
+  { name: "Cash" },
+  { name: "Realty" },
+  { name: "Saving" },
+  { name: "Vehicle" },
+  { name: "Other" },
 ];
 
 const LIABILITIES = [
-  { name: "outstanding bills" },
-  { name: "credit card balance" },
-  { name: "medical bill" },
-  { name: "mortgage" },
-  { name: "bank loan" },
-  { name: "personal loan" },
-  { name: "student loan" },
-  { name: "auto loan" },
-  { name: "buy now pay later" },
-  { name: "tax debt" },
-  { name: "child support" },
-  { name: "alimony" },
-  { name: "business debt" },
-  { name: "payday loan" },
+  { name: "Bill" },
+  { name: "Credit" },
+  { name: "Loan" },
+  { name: "Tax" },
+  { name: "Other" },
 ];
 
-function ItemForm({ setItems, setShowMenu }) {
+function ItemForm({ setItems, setShowForm }) {
   const [name, setName] = useState("");
   const [value, setValue] = useState("");
   const [type, setType] = useState("");
@@ -46,7 +27,8 @@ function ItemForm({ setItems, setShowMenu }) {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const numericValue = parseFloat(value);
+
+    const numericValue = parseFloat(value.replace(/[^0-9.]/g, ""));
 
     if (!name || isNaN(numericValue) || !type) {
       setShowErrors(true);
@@ -69,7 +51,7 @@ function ItemForm({ setItems, setShowMenu }) {
 
     if (data && data.length > 0) {
       setItems((items) => [data[0], ...items]);
-      setShowMenu(false);
+      setShowForm(false);
       setName("");
       setType("");
       setValue("");
@@ -87,31 +69,44 @@ function ItemForm({ setItems, setShowMenu }) {
         value={name}
         onChange={(e) => setName(e.target.value)}
         disabled={isUploading}
-        style={
-          showErrors && !name ? { border: "2px solid #e11d48" } : undefined
-        }
+        style={{
+          color: name ? "#000" : "#555", // consistent font color logic
+          ...(showErrors && {
+            border: "4px solid #FB64B6",
+          }),
+          appearance: "textfield",
+          MozAppearance: "textfield",
+          WebkitAppearance: "none",
+        }}
       />
+
       <select
+        style={{
+          color: type ? "#000" : "#555", // consistent font color logic
+          ...(showErrors &&
+            !type && {
+              border: "4px solid #FB64B6",
+            }),
+          appearance: "textfield",
+          MozAppearance: "textfield",
+          WebkitAppearance: "none",
+        }}
         value={type}
         onChange={(e) => setType(e.target.value)}
-        style={{
-          color: type ? "#f8fafc" : "#999",
-          ...(showErrors && !type && { border: "2px solid #e11d48" }),
-        }}
       >
-        <option value="" disabled hidden>
-          Select type
+        <option value="" disabled={isUploading}>
+          Type
         </option>
         <optgroup label="Assets">
           {ASSETS.map(({ name }) => (
-            <option key={name} value={name} style={{ color: "#f8fafc" }}>
-              {name.toUpperCase()}
+            <option key={name} value={name}>
+              {name}
             </option>
           ))}
         </optgroup>
         <optgroup label="Liabilities">
           {LIABILITIES.map(({ name }) => (
-            <option key={name} value={name} style={{ color: "#f8fafc" }}>
+            <option key={name} value={name}>
               {name.toUpperCase()}
             </option>
           ))}
@@ -119,31 +114,33 @@ function ItemForm({ setItems, setShowMenu }) {
       </select>
 
       <input
-        type="number"
+        type="text"
         placeholder="Value"
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={(e) => {
+          const raw = e.target.value.replace(/[^\d]/g, "");
+          setValue(raw ? "$" + Number(raw).toLocaleString() : "");
+        }}
         disabled={isUploading}
         style={{
+          color:
+            value && parseFloat(value.replace(/[^0-9.]/g, ""))
+              ? "#000"
+              : "#555", // consistent font color logic
           ...(showErrors &&
-            isNaN(parseFloat(value)) && { border: "2px solid #e11d48" }),
+            isNaN(parseFloat(value.replace(/[^0-9.]/g, ""))) && {
+              border: "4px solid #FB64B6",
+            }),
           appearance: "textfield",
           MozAppearance: "textfield",
           WebkitAppearance: "none",
         }}
       />
 
+      {/* Submit Button */}
       <div className="item-form-buttons">
         <button type="submit" className="btn" disabled={isUploading}>
-          <img src={save} width="36" alt="Save" />
-        </button>
-        <button
-          type="button"
-          className="btn btn-add-save"
-          onClick={() => setShowMenu(false)}
-          disabled={isUploading}
-        >
-          <img src={cancel} width="36" alt="Cancel" />
+          Submit
         </button>
       </div>
     </form>

@@ -1,18 +1,15 @@
-import AddForm from "./AddForm";
-import ItemForm from "./ItemForm";
 import Item from "./Item";
-
-function ItemList({ showMenu, setShowMenu, items, setItems }) {
+import NewRecord from "./NewRecord";
+function ItemList({ showForm, setShowForm, items }) {
   return (
-    <div className="item-list">
-      <div className="item add">
-        <AddForm showMenu={showMenu} setShowMenu={setShowMenu} />
+    <>
+      <NewRecord showForm={showForm} setShowForm={setShowForm} />
+      <div className="item-list">
+        {items.map((item) => (
+          <Item key={item.id} item={item} />
+        ))}
       </div>
-
-      {items.map((item) => (
-        <Item key={item.id} item={item} />
-      ))}
-    </div>
+    </>
   );
 }
 

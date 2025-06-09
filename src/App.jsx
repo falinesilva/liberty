@@ -1,18 +1,17 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
-
 import supabase from "./supabase";
-
 import "./index.css";
 
+import { useEffect } from "react";
+import { useState } from "react";
+
 import Header from "./components/Header";
-import Menu from "./components/Menu";
 import ItemList from "./components/ItemList";
 import Footer from "./components/Footer";
 import Loader from "./components/Loader";
+import ItemForm from "./components/ItemForm";
 
 function App() {
-  const [showMenu, setShowMenu] = useState(false);
+  const [showForm, setShowForm] = useState(false);
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -41,15 +40,15 @@ function App() {
         <Loader />
       ) : (
         <>
-          <Header showMenu={showMenu} setShowMenu={setShowMenu} />
-          {showMenu ? (
-            <Menu setItems={setItems} setShowMenu={setShowMenu} />
+          <Header showForm={showForm} setShowForm={setShowForm} />
+          {showForm ? (
+            <ItemForm setItems={setItems} setShowMenu={setShowForm} />
           ) : null}
           <ItemList
             items={items}
             setItems={setItems}
-            showMenu={showMenu}
-            setShowMenu={setShowMenu}
+            showForm={showForm}
+            setShowForm={setShowForm}
           />
         </>
       )}
