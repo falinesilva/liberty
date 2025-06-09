@@ -1,5 +1,4 @@
 import Record from "./Record";
-import NewRecord from "./NewRecord";
 function ItemList({ showForm, setShowForm, items }) {
   return (
     <>

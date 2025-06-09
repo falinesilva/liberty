@@ -11,6 +11,7 @@ import ItemList from "./components/ItemList";
 
 import Footer from "./components/Footer";
 import Loader from "./components/Loader";
+import Results from "./components/Results";
 
 function App() {
   // Show/Hide Form
@@ -44,12 +45,13 @@ function App() {
       ) : (
         // Add Record Form
         <>
+          <Header showForm={showForm} setShowForm={setShowForm} />
+
+          {showForm ? null : <Results />}
+
           {showForm ? (
             <ItemForm setItems={setItems} setShowForm={setShowForm} />
           ) : null}
-
-          <Header showForm={showForm} setShowForm={setShowForm} />
-
           <ItemList
             items={items}
             setItems={setItems}

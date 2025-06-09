@@ -63,38 +63,17 @@ function ItemForm({ setItems, setShowForm }) {
 
   return (
     <form className="item-form" onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        disabled={isUploading}
-        style={{
-          color: name ? "#000" : "#555", // consistent font color logic
-          ...(showErrors && {
-            border: "4px solid #FB64B6",
-          }),
-          appearance: "textfield",
-          MozAppearance: "textfield",
-          WebkitAppearance: "none",
-        }}
-      />
-
       <select
-        style={{
-          color: type ? "#000" : "#555", // consistent font color logic
-          ...(showErrors &&
-            !type && {
-              border: "4px solid #FB64B6",
-            }),
-          appearance: "textfield",
-          MozAppearance: "textfield",
-          WebkitAppearance: "none",
-        }}
         value={type}
         onChange={(e) => setType(e.target.value)}
+        style={{
+          ...(showErrors &&
+            !type && {
+              border: "4px solid red",
+            }),
+        }}
       >
-        <option value="" disabled={isUploading}>
+        <option value="" disabled>
           Type
         </option>
         <optgroup label="Assets">
@@ -107,11 +86,27 @@ function ItemForm({ setItems, setShowForm }) {
         <optgroup label="Liabilities">
           {LIABILITIES.map(({ name }) => (
             <option key={name} value={name}>
-              {name.toUpperCase()}
+              {name}
             </option>
           ))}
         </optgroup>
       </select>
+
+      <input
+        type="text"
+        placeholder="Name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        disabled={isUploading}
+        style={{
+          ...(showErrors && {
+            border: "4px solid red",
+          }),
+          appearance: "textfield",
+          MozAppearance: "textfield",
+          WebkitAppearance: "none",
+        }}
+      />
 
       <input
         type="text"
@@ -123,13 +118,9 @@ function ItemForm({ setItems, setShowForm }) {
         }}
         disabled={isUploading}
         style={{
-          color:
-            value && parseFloat(value.replace(/[^0-9.]/g, ""))
-              ? "#000"
-              : "#555", // consistent font color logic
           ...(showErrors &&
             isNaN(parseFloat(value.replace(/[^0-9.]/g, ""))) && {
-              border: "4px solid #FB64B6",
+              border: "4px solid red",
             }),
           appearance: "textfield",
           MozAppearance: "textfield",
@@ -142,7 +133,11 @@ function ItemForm({ setItems, setShowForm }) {
         <button type="submit" className="btn" disabled={isUploading}>
           Submit
         </button>
-        <button className="btn" onClick={() => setShowForm(false)}>
+        <button
+          type="button"
+          className="btn"
+          onClick={() => setShowForm(false)}
+        >
           X
         </button>
       </div>

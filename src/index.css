@@ -4,18 +4,13 @@
   box-sizing: border-box;
 }
 
-.hidden {
-  display: none !important;
-}
-
 body {
-  font-family: "Roboto Flex", sans-serif;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #0b0b0b;
-  color: #ffffff;
+  background-color: black;
+  color: white;
 }
 
 #root {
@@ -28,53 +23,21 @@ body {
   margin: 16px;
 }
 
-.btn {
-  line-height: 1;
-  border: none;
-  cursor: pointer;
-  transition: 0.3s;
-  color: #1e293b;
-  font-size: 16px;
-  padding: 16px;
-  border-radius: 10px;
-  background: none;
-  background-color: #ffffff;
-}
-
-.btn:hover {
-  transform: scale(120%);
-}
-
 /* Header */
 .header {
   display: flex;
-  justify-content: center;
-  flex: 1 1 auto;
+  justify-content: flex-end;
   align-items: center;
   flex-direction: row;
-  font-size: 18px;
   padding: 16px;
-  line-height: 1.5;
-  gap: 100px;
-  width: auto;
 }
 
 /* Stats */
 .stats {
-  background-color: #1d202a;
   padding: 16px;
   border-radius: 10px;
   text-align: center;
-  font-size: 24px;
-  text-transform: uppercase;
-  font-weight: bold;
   width: auto;
-}
-.equity {
-  color: #00bcff;
-}
-.losses {
-  color: #fb64b6;
 }
 /* Form */
 .item-form {
@@ -88,9 +51,7 @@ body {
 
 .item-form input,
 .item-form select {
-  font-size: 18px;
   border-radius: 10px;
-  background-color: #1e2939;
   width: 100%;
   padding: 8px 12px;
   border: none;
@@ -118,11 +79,9 @@ body {
   grid-template-columns: repeat(4, 1fr);
 
   border-radius: 10px;
-  background-color: #1d202a;
   gap: 8px;
   padding: 16px;
   align-items: center;
-  font-weight: bold;
 }
 .item span {
   margin-left: 16px;
@@ -148,16 +107,7 @@ body {
 /* Footer */
 .footer {
   text-align: center;
-  font-size: 16px;
   margin: 16px;
-}
-
-.footer a {
-  text-decoration: none;
-  color: #ffffff;
-}
-.footer a:hover {
-  color: #00bcff;
 }
 
 /* Responsive */
@@ -165,6 +115,5 @@ body {
   .item-list {
     display: flex;
     flex-direction: column;
-    color: inherit;
   }
 }

@@ -1,20 +1,14 @@
 import NewRecord from "./NewRecord";
+import SignIn from "./SignIn";
 
 function Header({ showForm, setShowForm }) {
-  let totalAssets = 0;
-  let totalLosses = 0;
-  let totalEquity = 0;
-
   return (
     <>
-      {showForm ? null : (
-        <div className="stats">
-          Assets: {totalAssets}
-          Losses: {totalLosses}
-          Equity: {totalEquity}
-          <NewRecord showForm={showForm} setShowForm={setShowForm} />
-        </div>
-      )}
+      <div className="header">
+        <NewRecord showForm={showForm} setShowForm={setShowForm} />
+
+        <SignIn showForm={showForm} setShowForm={setShowForm} />
+      </div>
     </>
   );
 }
