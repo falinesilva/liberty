@@ -40,28 +40,30 @@ function App() {
   return (
     // Is data loading from Supabase?
     <>
-      {isLoading ? (
-        <Loader />
-      ) : (
-        // Add Record Form
-        <>
-          <Header showForm={showForm} setShowForm={setShowForm} />
+      <div className="min-h-screen flex items-center justify-center bg-gray-100">
+        {isLoading ? (
+          <Loader />
+        ) : (
+          // Add Record Form
+          <>
+            <Header showForm={showForm} setShowForm={setShowForm} />
 
-          {showForm ? null : <Results />}
+            {showForm ? null : <Results />}
 
-          {showForm ? (
-            <ItemForm setItems={setItems} setShowForm={setShowForm} />
-          ) : null}
-          <ItemList
-            items={items}
-            setItems={setItems}
-            showForm={showForm}
-            setShowForm={setShowForm}
-          />
-        </>
-      )}
+            {showForm ? (
+              <ItemForm setItems={setItems} setShowForm={setShowForm} />
+            ) : null}
+            <ItemList
+              items={items}
+              setItems={setItems}
+              showForm={showForm}
+              setShowForm={setShowForm}
+            />
+          </>
+        )}
 
-      <Footer />
+        <Footer />
+      </div>
     </>
   );
 }

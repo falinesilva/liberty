@@ -1,7 +1,7 @@
-function NewRecord({ setShowForm }) {
+function NewRecord({ setShowForm, showForm }) {
   return (
     <button className="btn" onClick={() => setShowForm((show) => !show)}>
-      New
+      {showForm ? "New" : "X"}
     </button>
   );
 }

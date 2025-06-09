@@ -129,16 +129,9 @@ function ItemForm({ setItems, setShowForm }) {
       />
 
       {/* Submit Button */}
-      <div className="item-form-buttons">
+      <div>
         <button type="submit" className="btn" disabled={isUploading}>
           Submit
-        </button>
-        <button
-          type="button"
-          className="btn"
-          onClick={() => setShowForm(false)}
-        >
-          X
         </button>
       </div>
     </form>
