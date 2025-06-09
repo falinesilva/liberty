@@ -1,12 +1,11 @@
-import Item from "./Item";
+import Record from "./Record";
 import NewRecord from "./NewRecord";
 function ItemList({ showForm, setShowForm, items }) {
   return (
     <>
-      <NewRecord showForm={showForm} setShowForm={setShowForm} />
       <div className="item-list">
         {items.map((item) => (
-          <Item key={item.id} item={item} />
+          <Record key={item.id} item={item} />
         ))}
       </div>
     </>

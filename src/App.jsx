@@ -5,17 +5,19 @@ import { useEffect } from "react";
 import { useState } from "react";
 
 import Header from "./components/Header";
-import ItemList from "./components/ItemList";
-import Footer from "./components/Footer";
-import Loader from "./components/Loader";
 import ItemForm from "./components/ItemForm";
 
+import ItemList from "./components/ItemList";
+
+import Footer from "./components/Footer";
+import Loader from "./components/Loader";
+
 function App() {
+  // Show/Hide Form
   const [showForm, setShowForm] = useState(false);
+  // Display and Upload to Supabase
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-
-  // Upload to DB
   useEffect(function () {
     async function getItems() {
       setIsLoading(true);
@@ -35,15 +37,19 @@ function App() {
   }, []);
 
   return (
+    // Is data loading from Supabase?
     <>
       {isLoading ? (
         <Loader />
       ) : (
+        // Add Record Form
         <>
-          <Header showForm={showForm} setShowForm={setShowForm} />
           {showForm ? (
-            <ItemForm setItems={setItems} setShowMenu={setShowForm} />
+            <ItemForm setItems={setItems} setShowForm={setShowForm} />
           ) : null}
+
+          <Header showForm={showForm} setShowForm={setShowForm} />
+
           <ItemList
             items={items}
             setItems={setItems}

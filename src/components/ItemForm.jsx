@@ -142,6 +142,9 @@ function ItemForm({ setItems, setShowForm }) {
         <button type="submit" className="btn" disabled={isUploading}>
           Submit
         </button>
+        <button className="btn" onClick={() => setShowForm(false)}>
+          X
+        </button>
       </div>
     </form>
   );

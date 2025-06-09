@@ -1,14 +1,21 @@
-function Header() {
+import NewRecord from "./NewRecord";
+
+function Header({ showForm, setShowForm }) {
   let totalAssets = 0;
   let totalLosses = 0;
   let totalEquity = 0;
 
   return (
-    <div className="stats">
-      Assets: {totalAssets}
-      Losses: {totalLosses}
-      Assets: {totalEquity}
-    </div>
+    <>
+      {showForm ? null : (
+        <div className="stats">
+          Assets: {totalAssets}
+          Losses: {totalLosses}
+          Equity: {totalEquity}
+          <NewRecord showForm={showForm} setShowForm={setShowForm} />
+        </div>
+      )}
+    </>
   );
 }
 
