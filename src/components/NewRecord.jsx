@@ -1,7 +1,10 @@
 function NewRecord({ setShowForm, showForm }) {
   return (
-    <button className="btn" onClick={() => setShowForm((show) => !show)}>
-      {showForm ? "New" : "X"}
+    <button
+      className="btn-primary"
+      onClick={() => setShowForm((show) => !show)}
+    >
+      {!showForm ? "New" : "X"}
     </button>
   );
 }

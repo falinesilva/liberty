@@ -2,7 +2,7 @@ import Record from "./Record";
 function ItemList({ showForm, setShowForm, items }) {
   return (
     <>
-      <div className="item-list">
+      <div className="grid gap-4">
         {items.map((item) => (
           <Record key={item.id} item={item} />
         ))}

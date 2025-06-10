@@ -1,14 +1,16 @@
-import Delete from "./Delete";
+import DeleteButton from "./DeleteButton";
 function Item({ item }) {
   return (
     <>
-      <div className="item">
-        <span> {item.type}</span>
+      <div className="grid items-center grid-cols-4 bg-[#1B1B1D] opacity-80 rounded-md p-4 center">
+        <span className="justify-self-start">{item.type}</span>
 
-        <span className="left">{item.name}</span>
-        <span className="value">$ {item.value.toLocaleString()}</span>
-        <span className="right">
-          <Delete />
+        <span className="justify-self-start">{item.name}</span>
+        <span className="justify-self-end">
+          $ {item.value.toLocaleString()}
+        </span>
+        <span className="justify-self-center">
+          <DeleteButton />
         </span>
       </div>
     </>

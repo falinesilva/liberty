@@ -1,1 +1,21 @@
 @import "tailwindcss";
+
+@layer components {
+  .btn-primary {
+    border-radius: 9999px;
+    cursor: pointer;
+    background-color: #cbfe00;
+    color: #000000;
+    padding-inline: 1.25rem;
+    padding-block: 0.5rem;
+    margin: 0.5rem;
+    font-weight: 600;
+    transition: filter 0.2s ease, opacity 0.2s ease;
+    &:hover {
+      @media (hover: hover) {
+        filter: brightness(0.9); /* 👈 darkens the button slightly */
+        opacity: 0.9;
+      }
+    }
+  }
+}

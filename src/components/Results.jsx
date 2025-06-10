@@ -3,7 +3,7 @@ function Results({ showForm, setShowForm }) {
   let totalLosses = 2000;
   let totalEquity = 1100;
   return (
-    <div className="stats">
+    <div>
       Assets: {totalAssets}
       Losses: {totalLosses}
       Equity: {totalEquity}
