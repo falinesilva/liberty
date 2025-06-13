@@ -1,13 +1,18 @@
 import Record from "./Record";
 
-function RecordList({ records }) {
+import supabase from "../supabase";
+
+function RecordList({ records, setRecords }) {
+  async function handleDelete(id) {
+    await supabase.from("items").delete().eq("id", id);
+    setRecords((prev) => prev.filter((r) => r.id !== id));
+  }
+
   return (
     <>
-      <div className="text-sm grid gap-4">
-        {records.map((record) => (
-          <Record key={record.id} record={record} />
-        ))}
-      </div>
+      {records.map((record) => (
+        <Record key={record.id} record={record} onDelete={handleDelete} />
+      ))}
     </>
   );
 }

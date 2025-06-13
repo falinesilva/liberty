@@ -1,24 +1,17 @@
-import DeleteRecordButton from "./DeleteRecordButton";
-function Record({ record }) {
+function Record({ record, onDelete }) {
   return (
-    <>
-      <div className="grid items-center grid-cols-5 bg-[#252728] rounded-md p-4 center ml-2">
-        <span className="justify-self-center">
-          {(record?.status || "").toUpperCase()}
-        </span>
-
-        <span>{record.type}</span>
-
-        <span>{record.name}</span>
-        <span className="justify-self-start">
-          $ {record.value.toLocaleString()}
-        </span>
-
-        <span className="justify-self-center">
-          <DeleteRecordButton />
-        </span>
+    <div className="grid grid-cols-4 gap-4 p-2 items-center">
+      <span>{record.name}</span>
+      <span>{record.status}</span>
+      <span>{record.type}</span>
+      <div className="flex justify-between items-center">
+        <span>{record.value}</span>
+        <button className="btn-primary" onClick={() => onDelete(record.id)}>
+          Delete
+        </button>
       </div>
-    </>
+    </div>
   );
 }
+
 export default Record;
