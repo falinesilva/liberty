@@ -1,19 +1,24 @@
-import DeleteButton from "./DeleteButton";
-function Item({ item }) {
+import DeleteRecordButton from "./DeleteRecordButton";
+function Record({ record }) {
   return (
     <>
-      <div className="grid items-center grid-cols-4 bg-[#1B1B1D] opacity-80 rounded-md p-4 center">
-        <span className="justify-self-start">{item.type}</span>
-
-        <span className="justify-self-start">{item.name}</span>
-        <span className="justify-self-end">
-          $ {item.value.toLocaleString()}
-        </span>
+      <div className="grid items-center grid-cols-5 bg-[#252728] rounded-md p-4 center ml-2">
         <span className="justify-self-center">
-          <DeleteButton />
+          {(record?.status || "").toUpperCase()}
+        </span>
+
+        <span>{record.type}</span>
+
+        <span>{record.name}</span>
+        <span className="justify-self-start">
+          $ {record.value.toLocaleString()}
+        </span>
+
+        <span className="justify-self-center">
+          <DeleteRecordButton />
         </span>
       </div>
     </>
   );
 }
-export default Item;
+export default Record;

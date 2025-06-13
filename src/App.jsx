@@ -5,63 +5,71 @@ import { useEffect } from "react";
 import { useState } from "react";
 
 import Header from "./components/Header";
-import ItemForm from "./components/ItemForm";
-
-import ItemList from "./components/ItemList";
-
-import Footer from "./components/Footer";
 import Loader from "./components/Loader";
 import Results from "./components/Results";
+import AddRecordForm from "./components/AddRecordForm";
+import RecordList from "./components/RecordList";
+import Footer from "./components/Footer";
 
 function App() {
-  // Show/Hide Form
-  const [showForm, setShowForm] = useState(false);
-  // Display and Upload to Supabase
-  const [items, setItems] = useState([]);
+  // Show and Hide the AddRecordForm
+  const [showRecordForm, setShowRecordForm] = useState(false);
+
+  // Update the list of Records
+  const [records, setRecords] = useState([]);
+
+  // Display loading bar while waiting for supabase
   const [isLoading, setIsLoading] = useState(false);
+
+  // Fetch existing records from supabase
   useEffect(function () {
-    async function getItems() {
+    async function getRecords() {
       setIsLoading(true);
-      const { data: items, error } = await supabase
+      const { data: records, error } = await supabase
         .from("items")
         .select("*")
-        .order("value", { ascending: true })
-        .limit(500);
+        .order("created_at", { ascending: true })
+        .limit(500); // TODO: add paging
       if (error) {
-        alert("Error fetching items:", error.message);
+        alert("Error fetching records...", error.message);
       } else if (!error) {
-        setItems(items);
+        setRecords(records);
         setIsLoading(false);
       }
     }
-    getItems();
+    getRecords();
   }, []);
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-[#000000] via-[#0a0a0a] to-[#1a1a1a] text-white px-4">
-      <div className="w-full max-w-4xl p-8 sm:p-12 text-white rounded-2xl shadow-2xl text-lg">
+      <div className="w-full max-w-4xl p-8 sm:p-12 text-white rounded-2xl text-lg">
         <>
           {isLoading ? (
             <Loader />
           ) : (
-            // Add Record Form
             <>
-              <Header showForm={showForm} setShowForm={setShowForm} />
+              <Header
+                showRecordForm={showRecordForm}
+                setShowRecordForm={setShowRecordForm}
+              />
 
-              {showForm ? null : <Results />}
+              {showRecordForm ? (
+                <AddRecordForm
+                  setRecords={setRecords}
+                  setShowRecordForm={setShowRecordForm}
+                />
+              ) : (
+                <Results />
+              )}
 
-              {showForm ? (
-                <ItemForm setItems={setItems} setShowForm={setShowForm} />
-              ) : null}
-              <ItemList
-                items={items}
-                setItems={setItems}
-                showForm={showForm}
-                setShowForm={setShowForm}
+              <RecordList
+                records={records}
+                setRecords={setRecords}
+                showRecordForm={showRecordForm}
+                setShowRecordForm={setShowRecordForm}
               />
             </>
           )}
-
           <Footer />
         </>
       </div>

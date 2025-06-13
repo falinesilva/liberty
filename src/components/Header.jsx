@@ -1,12 +1,16 @@
 import NewRecord from "./NewRecord";
-import SignInButton from "./SignInButton";
+import logo from "./../assets/logo.png";
 
-function Header({ showForm, setShowForm }) {
+function Header({ showRecordForm, setShowRecordForm }) {
   return (
     <>
-      <div>
-        <SignInButton showForm={showForm} setShowForm={setShowForm} />
-        <NewRecord showForm={showForm} setShowForm={setShowForm} />{" "}
+      <div className="flex justify-between items-center">
+        <img src={logo} alt="Liberty Logo" className="h-12 w-auto" />{" "}
+        {/* Set height and maintain aspect ratio */}
+        <NewRecord
+          showRecordForm={showRecordForm}
+          setShowRecordForm={setShowRecordForm}
+        />{" "}
       </div>
     </>
   );

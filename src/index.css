@@ -2,20 +2,31 @@
 
 @layer components {
   .btn-primary {
-    border-radius: 9999px;
+    border-radius: 10px;
+    font-size: 16px;
     cursor: pointer;
     background-color: #cbfe00;
     color: #000000;
-    padding-inline: 1.25rem;
-    padding-block: 0.5rem;
+    padding-inline: 1rem;
+    padding-block: 0.4rem;
     margin: 0.5rem;
     font-weight: 600;
     transition: filter 0.2s ease, opacity 0.2s ease;
     &:hover {
       @media (hover: hover) {
-        filter: brightness(0.9); /* 👈 darkens the button slightly */
+        filter: brightness(0.9);
         opacity: 0.9;
       }
     }
+  }
+
+  .form-primary {
+    background-color: white;
+    color: black;
+    width: 100%;
+    padding: 4px;
+    border-radius: 4px;
+    margin: 6px;
+    font-size: 18px;
   }
 }

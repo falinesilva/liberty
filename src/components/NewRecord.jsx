@@ -1,10 +1,10 @@
-function NewRecord({ setShowForm, showForm }) {
+function NewRecord({ setShowRecordForm, showRecordForm }) {
   return (
     <button
-      className="btn-primary"
-      onClick={() => setShowForm((show) => !show)}
+      className="btn-primary text-lg text-center"
+      onClick={() => setShowRecordForm((show) => !show)}
     >
-      {!showForm ? "New" : "X"}
+      {!showRecordForm ? "Add" : "X"}
     </button>
   );
 }

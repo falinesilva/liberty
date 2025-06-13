@@ -1,4 +1,4 @@
-function Delete() {
+function DeleteRecord() {
   return <button className="btn-primary">Delete</button>;
 }
-export default Delete;
+export default DeleteRecord;
