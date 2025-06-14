@@ -1,20 +1,17 @@
 import { useState } from "react";
 import supabase from "../supabase";
 
-const ASSETS = [
-  { name: "Cash" },
-  { name: "Realty" },
-  { name: "Saving" },
-  { name: "Vehicle" },
-  { name: "Other" },
-];
+const TYPES = [
+  { name: "Cash", status: "Asset" },
+  { name: "Realty", status: "Asset" },
+  { name: "Saving", status: "Asset" },
+  { name: "Vehicle", status: "Asset" },
 
-const LIABILITIES = [
-  { name: "Bill" },
-  { name: "Credit" },
-  { name: "Loan" },
-  { name: "Tax" },
-  { name: "Other" },
+  { name: "Bill", status: "Loss" },
+  { name: "Credit", status: "Loss" },
+  { name: "Loan", status: "Loss" },
+  { name: "Tax", status: "Loss" },
+  { name: "Other", status: "Loss" },
 ];
 
 function AddRecordForm({ setRecords, setShowRecordForm }) {
@@ -30,13 +27,12 @@ function AddRecordForm({ setRecords, setShowRecordForm }) {
 
     const numericValue = parseFloat(value.replace(/[^0-9.]/g, ""));
 
-    if (!name || isNaN(numericValue) || !type || !status) {
+    if (!name || isNaN(numericValue) || !type) {
       setShowErrors(true);
       return;
     }
 
     setIsUploading(true);
-
     const { data, error } = await supabase
       .from("items")
       .insert([{ name, type, value: numericValue, status }])
@@ -55,7 +51,6 @@ function AddRecordForm({ setRecords, setShowRecordForm }) {
       setName("");
       setType("");
       setValue("");
-      setStatus("");
       setShowErrors(false);
     } else {
       alert("Item not returned from database.");
@@ -112,7 +107,11 @@ function AddRecordForm({ setRecords, setShowRecordForm }) {
         <select
           className="form-primary"
           value={type}
-          onChange={(e) => setType(e.target.value)}
+          onChange={(e) => {
+            setType(e.target.value);
+            const selected = TYPES.find((t) => t.name === e.target.value);
+            setStatus(selected.status);
+          }}
           disabled={isUploading}
           style={{
             ...(showErrors &&
@@ -124,39 +123,11 @@ function AddRecordForm({ setRecords, setShowRecordForm }) {
           <option value="" disabled>
             Type
           </option>
-          <optgroup label="Assets">
-            {ASSETS.map(({ name }) => (
-              <option key={name} value={name}>
-                {name}
-              </option>
-            ))}
-          </optgroup>
-          <optgroup label="Liabilities">
-            {LIABILITIES.map(({ name }) => (
-              <option key={name} value={name}>
-                {name}
-              </option>
-            ))}
-          </optgroup>
-        </select>
-
-        <select
-          className="form-primary"
-          value={status}
-          onChange={(e) => setStatus(e.target.value)}
-          disabled={isUploading}
-          style={{
-            ...(showErrors &&
-              !status && {
-                border: "4px solid #FA4A4A",
-              }),
-          }}
-        >
-          <option value="" disabled>
-            Status
-          </option>
-          <option value="Asset">Asset</option>
-          <option value="Loss">Loss</option>
+          {TYPES.map(({ name }) => (
+            <option key={name} value={name}>
+              {name}
+            </option>
+          ))}
         </select>
 
         <button type="submit" className="btn-primary" disabled={isUploading}>
