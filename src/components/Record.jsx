@@ -1,17 +1,26 @@
 function Record({ record, onDelete }) {
   return (
-    <div className="grid grid-cols-4 gap-4 p-2 items-center">
-      <span>{record.name}</span>
-      <span>{record.status}</span>
-      <span>{record.type}</span>
-      <div className="flex justify-between items-center">
-        <span>{record.value}</span>
-        <button className="btn-primary" onClick={() => onDelete(record.id)}>
+    <>
+      <div className="m-4 grid items-center grid-cols-5 bg-[#252728] rounded-md p-4 center text-xs">
+        <span className="justify-self-center">
+          {(record?.status || "").toUpperCase()}
+        </span>
+
+        <span className="justify-self-center">{record.type}</span>
+
+        <span className="justify-self-center">{record.name}</span>
+        <span className="justify-self-start">
+          $ {record.value.toLocaleString()}
+        </span>
+
+        <button
+          className="btn-primary text-xs p-1 w-h"
+          onClick={() => onDelete(record.id)}
+        >
           Delete
         </button>
       </div>
-    </div>
+    </>
   );
 }
-
 export default Record;

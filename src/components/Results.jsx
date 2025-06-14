@@ -1,5 +1,4 @@
 function Results() {
-  //TEMP
   let totalAssets = "5,000";
   let totalLosses = "2,000";
   let totalEquity = "1,100";

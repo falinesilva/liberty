@@ -29,7 +29,7 @@ function App() {
         .from("items")
         .select("*")
         .order("created_at", { ascending: true })
-        .limit(500); // TODO: add paging
+        .limit(100);
       if (error) {
         alert("Error fetching records...", error.message);
       } else if (!error) {
