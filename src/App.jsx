@@ -59,7 +59,7 @@ function App() {
                   setShowRecordForm={setShowRecordForm}
                 />
               ) : (
-                <Results />
+                <Results records={records} />
               )}
 
               <RecordList

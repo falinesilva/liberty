@@ -12,7 +12,6 @@ function Record({ record, onDelete }) {
         <span className="justify-self-start">
           $ {record.value.toLocaleString()}
         </span>
-
         <button
           className="btn-primary text-xs p-1 w-h"
           onClick={() => onDelete(record.id)}

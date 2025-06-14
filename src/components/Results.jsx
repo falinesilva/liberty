@@ -1,7 +1,13 @@
-function Results() {
-  let totalAssets = "5,000";
-  let totalLosses = "2,000";
-  let totalEquity = "1,100";
+function Results({ records }) {
+  let totalAssets = records
+    .filter((r) => r.status === "Asset")
+    .reduce((sum, r) => sum + r.value, 0);
+
+  let totalLosses = records
+    .filter((r) => r.status === "Loss")
+    .reduce((sum, r) => sum + r.value, 0);
+
+  let totalEquity = totalAssets - totalLosses;
 
   return (
     <>
