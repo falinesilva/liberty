@@ -9,7 +9,13 @@ function Record({ record, onDelete }) {
         <span className="justify-self-center">{record.type}</span>
         <span className="justify-self-center">{record.name}</span>
         <span className="justify-self-start">
-          <span className="text-lg">
+          <span
+            className={`text-lg ${
+              record.status.toLowerCase() === "asset"
+                ? "text-[#CCFF00]"
+                : "text-[#FA4A4A]"
+            }`}
+          >
             {record.status.toLowerCase() === "asset" ? "+" : "-"} $
             {record.value.toLocaleString()}
           </span>

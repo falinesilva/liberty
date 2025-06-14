@@ -8,10 +8,9 @@ const TYPES = [
   { name: "Vehicle", status: "Asset" },
 
   { name: "Bill", status: "Loss" },
-  { name: "Credit", status: "Loss" },
+  { name: "Credit Card", status: "Loss" },
   { name: "Loan", status: "Loss" },
   { name: "Tax", status: "Loss" },
-  { name: "Other", status: "Loss" },
 ];
 
 function AddRecordForm({ setRecords, setShowRecordForm }) {
