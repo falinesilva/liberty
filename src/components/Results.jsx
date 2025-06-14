@@ -15,18 +15,20 @@ function Results({ records }) {
         <div className="text-center bg-[#252728] text-white p-4 items-center rounded-2xl">
           Assets
           <br />
-          <span className="font-medium text-[#CCFF00]">$ {totalAssets}</span>
+          <span className="font-medium text-[#CCFF00]">
+            $ {totalAssets.toLocaleString()}
+          </span>
         </div>
         <div className="text-center bg-[#252728] text-white p-4 items-center rounded-2xl">
           Losses
           <span className="text-[#FA4A4A] font-medium">
-            <br />$ {totalLosses}
+            <br />$ {totalLosses.toLocaleString()}
           </span>
         </div>
         <div className="text-center font-medium bg-[#CCFF00] text-black p-4 items-center rounded-2xl">
           Equity
           <br />
-          <span className="font-bold">$ {totalEquity}</span>
+          <span className="font-bold">$ {totalEquity.toLocaleString()}</span>
         </div>
       </div>
     </>
