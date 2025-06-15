@@ -1,6 +1,6 @@
 # liberty
 
-A simple app that tracks your assets, losses, and equity.
+A simple app that tracks your assets, liabilities, and net worth.
 
 ---
 
