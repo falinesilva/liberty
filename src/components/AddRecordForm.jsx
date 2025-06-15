@@ -7,10 +7,10 @@ const TYPES = [
   { name: "Saving", status: "Asset" },
   { name: "Vehicle", status: "Asset" },
 
-  { name: "Bill", status: "Loss" },
-  { name: "Credit Card", status: "Loss" },
-  { name: "Loan", status: "Loss" },
-  { name: "Tax", status: "Loss" },
+  { name: "Bill", status: "Liability" },
+  { name: "Credit Card", status: "Liability" },
+  { name: "Loan", status: "Liability" },
+  { name: "Tax", status: "Liability" },
 ];
 
 function AddRecordForm({ setRecords, setShowRecordForm }) {

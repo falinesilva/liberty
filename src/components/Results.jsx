@@ -3,11 +3,11 @@ function Results({ records }) {
     .filter((r) => r.status === "Asset")
     .reduce((sum, r) => sum + r.value, 0);
 
-  let totalLosses = records
-    .filter((r) => r.status === "Loss")
+  let totalLiabilities = records
+    .filter((r) => r.status === "Liability")
     .reduce((sum, r) => sum + r.value, 0);
 
-  let totalEquity = totalAssets - totalLosses;
+  let totalNetWorth = totalAssets - totalLiabilities;
 
   return (
     <>
@@ -20,19 +20,19 @@ function Results({ records }) {
           </span>
         </div>
         <div className="text-center bg-[#252728] text-white p-4 items-center rounded-2xl">
-          Losses
+          Liabilities
           <span className="text-[#FA4A4A] font-medium">
-            <br />$ -{totalLosses.toLocaleString()}
+            <br />$ -{totalLiabilities.toLocaleString()}
           </span>
         </div>
         <div
           className={`text-center font-medium ${
-            totalEquity > 0 ? "bg-[#CCFF00]" : "bg-[#FA4A4A]"
+            totalNetWorth > 0 ? "bg-[#CCFF00]" : "bg-[#FA4A4A]"
           } text-black p-4 items-center rounded-2xl`}
         >
-          Equity
+          Net Worth
           <br />
-          <span className="font-bold">$ {totalEquity.toLocaleString()}</span>
+          <span className="font-bold">$ {totalNetWorth.toLocaleString()}</span>
         </div>
       </div>
     </>
