@@ -10,6 +10,7 @@ import Results from "./components/Results";
 import AddRecordForm from "./components/AddRecordForm";
 import RecordList from "./components/RecordList";
 import Footer from "./components/Footer";
+import AuthForm from "./AuthForm";
 
 function App() {
   // Show and Hide the AddRecordForm
@@ -48,6 +49,7 @@ function App() {
             <Loader />
           ) : (
             <>
+              <AuthForm />
               <Header
                 showRecordForm={showRecordForm}
                 setShowRecordForm={setShowRecordForm}
