@@ -32,9 +32,12 @@ function AddRecordForm({ setRecords, setShowRecordForm }) {
     }
 
     setIsUploading(true);
+
+    const user = (await supabase.auth.getUser()).data.user;
+
     const { data, error } = await supabase
       .from("items")
-      .insert([{ name, type, value: numericValue, status }])
+      .insert([{ name, type, value: numericValue, status, user_id: user.id }])
       .select();
 
     setIsUploading(false);
@@ -57,15 +60,15 @@ function AddRecordForm({ setRecords, setShowRecordForm }) {
   }
 
   return (
-    <div className="flex justify-center items-center mb-6">
+    <div className="flex items-center justify-center">
       <form
-        className="w-full max-w-lg p-6 gap-4 bg-[#252728] rounded-lg shadow-md"
+        className="w-full max-w-lg p-6 gap-4 bg-neutral-800 rounded-lg shadow-md"
         onSubmit={handleSubmit}
       >
         <input
           className="form-primary"
           type="text"
-          placeholder="Name"
+          placeholder="name"
           value={name}
           maxLength="30"
           onChange={(e) => setName(e.target.value)}
@@ -79,13 +82,15 @@ function AddRecordForm({ setRecords, setShowRecordForm }) {
             WebkitAppearance: "none",
           }}
         />
-        <div className="text-right text-sm text-red">{30 - name.length}</div>
+        <div className="text-right mb-4 text-sm text-red">
+          {30 - name.length}
+        </div>
 
         <input
           className="form-primary"
           type="text"
           maxLength="30"
-          placeholder="Value"
+          placeholder="value"
           value={value}
           onChange={(e) => {
             const raw = e.target.value.replace(/[^\d]/g, "");
@@ -120,7 +125,7 @@ function AddRecordForm({ setRecords, setShowRecordForm }) {
           }}
         >
           <option value="" disabled>
-            Type
+            type
           </option>
           {TYPES.map(({ name }) => (
             <option key={name} value={name}>

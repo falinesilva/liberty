@@ -1,8 +1,7 @@
 import supabase from "./supabase";
 import "./index.css";
 
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Header from "./components/Header";
 import Loader from "./components/Loader";
@@ -13,67 +12,97 @@ import Footer from "./components/Footer";
 import AuthForm from "./AuthForm";
 
 function App() {
-  // Show and Hide the AddRecordForm
+  const [user, setUser] = useState(null); // track logged-in user
+  const [showAuthForm, setShowAuthForm] = useState(true);
   const [showRecordForm, setShowRecordForm] = useState(false);
-
-  // Update the list of Records
   const [records, setRecords] = useState([]);
-
-  // Display loading bar while waiting for supabase
   const [isLoading, setIsLoading] = useState(false);
 
-  // Fetch existing records from supabase
-  useEffect(function () {
-    async function getRecords() {
-      setIsLoading(true);
-      const { data: records, error } = await supabase
-        .from("items")
-        .select("*")
-        .order("created_at", { ascending: true })
-        .limit(100);
-      if (error) {
-        alert("Error fetching records...", error.message);
-      } else if (!error) {
-        setRecords(records);
-        setIsLoading(false);
+  useEffect(() => {
+    async function loadUser() {
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+
+      setUser(user);
+      setShowAuthForm(!user);
+
+      if (user) {
+        fetchRecords(user.id);
       }
     }
-    getRecords();
+
+    loadUser();
+
+    const { data: listener } = supabase.auth.onAuthStateChange(
+      (_event, session) => {
+        const currentUser = session?.user ?? null;
+        setUser(currentUser);
+        setShowAuthForm(!currentUser);
+
+        if (currentUser) fetchRecords(currentUser.id);
+        else setRecords([]);
+      }
+    );
+
+    return () => listener.subscription.unsubscribe();
   }, []);
+
+  async function fetchRecords(userId) {
+    setIsLoading(true);
+    const { data: records, error } = await supabase
+      .from("items")
+      .select("*")
+      .eq("user_id", userId)
+      .order("created_at", { ascending: true })
+      .limit(100);
+
+    if (error) {
+      alert("Error fetching records: " + error.message);
+    } else {
+      setRecords(records);
+    }
+    setIsLoading(false);
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-[#000000] via-[#0a0a0a] to-[#1a1a1a] text-white px-4">
       <div className="w-full max-w-4xl p-8 sm:p-12 text-white rounded-2xl text-lg">
-        <>
-          {isLoading ? (
-            <Loader />
-          ) : (
-            <>
-              <AuthForm />
-              <Header
-                showRecordForm={showRecordForm}
-                setShowRecordForm={setShowRecordForm}
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <>
+            <Header
+              showRecordForm={showRecordForm}
+              setShowRecordForm={setShowRecordForm}
+            />
+
+            {showAuthForm ? (
+              <AuthForm
+                setShowAuthForm={setShowAuthForm}
+                showAuthForm={showAuthForm}
               />
+            ) : null}
 
-              {showRecordForm ? (
-                <AddRecordForm
-                  setRecords={setRecords}
-                  setShowRecordForm={setShowRecordForm}
-                />
-              ) : (
-                <Results records={records} />
-              )}
-
-              <RecordList
-                records={records}
+            {showRecordForm ? (
+              <AddRecordForm
                 setRecords={setRecords}
-                showRecordForm={showRecordForm}
                 setShowRecordForm={setShowRecordForm}
               />
-            </>
-          )}
-          <Footer />
-        </>
+            ) : (
+              <Results records={records} />
+            )}
+
+            <RecordList
+              records={records}
+              setRecords={setRecords}
+              showRecordForm={showRecordForm}
+              setShowRecordForm={setShowRecordForm}
+            />
+
+            <Footer />
+          </>
+        )}
       </div>
     </div>
   );
