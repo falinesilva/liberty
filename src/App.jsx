@@ -68,17 +68,15 @@ function App() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-[#000000] via-[#0a0a0a] to-[#1a1a1a] text-white px-4">
       <div className="w-full max-w-4xl p-8 sm:p-12 text-white rounded-2xl text-lg">
-        {isLoading ? (
+        {showAuthForm ? (
+          <AuthForm
+            setShowAuthForm={setShowAuthForm}
+            showAuthForm={showAuthForm}
+          />
+        ) : isLoading ? (
           <Loader />
         ) : (
           <>
-            {showAuthForm ? (
-              <AuthForm
-                setShowAuthForm={setShowAuthForm}
-                showAuthForm={showAuthForm}
-              />
-            ) : null}
-
             <Header
               user={user}
               setUser={setUser}
@@ -94,12 +92,14 @@ function App() {
             ) : (
               <Results records={records} />
             )}
+
             <RecordList
               records={records}
               setRecords={setRecords}
               showRecordForm={showRecordForm}
               setShowRecordForm={setShowRecordForm}
             />
+
             <Footer />
           </>
         )}
@@ -107,5 +107,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
