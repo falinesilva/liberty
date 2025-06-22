@@ -2,6 +2,11 @@ function Record({ record, onDelete }) {
   return (
     <>
       <div className="m-4 grid items-center grid-cols-5 bg-[#252728] rounded-md p-4 center text-sm">
+        <div className="justify-self-center">
+          <button className="btn-primary" onClick={() => onDelete(record.id)}>
+            Delete
+          </button>
+        </div>
         <span className="justify-self-center">
           {(record?.status || "").toUpperCase()}
         </span>
@@ -20,12 +25,6 @@ function Record({ record, onDelete }) {
             {record.value.toLocaleString()}
           </span>
         </span>
-        <button
-          className="btn-primary text-xs p-1 w-h"
-          onClick={() => onDelete(record.id)}
-        >
-          Delete
-        </button>
       </div>
     </>
   );

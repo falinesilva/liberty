@@ -19,7 +19,10 @@ export default function AuthForm() {
   return (
     <div className="flex items-center justify-center h-screen">
       <form className="w-full max-w-lg p-6 gap-4 bg-neutral-800 rounded-lg shadow-md">
-        <h1 className="text-center text-3xl p-4 mb-4">Welcome back</h1>
+        <h1 className="text-center text-3xl p-4 mb-4">
+          {isSignIn ? "Welcome back" : "Create your account"}
+        </h1>
+
         <input
           className="form-primary"
           placeholder="Email address"
@@ -37,13 +40,16 @@ export default function AuthForm() {
           autoComplete="current-password"
           onChange={(e) => setPassword(e.target.value)}
         />
+
         <div>
           <button className="btn-primary w-full" onClick={handleAuth}>
-            {isSignIn ? "Continue" : "Sign up"}
+            {isSignIn ? "Log in" : "Sign up"}
           </button>
           <br />
           <span className="flex justify-center hover:text- text-stone-50">
-            Don't have an account?&nbsp;
+            {!isSignIn
+              ? "Already have an account?\u00A0"
+              : "Don't have an account?\u00A0"}
             <button
               className="text-lime-400 hover:text-lime-600 hover:cursor-pointer"
               onClick={(e) => {
@@ -51,7 +57,7 @@ export default function AuthForm() {
                 setIsSignIn(!isSignIn);
               }}
             >
-              {isSignIn ? "Sign up" : "Continue"}
+              {!isSignIn ? "Log in" : "Sign up"}
             </button>
           </span>
         </div>

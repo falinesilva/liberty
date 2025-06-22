@@ -10,6 +10,7 @@ import AddRecordForm from "./components/AddRecordForm";
 import RecordList from "./components/RecordList";
 import Footer from "./components/Footer";
 import AuthForm from "./AuthForm";
+import NewRecord from "./components/NewRecord";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -67,7 +68,7 @@ function App() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-[#000000] via-[#0a0a0a] to-[#1a1a1a] text-white px-4">
-      <div className="w-full max-w-4xl p-8 sm:p-12 text-white rounded-2xl text-lg">
+      <div className="w-full max-w-4xl  text-white rounded-2xl text-lg">
         {showAuthForm ? (
           <AuthForm
             setShowAuthForm={setShowAuthForm}
@@ -92,7 +93,10 @@ function App() {
             ) : (
               <Results records={records} />
             )}
-
+            <NewRecord
+              showRecordForm={showRecordForm}
+              setShowRecordForm={setShowRecordForm}
+            />
             <RecordList
               records={records}
               setRecords={setRecords}

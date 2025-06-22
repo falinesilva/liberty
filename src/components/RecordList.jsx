@@ -10,9 +10,15 @@ function RecordList({ records, setRecords }) {
 
   return (
     <>
-      {records.map((record) => (
-        <Record key={record.id} record={record} onDelete={handleDelete} />
-      ))}
+      {records.length === 0 ? (
+        <h2 className="flex justify-center text-2xl">Nothing here yet...</h2>
+      ) : (
+        <>
+          {records.map((record) => (
+            <Record key={record.id} record={record} onDelete={handleDelete} />
+          ))}
+        </>
+      )}
     </>
   );
 }

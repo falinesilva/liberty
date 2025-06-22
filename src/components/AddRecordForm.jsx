@@ -60,7 +60,7 @@ function AddRecordForm({ setRecords, setShowRecordForm }) {
   }
 
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex items-center m-4 justify-center">
       <form
         className="w-full max-w-lg p-6 gap-4 bg-neutral-800 rounded-lg shadow-md"
         onSubmit={handleSubmit}
