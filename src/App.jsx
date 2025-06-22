@@ -12,7 +12,7 @@ import Footer from "./components/Footer";
 import AuthForm from "./AuthForm";
 
 function App() {
-  const [user, setUser] = useState(null); // track logged-in user
+  const [user, setUser] = useState(null);
   const [showAuthForm, setShowAuthForm] = useState(true);
   const [showRecordForm, setShowRecordForm] = useState(false);
   const [records, setRecords] = useState([]);
@@ -72,17 +72,19 @@ function App() {
           <Loader />
         ) : (
           <>
-            <Header
-              showRecordForm={showRecordForm}
-              setShowRecordForm={setShowRecordForm}
-            />
-
             {showAuthForm ? (
               <AuthForm
                 setShowAuthForm={setShowAuthForm}
                 showAuthForm={showAuthForm}
               />
             ) : null}
+
+            <Header
+              user={user}
+              setUser={setUser}
+              showRecordForm={showRecordForm}
+              setShowRecordForm={setShowRecordForm}
+            />
 
             {showRecordForm ? (
               <AddRecordForm
@@ -92,14 +94,12 @@ function App() {
             ) : (
               <Results records={records} />
             )}
-
             <RecordList
               records={records}
               setRecords={setRecords}
               showRecordForm={showRecordForm}
               setShowRecordForm={setShowRecordForm}
             />
-
             <Footer />
           </>
         )}

@@ -1,30 +1,13 @@
 @import "tailwindcss";
 
-@layer components {
-  .btn-primary {
-    border-radius: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #cbfe00;
-    color: #000000;
-    padding-inline: 1rem;
-    padding-block: 0.4rem;
-    margin: 0.5rem;
-    font-weight: 600;
-    transition: filter 0.2s ease, opacity 0.2s ease;
-    &:hover {
-      @media (hover: hover) {
-        filter: brightness(0.9);
-        opacity: 0.9;
-      }
-    }
-  }
+.btn-primary {
+  @apply rounded-full text-base cursor-pointer bg-lime-400 text-black px-4 py-2 m-2 font-semibold transition duration-200 hover:brightness-90 hover:opacity-90;
+}
 
-  .form-primary {
-    @apply mb-2;
-  }
+.form-primary {
+  @apply mb-2;
+}
 
-  .form-primary {
-    @apply flex w-full p-2 text-stone-950 bg-stone-200 rounded-md gap-4;
-  }
+.form-primary {
+  @apply flex w-full p-2 text-stone-950 bg-stone-200 rounded-md gap-4;
 }
