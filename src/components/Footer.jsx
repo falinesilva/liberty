@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <div className="flex justify-center items-center m-4 p-4 gap-2 text-sm text-white opacity-70">
+    <div className="bottom-0 left-0 w-full flex justify-center items-center m-4 p-4 gap-2 text-sm text-white opacity-70">
       <span>Built by Faline Silva</span>
       <span>|</span>
       <a

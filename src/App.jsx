@@ -3,6 +3,8 @@ import "./index.css";
 
 import { useEffect, useState } from "react";
 
+import { SnackbarProvider } from "./contexts/SnackbarContext";
+
 import Header from "./components/Header";
 import Loader from "./components/Loader";
 import Results from "./components/Results";
@@ -67,48 +69,50 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-[#000000] via-[#0a0a0a] to-[#1a1a1a] text-white px-4">
-      <div className="w-full max-w-4xl  text-white rounded-2xl text-lg">
-        {showAuthForm ? (
-          <AuthForm
-            setShowAuthForm={setShowAuthForm}
-            showAuthForm={showAuthForm}
-          />
-        ) : isLoading ? (
-          <Loader />
-        ) : (
-          <>
-            <Header
-              user={user}
-              setUser={setUser}
-              showRecordForm={showRecordForm}
-              setShowRecordForm={setShowRecordForm}
+    <SnackbarProvider>
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-[#000000] via-[#0a0a0a] to-[#1a1a1a] text-white px-4">
+        <div className="w-full max-w-4xl  text-white rounded-2xl text-lg">
+          {showAuthForm ? (
+            <AuthForm
+              setShowAuthForm={setShowAuthForm}
+              showAuthForm={showAuthForm}
             />
-
-            {showRecordForm ? (
-              <AddRecordForm
-                setRecords={setRecords}
+          ) : isLoading ? (
+            <Loader />
+          ) : (
+            <>
+              <Header
+                user={user}
+                setUser={setUser}
+                showRecordForm={showRecordForm}
                 setShowRecordForm={setShowRecordForm}
               />
-            ) : (
-              <Results records={records} />
-            )}
-            <NewRecord
-              showRecordForm={showRecordForm}
-              setShowRecordForm={setShowRecordForm}
-            />
-            <RecordList
-              records={records}
-              setRecords={setRecords}
-              showRecordForm={showRecordForm}
-              setShowRecordForm={setShowRecordForm}
-            />
 
-            <Footer />
-          </>
-        )}
+              {showRecordForm ? (
+                <AddRecordForm
+                  setRecords={setRecords}
+                  setShowRecordForm={setShowRecordForm}
+                />
+              ) : (
+                <Results records={records} />
+              )}
+              <NewRecord
+                showRecordForm={showRecordForm}
+                setShowRecordForm={setShowRecordForm}
+              />
+              <RecordList
+                records={records}
+                setRecords={setRecords}
+                showRecordForm={showRecordForm}
+                setShowRecordForm={setShowRecordForm}
+              />
+
+              <Footer />
+            </>
+          )}
+        </div>
       </div>
-    </div>
+    </SnackbarProvider>
   );
 }
 export default App;
