@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 export default function AuthForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [display_name, setDisplayName] = useState("");
   const [isSignIn, setIsSignIn] = useState(true);
   const showSnackbar = useSnackbar();
 
@@ -15,7 +16,15 @@ export default function AuthForm() {
     e.preventDefault();
     const { error } = isSignIn
       ? await supabase.auth.signInWithPassword({ email, password })
-      : await supabase.auth.signUp({ email, password });
+      : await supabase.auth.signUp({
+          email,
+          password,
+          options: {
+            data: {
+              display_name,
+            },
+          },
+        });
 
     if (error) showSnackbar(error.message);
     else showSnackbar(isSignIn ? null : "Check your email to confirm");
@@ -28,7 +37,16 @@ export default function AuthForm() {
           <h1 className="text-center text-3xl p-4 mb-4">
             {isSignIn ? "Welcome back" : "Create your account"}
           </h1>
-
+          {!isSignIn ? (
+            <input
+              className="form-primary"
+              placeholder="Username"
+              type="username"
+              id="username"
+              autoComplete="username"
+              onChange={(e) => setDisplayName(e.target.value)}
+            ></input>
+          ) : null}
           <input
             className="form-primary"
             placeholder="Email address"

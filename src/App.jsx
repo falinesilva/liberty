@@ -16,6 +16,8 @@ import NewRecord from "./components/NewRecord";
 
 function App() {
   const [user, setUser] = useState(null);
+  const [displayName, setDisplayName] = useState("");
+
   const [showAuthForm, setShowAuthForm] = useState(true);
   const [showRecordForm, setShowRecordForm] = useState(false);
   const [records, setRecords] = useState([]);
@@ -53,6 +55,11 @@ function App() {
 
   async function fetchRecords(userId) {
     setIsLoading(true);
+
+    const { data: userData, error: userError } = await supabase.auth.getUser();
+    const displayName = userData?.user?.user_metadata?.display_name;
+    if (displayName) setDisplayName(displayName);
+
     const { data: records, error } = await supabase
       .from("items")
       .select("*")
@@ -81,12 +88,7 @@ function App() {
             <Loader />
           ) : (
             <>
-              <Header
-                user={user}
-                setUser={setUser}
-                showRecordForm={showRecordForm}
-                setShowRecordForm={setShowRecordForm}
-              />
+              <Header user={user} displayName={displayName} />
 
               {showRecordForm ? (
                 <AddRecordForm

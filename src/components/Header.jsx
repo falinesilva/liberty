@@ -4,11 +4,11 @@ async function signOut() {
   await supabase.auth.signOut();
 }
 
-function Header({ user }) {
+function Header({ user, displayName }) {
   return (
     <>
       <div className="flex justify-between items-center">
-        <div>{user.email}</div>
+        <div>{displayName}</div>
 
         <button className="btn-primary" onClick={signOut}>
           {user ? "Sign Out" : "Log in"}
