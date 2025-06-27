@@ -28,9 +28,21 @@ export default function AuthForm() {
           },
         });
 
-    if (error) showSnackbar(error.message);
-    // TODO: Handle missing email, password, or username (not phone) in snackbar.
-    else showSnackbar(isSignIn ? null : "Check your email to confirm");
+    if (error) {
+      let customMessage = error.message;
+
+      if (customMessage === "Missing email or phone") {
+        customMessage = "Missing email";
+      } else if (customMessage === "Anonymous sign-ins are disabled") {
+        customMessage = "Missing email";
+      } else if (customMessage === "missing email or phone") {
+        customMessage = "Missing email";
+      }
+
+      showSnackbar(customMessage);
+    } else {
+      showSnackbar(isSignIn ? null : "Check your email to confirm");
+    }
   };
 
   return (

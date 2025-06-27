@@ -1,3 +1,12 @@
+// TODO: Update snackbar errors for add record form
+// Add margin to Footer
+// Add sidebar menu for username, sign out, light/dark mode and routes to other apps (buy,pay), and changelog with version number
+// Improve readme and add license file
+// Add toon for empty list placeholders
+// Improve loading bar styling with animation
+// Re-scaffold to next.js (before building out buy/pay apps)
+// Implement TypeScript
+
 import supabase from "./supabase";
 import "./index.css";
 
