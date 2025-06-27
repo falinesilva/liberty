@@ -1,22 +1,28 @@
 import supabase from "../supabase";
 
-import { ReactComponent as Logo } from "../assets/Logo.svg";
+import { ReactComponent as LogoSmall } from "../assets/LogoSmall.svg";
 
 async function signOut() {
   await supabase.auth.signOut();
 }
 
-function Header({ user }) {
+function Header({ user, displayName }) {
   return (
+    // TODO: Add title and alt to SVG logo for accessibility
     <>
-      <div className="flex justify-between items-center">
-        <Logo className="h-10 w-auto fill-current text-slate-50" />
+      <div className="m-4 flex justify-between items-center text-xl">
+        <LogoSmall className="m-2 h-12 w-auto fill-current" />
 
-        <div>{user.email}</div>
+        <div className="m-4 text-xl">
+          {displayName}
 
-        <button className="btn-primary" onClick={signOut}>
-          {user ? "Sign Out" : "Log in"}
-        </button>
+          <button
+            className="text-blue-500 uppercase text-sm m-2 hover:opacity-50 cursor-pointer"
+            onClick={signOut}
+          >
+            Sign Out
+          </button>
+        </div>
       </div>
     </>
   );

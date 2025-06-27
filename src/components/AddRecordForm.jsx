@@ -62,7 +62,7 @@ function AddRecordForm({ setRecords, setShowRecordForm }) {
   return (
     <div className="flex items-center m-4 justify-center">
       <form
-        className="w-full max-w-lg p-6 gap-4 bg-neutral-800 rounded-lg shadow-md"
+        className="w-full max-w-lg p-6 gap-4 bg-slate-800 rounded-lg shadow-md"
         onSubmit={handleSubmit}
       >
         <input
@@ -76,15 +76,14 @@ function AddRecordForm({ setRecords, setShowRecordForm }) {
           style={{
             ...(showErrors && {
               border: "4px solid #FA4A4A",
+              // TODO: Switch to snackbar notification
             }),
             appearance: "textfield",
             MozAppearance: "textfield",
             WebkitAppearance: "none",
           }}
         />
-        <div className="text-right mb-4 text-sm text-red">
-          {30 - name.length}
-        </div>
+        <div className="text-right mb-4 text-sm">{30 - name.length}</div>
 
         <input
           className="form-primary"
@@ -102,6 +101,7 @@ function AddRecordForm({ setRecords, setShowRecordForm }) {
               isNaN(parseFloat(value.replace(/[^0-9.]/g, ""))) && {
                 border: "4px solid #FA4A4A",
               }),
+            // TODO: Switch to snackbar notification
             appearance: "textfield",
             MozAppearance: "textfield",
             WebkitAppearance: "none",
@@ -122,6 +122,7 @@ function AddRecordForm({ setRecords, setShowRecordForm }) {
               !type && {
                 border: "4px solid #FA4A4A",
               }),
+            // TODO: Switch to snackbar notification
           }}
         >
           <option value="" disabled>

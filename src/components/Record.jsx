@@ -1,7 +1,7 @@
 function Record({ record, onDelete }) {
   return (
     <>
-      <div className="m-4 grid items-center grid-cols-5 bg-[#252728] rounded-md p-4 center text-sm">
+      <div className="m-4 grid items-center grid-cols-5 bg-slate-900 rounded-md p-4 center text-sm">
         <div className="justify-self-center">
           <button className="btn-primary" onClick={() => onDelete(record.id)}>
             Delete
@@ -17,8 +17,8 @@ function Record({ record, onDelete }) {
           <span
             className={`text-lg ${
               record.status.toLowerCase() === "asset"
-                ? "text-[#CCFF00]"
-                : "text-[#FA4A4A]"
+                ? "text-blue-400"
+                : "text-red-400"
             }`}
           >
             {record.status.toLowerCase() === "asset" ? "+" : "-"} $

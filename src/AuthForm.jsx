@@ -5,6 +5,8 @@ import supabase from "./supabase";
 
 import Footer from "./components/Footer";
 
+import { ReactComponent as Logo } from "./assets/Logo.svg";
+
 export default function AuthForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -27,14 +29,19 @@ export default function AuthForm() {
         });
 
     if (error) showSnackbar(error.message);
+    // TODO: Handle missing email, password, or username (not phone) in snackbar.
     else showSnackbar(isSignIn ? null : "Check your email to confirm");
   };
 
   return (
+    // TODO: Add title and alt to SVG logo for accessibility
+
     <>
-      <div className="flex items-center justify-center h-screen">
-        <form className="w-full max-w-lg p-6 gap-4 bg-neutral-800 rounded-lg shadow-md">
-          <h1 className="text-center text-3xl p-4 mb-4">
+      <div className="flex flex-col items-center justify-center h-screen">
+        <form className="w-full max-w-lg p-6 gap-4 bg-slate-800 rounded-lg shadow-md">
+          <Logo className=" m-auto h-16 w-auto items-center fill-current text-slate-50" />
+
+          <h1 className="text-center text-2xl p-4 mb-4">
             {isSignIn ? "Welcome back" : "Create your account"}
           </h1>
           {!isSignIn ? (
@@ -70,12 +77,12 @@ export default function AuthForm() {
               {isSignIn ? "Log in" : "Sign up"}
             </button>
             <br />
-            <span className="flex justify-center hover:text- text-stone-50">
+            <span className="flex justify-center hover:text- text-slate-50">
               {!isSignIn
                 ? "Already have an account?\u00A0"
                 : "Don't have an account?\u00A0"}
               <button
-                className="text-lime-400 hover:text-lime-600 hover:cursor-pointer"
+                className="text-blue-500 hover:text-blue-700 hover:cursor-pointer"
                 onClick={(e) => {
                   e.preventDefault();
                   setIsSignIn(!isSignIn);

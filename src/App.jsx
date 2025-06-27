@@ -77,8 +77,8 @@ function App() {
 
   return (
     <SnackbarProvider>
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-[#000000] via-[#0a0a0a] to-[#1a1a1a] text-white px-4">
-        <div className="w-full max-w-4xl  text-white rounded-2xl text-lg">
+      <div className="min-h-screen flex items-center justify-center bg-slate-950 text-slate-50 px-4">
+        <div className="w-full max-w-4xl  text-slate-50 rounded-2xl text-lg">
           {showAuthForm ? (
             <AuthForm
               setShowAuthForm={setShowAuthForm}

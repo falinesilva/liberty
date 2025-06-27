@@ -1,13 +1,13 @@
 function Footer() {
   return (
-    <div className="bottom-0 left-0 w-full flex justify-center items-center m-4 p-4 gap-2 text-sm text-white opacity-70">
+    <div className="bottom-0 left-0 w-full flex justify-center items-center m-4 p-4 gap-2 text-sm text-slate-50 opacity-70">
       <span>Built by Faline Silva</span>
       <span>|</span>
       <a
         href="https://github.com/falinesilva"
-        className="cursor-pointer hover:underline"
-        onMouseEnter={(e) => (e.target.style.color = "#A3CC01")}
-        onMouseLeave={(e) => (e.target.style.color = "")}
+        target="blank"
+        rel="noopener noreferrer"
+        className="cursor-pointer hover:underline hover:text-blue-400"
       >
         Github
       </a>

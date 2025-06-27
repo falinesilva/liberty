@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 .btn-primary {
-  @apply rounded-full text-base cursor-pointer bg-lime-400 text-black px-4 py-2 m-2 font-semibold transition duration-200 hover:brightness-90 hover:opacity-90;
+  @apply rounded-full text-base cursor-pointer bg-blue-700 text-slate-50 px-4 py-2 m-2 font-semibold transition duration-200 hover:brightness-80;
 }
 
 .form-primary {
@@ -9,5 +9,5 @@
 }
 
 .form-primary {
-  @apply flex w-full p-2 text-stone-950 bg-stone-200 rounded-md gap-4;
+  @apply flex w-full p-2 text-slate-950 bg-slate-50 rounded-md gap-4;
 }

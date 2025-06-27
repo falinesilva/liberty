@@ -14,7 +14,7 @@ export function SnackbarProvider({ children }) {
     <SnackbarContext.Provider value={showSnackbar}>
       {children}
       {message && (
-        <div className="fixed top-4 right-4 z-50 bg-[#FA4A4A] p-4 rounded-sm text-neutral-50 shadow-md">
+        <div className="fixed top-4 right-4 z-50 bg-red-500 p-4 rounded-sm text-slate-50 shadow-md">
           <span className="bg-"></span>
           <div className="drop-shadow-sm">{message}</div>
         </div>
