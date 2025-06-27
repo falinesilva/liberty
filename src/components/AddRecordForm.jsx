@@ -1,5 +1,6 @@
 import { useState } from "react";
 import supabase from "../supabase";
+import { useSnackbar } from "../contexts/SnackbarContext";
 
 const TYPES = [
   { name: "Cash", status: "Asset" },
@@ -20,6 +21,7 @@ function AddRecordForm({ setRecords, setShowRecordForm }) {
   const [status, setStatus] = useState("");
   const [isUploading, setIsUploading] = useState(false);
   const [showErrors, setShowErrors] = useState(false);
+  const showSnackbar = useSnackbar();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -27,6 +29,7 @@ function AddRecordForm({ setRecords, setShowRecordForm }) {
     const numericValue = parseFloat(value.replace(/[^0-9.]/g, ""));
 
     if (!name || isNaN(numericValue) || !type) {
+      showSnackbar("Missing information");
       setShowErrors(true);
       return;
     }
@@ -66,18 +69,16 @@ function AddRecordForm({ setRecords, setShowRecordForm }) {
         onSubmit={handleSubmit}
       >
         <input
-          className="form-primary"
+          className={`form-primary ${
+            showErrors ? "form-error" : "border-transparent"
+          }`}
           type="text"
-          placeholder="name"
+          placeholder="Name"
           value={name}
           maxLength="30"
           onChange={(e) => setName(e.target.value)}
           disabled={isUploading}
           style={{
-            ...(showErrors && {
-              border: "4px solid #FA4A4A",
-              // TODO: Switch to snackbar notification
-            }),
             appearance: "textfield",
             MozAppearance: "textfield",
             WebkitAppearance: "none",
@@ -86,10 +87,12 @@ function AddRecordForm({ setRecords, setShowRecordForm }) {
         <div className="text-right mb-4 text-sm">{30 - name.length}</div>
 
         <input
-          className="form-primary"
+          className={`form-primary ${
+            showErrors ? "form-error" : "border-transparent"
+          }`}
           type="text"
           maxLength="30"
-          placeholder="value"
+          placeholder="Value"
           value={value}
           onChange={(e) => {
             const raw = e.target.value.replace(/[^\d]/g, "");
@@ -97,11 +100,6 @@ function AddRecordForm({ setRecords, setShowRecordForm }) {
           }}
           disabled={isUploading}
           style={{
-            ...(showErrors &&
-              isNaN(parseFloat(value.replace(/[^0-9.]/g, ""))) && {
-                border: "4px solid #FA4A4A",
-              }),
-            // TODO: Switch to snackbar notification
             appearance: "textfield",
             MozAppearance: "textfield",
             WebkitAppearance: "none",
@@ -109,7 +107,9 @@ function AddRecordForm({ setRecords, setShowRecordForm }) {
         />
 
         <select
-          className="form-primary"
+          className={`form-primary ${
+            showErrors ? "form-error" : "border-transparent"
+          } ${type === "" ? "!text-slate-500" : "text-black"}`}
           value={type}
           onChange={(e) => {
             setType(e.target.value);
@@ -117,16 +117,9 @@ function AddRecordForm({ setRecords, setShowRecordForm }) {
             setStatus(selected.status);
           }}
           disabled={isUploading}
-          style={{
-            ...(showErrors &&
-              !type && {
-                border: "4px solid #FA4A4A",
-              }),
-            // TODO: Switch to snackbar notification
-          }}
         >
-          <option value="" disabled>
-            type
+          <option value="" disabled hidden>
+            Type
           </option>
           {TYPES.map(({ name }) => (
             <option key={name} value={name}>
