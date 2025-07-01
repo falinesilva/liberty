@@ -1,6 +1,6 @@
 function NewRecord({ setShowRecordForm, showRecordForm }) {
   return (
-    <div className="flex justify-end m-4">
+    <div className="flex justify-end">
       <button
         className="btn-primary text-lg text-center"
         onClick={() => setShowRecordForm((show) => !show)}

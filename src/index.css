@@ -1,13 +1,29 @@
 @import "tailwindcss";
 
+@theme {
+  --breakpoint-xxs: 30rem;
+}
+
 .btn-primary {
-  @apply rounded-full text-base cursor-pointer bg-blue-700 text-slate-50 px-4 py-2 m-2 font-semibold transition duration-200 hover:brightness-80;
+  @apply rounded-md text-center text-sm m-2 cursor-pointer bg-blue-700 text-slate-50 px-2 py-2 font-semibold transition duration-200 hover:brightness-80;
 }
 
 .form-primary {
-  @apply mb-2 border-2 border-transparent flex w-full p-2 text-slate-950 bg-slate-50 rounded-md gap-4 placeholder-slate-500;
+  @apply mb-2 border-2 border-transparent w-full p-2 text-slate-950 bg-slate-50 rounded-md placeholder-slate-500;
 }
 
 .form-error {
   @apply border-red-400;
+}
+
+.result {
+  @apply grid text-lg tracking-wider text-center bg-slate-900 text-slate-50 p-4 items-center rounded-2xl w-70 m-auto;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  height: 100%;
 }

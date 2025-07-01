@@ -1,19 +1,21 @@
 function Record({ record, onDelete }) {
   return (
     <>
-      <div className="m-4 grid items-center grid-cols-5 bg-slate-900 rounded-md p-4 center text-sm">
+      <div className="m-2 grid gap-x-4 items-center grid-cols-5 max-xxs:grid-cols-3 bg-slate-900 rounded-md p-2 center text-sm">
         <div className="justify-self-center">
           <button className="btn-primary" onClick={() => onDelete(record.id)}>
-            Delete
+            DELETE
           </button>
         </div>
-        <span className="justify-self-center">
+        <span className="justify-self-center max-xxs:hidden">
           {(record?.status || "").toUpperCase()}
         </span>
 
-        <span className="justify-self-center">{record.type}</span>
+        <span className="justify-self-center max-xxs:hidden">
+          {record.type}
+        </span>
         <span className="justify-self-center">{record.name}</span>
-        <span className="justify-self-start">
+        <span className="justify-self-end p-2">
           <span
             className={`text-lg ${
               record.status.toLowerCase() === "asset"

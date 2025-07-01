@@ -49,14 +49,15 @@ export default function AuthForm() {
     // TODO: Add title and alt to SVG logo for accessibility
 
     <>
-      <div className="flex flex-col items-center justify-center h-screen">
-        <form className="w-full max-w-lg p-6 gap-4 bg-slate-800 rounded-lg shadow-md">
-          <Logo className=" m-auto h-16 w-auto items-center fill-current text-slate-50" />
+      <div className="overflow:hidden flex flex-col items-center justify-center h-screen">
+        <form className="flex flex-col w-full max-w-lg p-6 bg-slate-800 rounded-lg shadow-md">
+          <Logo className="mb-4 m-auto h-16 w-auto fill-current text-slate-50" />
 
-          <h1 className="text-center text-2xl p-4 mb-4">
+          <h1 className="text-center text-2xl mb-4">
             {isSignIn ? "Welcome back" : "Create your account"}
           </h1>
-          {!isSignIn ? (
+
+          {!isSignIn && (
             <input
               className="form-primary"
               placeholder="Username"
@@ -64,8 +65,9 @@ export default function AuthForm() {
               id="username"
               autoComplete="username"
               onChange={(e) => setDisplayName(e.target.value)}
-            ></input>
-          ) : null}
+            />
+          )}
+
           <input
             className="form-primary"
             placeholder="Email address"
@@ -74,6 +76,7 @@ export default function AuthForm() {
             autoComplete="email"
             onChange={(e) => setEmail(e.target.value)}
           />
+
           <input
             className="form-primary"
             placeholder="Password"
@@ -84,15 +87,15 @@ export default function AuthForm() {
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          <div>
+          <div className="flex flex-col w-full items-center">
             <button className="btn-primary w-full" onClick={handleAuth}>
               {isSignIn ? "Log in" : "Sign up"}
             </button>
-            <br />
-            <span className="flex justify-center hover:text- text-slate-50">
+
+            <span className="text-slate-50 text-sm">
               {!isSignIn
-                ? "Already have an account?\u00A0"
-                : "Don't have an account?\u00A0"}
+                ? "Already have an account? "
+                : "Don't have an account? "}
               <button
                 className="text-blue-500 hover:text-blue-700 hover:cursor-pointer"
                 onClick={(e) => {

@@ -10,27 +10,27 @@ function Results({ records }) {
   let totalNetWorth = totalAssets - totalLiabilities;
 
   return (
-    // TODO: Refactor repeated logic into a reusable <Results /> component.
     <>
-      <div className="flex justify-center columns-3 gap-5 m-4">
-        <div className="text-center bg-slate-900 text-slate-50 p-4 items-center rounded-2xl">
-          Assets
+      <div className="flex justify-center columns-3 gap-5 m-4 max-xxs:grid max-xxs:grid-cols-1">
+        <div className="result max-xxs:!hidden">
+          ASSETS
           <br />
-          <span className="font-medium text-blue-400">
-            $ +{totalAssets.toLocaleString()}
+          <span className="font-medium text-blue-400 text-xl">
+            $ {totalAssets.toLocaleString()}
           </span>
         </div>
-        <div className="text-center bg-slate-900 text-slate-50 p-4 items-center rounded-2xl">
-          Liabilities
-          <span className="text-red-400 font-medium">
-            <br />$ -{totalLiabilities.toLocaleString()}
+        <div className="result max-xxs:!hidden">
+          LIABILITIES
+          <br />
+          <span className="text-red-400 font-medium text-xl">
+            - $ {totalLiabilities.toLocaleString()}
           </span>
         </div>
-        <div className="text-center text-xl bg-slate-900 text-slate-50 p-4 items-center rounded-2xl">
-          Net Worth
+        <div className="result">
+          NET WORTH
           <br />
           <span
-            className={`font-bold ${
+            className={`text-xl font-bold ${
               totalNetWorth > 0 ? "text-amber-200" : "text-red-400"
             }`}
           >
