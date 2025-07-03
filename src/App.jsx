@@ -77,8 +77,8 @@ function App() {
 
   return (
     <SnackbarProvider>
-      <div className="min-h-screen flex items-center justify-center bg-slate-950 text-slate-50 px-4">
-        <div className="w-full max-w-4xl  text-slate-50 rounded-2xl text-lg">
+      <div className="cursor-default min-h-screen bg-slate-950 text-slate-50 flex justify-center">
+        <div className="w-full max-w-4xl text-slate-50 rounded-2xl text-lg">
           {showAuthForm ? (
             <AuthForm
               setShowAuthForm={setShowAuthForm}
@@ -88,7 +88,13 @@ function App() {
             <Loader />
           ) : (
             <>
-              <Header user={user} displayName={displayName} />
+              <Header
+                showRecordForm={showRecordForm}
+                setShowRecordForm={setShowRecordForm}
+                NewRecord={NewRecord}
+                user={user}
+                displayName={displayName}
+              />
 
               {showRecordForm ? (
                 <AddRecordForm
@@ -98,10 +104,6 @@ function App() {
               ) : (
                 <Results records={records} />
               )}
-              <NewRecord
-                showRecordForm={showRecordForm}
-                setShowRecordForm={setShowRecordForm}
-              />
               <RecordList
                 records={records}
                 setRecords={setRecords}

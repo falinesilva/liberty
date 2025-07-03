@@ -1,11 +1,11 @@
 function NewRecord({ setShowRecordForm, showRecordForm }) {
   return (
-    <div className="flex justify-end">
+    <div>
       <button
-        className="btn-primary text-lg text-center"
+        className="btn-primary max-xxs:!text-xs"
         onClick={() => setShowRecordForm((show) => !show)}
       >
-        {!showRecordForm ? "Add item" : "Cancel"}
+        + Add record
       </button>
     </div>
   );

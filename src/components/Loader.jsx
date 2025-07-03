@@ -1,8 +1,14 @@
+import { ReactComponent as Logo } from "../assets/LogoSmall.svg";
+
 function Loader() {
   return (
-    <p className="flex justify-center m-4" style={{ margin: "50px" }}>
-      Loading...
-    </p>
+    <>
+      <div className="flex flex-col gap-8 items-center justify-center h-screen">
+        <Logo className="h-16" />
+
+        <div className="loader"></div>
+      </div>
+    </>
   );
 }
 

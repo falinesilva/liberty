@@ -63,9 +63,9 @@ function AddRecordForm({ setRecords, setShowRecordForm }) {
   }
 
   return (
-    <div className="flex items-center m-4 justify-center">
+    <div className="flex items-center mb-4 justify-center px-4">
       <form
-        className="w-full max-w-lg p-6 gap-4 bg-slate-800 rounded-lg shadow-md"
+        className="w-full max-w-lg p-4 bg-slate-800 rounded-lg shadow-md"
         onSubmit={handleSubmit}
       >
         <input
@@ -127,10 +127,17 @@ function AddRecordForm({ setRecords, setShowRecordForm }) {
             </option>
           ))}
         </select>
-
-        <button type="submit" className="btn-primary" disabled={isUploading}>
-          Submit
-        </button>
+        <div className="justify-self-center">
+          <button type="submit" className="btn-primary" disabled={isUploading}>
+            Submit
+          </button>
+          <button
+            className="btn-primary"
+            onClick={() => setShowRecordForm((show) => !show)}
+          >
+            Cancel
+          </button>
+        </div>
       </form>
     </div>
   );

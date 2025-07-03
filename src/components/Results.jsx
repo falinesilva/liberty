@@ -11,26 +11,26 @@ function Results({ records }) {
 
   return (
     <>
-      <div className="flex justify-center columns-3 gap-5 m-4 max-xxs:grid max-xxs:grid-cols-1">
-        <div className="result max-xxs:!hidden">
+      <div className="flex justify-center columns-3 gap-5 mb-4 px-4">
+        <div className="result max-xxs:!text-xs">
           ASSETS
           <br />
-          <span className="font-medium text-blue-400 text-xl">
+          <span className="text-blue-400">
             $ {totalAssets.toLocaleString()}
           </span>
         </div>
-        <div className="result max-xxs:!hidden">
+        <div className="result max-xxs:!text-xs">
           LIABILITIES
           <br />
-          <span className="text-red-400 font-medium text-xl">
+          <span className="text-red-400">
             - $ {totalLiabilities.toLocaleString()}
           </span>
         </div>
-        <div className="result">
+        <div className="result max-xxs:!text-xs">
           NET WORTH
           <br />
           <span
-            className={`text-xl font-bold ${
+            className={`font-bold ${
               totalNetWorth > 0 ? "text-amber-200" : "text-red-400"
             }`}
           >

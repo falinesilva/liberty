@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <div className="text-sm max-xxs:text-xs gap-2 mb-2 fixed bottom-0 left-0 w-full flex justify-center items-center opacity-80">
+    <div className="fixed bottom-0 z-10 text-sm max-xxs:text-xs gap-2 mb-4 w-full flex justify-center items-center p-2 bg-slate-950 text-slate-700">
       <span>Built by Faline Silva</span>
       <span>|</span>
       <a

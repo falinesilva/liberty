@@ -47,7 +47,7 @@ export default function AuthForm() {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center h-screen">
+      <div className="flex px-4 flex-col items-center justify-center h-screen">
         <form className="flex flex-col w-full max-w-lg p-6 bg-slate-800 rounded-lg shadow-md">
           <Logo className="mb-4 m-auto h-16 w-auto fill-current text-slate-50" />
 
