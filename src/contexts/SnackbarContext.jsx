@@ -7,14 +7,14 @@ export function SnackbarProvider({ children }) {
 
   const showSnackbar = (msg) => {
     setMessage(msg);
-    setTimeout(() => setMessage(""), 3000);
+    setTimeout(() => setMessage(""), 10000);
   };
 
   return (
     <SnackbarContext.Provider value={showSnackbar}>
       {children}
       {message && (
-        <div className="fixed top-0 left-1/2 transform -translate-x-1/2 bg-red-500 p-4 rounded-sm text-slate-50 shadow-md m-4">
+        <div className="fixed top-0 right-0 bg-red-500 p-4 rounded-sm text-slate-50 shadow-md m-4">
           <span className="bg-"></span>
           <div className="drop-shadow-sm">{message}</div>
         </div>
