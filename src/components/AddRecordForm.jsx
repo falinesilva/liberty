@@ -1,6 +1,5 @@
 import { useState } from "react";
 import supabase from "../supabase";
-import { useSnackbar } from "../contexts/SnackbarContext";
 
 const TYPES = [
   { name: "Cash", status: "Asset" },
@@ -21,7 +20,6 @@ function AddRecordForm({ setRecords, setShowRecordForm }) {
   const [status, setStatus] = useState("");
   const [isUploading, setIsUploading] = useState(false);
   const [showErrors, setShowErrors] = useState(false);
-  const showSnackbar = useSnackbar();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -29,7 +27,6 @@ function AddRecordForm({ setRecords, setShowRecordForm }) {
     const numericValue = parseFloat(value.replace(/[^0-9.]/g, ""));
 
     if (!name || isNaN(numericValue) || !type) {
-      showSnackbar("Missing information");
       setShowErrors(true);
       return;
     }
