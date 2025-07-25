@@ -6,7 +6,6 @@ Liberty is a straightforward app for tracking your assets, liabilities, and net 
 
 - React
 - Vite
-- Yarn
 - Tailwind CSS
 - Supabase
 - Vercel
