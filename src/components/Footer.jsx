@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <div className="fixed bottom-0 z-10 text-sm max-xxs:text-xs gap-2 mb-4 w-full flex justify-center items-center p-2 bg-slate-950 text-slate-700">
+    <div className="flex w-auto justify-center text-sm max-xxs:text-xs gap-2 p-2 bg-slate-950 text-slate-700">
       <span>Built by Faline Silva</span>
       <span>|</span>
       <a
@@ -12,8 +12,9 @@ function Footer() {
         Github
       </a>
       <span>|</span>
-
       <span>Open source</span>
+      <span>|</span>
+      <span>MIT License</span>
     </div>
   );
 }
