@@ -48,9 +48,8 @@ export default function AuthForm() {
   return (
     <>
       <div className="flex px-4 flex-col items-center justify-center h-screen">
-        <form className="flex flex-col w-full max-w-lg p-6 bg-slate-800 rounded-lg shadow-md">
+        <form className="flex flex-col w-full max-w-lg p-6 bg-slate-900 rounded-lg shadow-md">
           <Logo
-            label="Liberty logo"
             className="mb-4 m-auto h-16 w-auto fill-current text-slate-50"
           />
 
@@ -98,7 +97,7 @@ export default function AuthForm() {
                 ? "Already have an account? "
                 : "Don't have an account? "}
               <button
-                className="text-blue-500 hover:text-blue-700 hover:cursor-pointer"
+                className="text-blue-400 hover:text-blue-700 hover:cursor-pointer"
                 onClick={(e) => {
                   e.preventDefault();
                   setIsSignIn(!isSignIn);

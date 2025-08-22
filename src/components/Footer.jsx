@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <div className="flex w-auto justify-center text-sm max-xxs:text-xs gap-2 p-2 bg-slate-950 text-slate-700">
+    <div className="flex w-auto fixed bottom-0 left-0 right-0 justify-center text-sm max-xxs:text-xs gap-2 p-4 text-slate-400">
       <span>Built by Faline Silva</span>
       <span>|</span>
       <a

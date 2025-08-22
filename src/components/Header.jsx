@@ -14,7 +14,7 @@ function Header({
 }) {
   return (
     <>
-      <div className="sticky top-0 z-10 bg-slate-950 w-full flex justify-between items-center px-4 py-2 text-xl text-white max-xxs:text-sm">
+      <div className="sticky top-0 z-10 w-full flex justify-between items-center px-4 py-2 text-xl text-white max-xxs:text-sm">
         <div className="text-xl max-xxs:text-sm">
           {displayName}
 
