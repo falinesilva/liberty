@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { useSnackbar } from "./contexts/SnackbarContext";
+import { useSnackbar } from "../../contexts/SnackbarContext";
 
-import supabase from "./supabase";
+import supabase from "../../lib/supabase";
 
-import Footer from "./components/Footer";
+import Footer from "../../components/Footer";
 
-import { ReactComponent as Logo } from "./assets/Logo.svg";
+import { ReactComponent as Logo } from "../../assets/Logo.svg";
 
 export default function AuthForm() {
   const [email, setEmail] = useState("");

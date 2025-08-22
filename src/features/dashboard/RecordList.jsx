@@ -1,6 +1,6 @@
 import Record from "./Record";
 
-import supabase from "../supabase";
+import supabase from "../../lib/supabase";
 
 function RecordList({ records, setRecords }) {
   async function handleDelete(id) {
